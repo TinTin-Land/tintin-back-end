@@ -2,7 +2,8 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "lib": [
-      "es2018"
+      "es2018",
+      "dom"
     ],
     "module": "commonjs",
     "target": "es2018",
@@ -11,7 +12,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": [
     "src"
