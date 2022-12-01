@@ -5,7 +5,7 @@ import {ReqEnrollUser, ResEnrollUser} from "../shared/protocols/PtlEnrollUser";
 export default async function (call: ApiCall<ReqEnrollUser, ResEnrollUser>) {
     // Error
     if (call.req.name === '') {
-        call.error('Content is empty');
+        await call.error('Content is empty');
         return;
     }
 
@@ -30,7 +30,7 @@ export default async function (call: ApiCall<ReqEnrollUser, ResEnrollUser>) {
         src: call.req.src
     })
     // Success
-    call.succ({
+    await call.succ({
         time: time
     });
 }

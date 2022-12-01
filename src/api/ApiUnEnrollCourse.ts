@@ -6,7 +6,7 @@ import {ReqEnrollCourse, ResEnrollCourse} from "../shared/protocols/PtlEnrollCou
 export default async function (call: ApiCall<ReqEnrollCourse, ResEnrollCourse>) {
     // Error
     if (call.req.user_id === '') {
-        call.error('Content is empty');
+        await call.error('Content is empty');
         return;
     }
 
@@ -28,7 +28,7 @@ export default async function (call: ApiCall<ReqEnrollCourse, ResEnrollCourse>) 
         course_id:call.req.course_id
     })
     // Success
-    call.succ({
+    await call.succ({
         time: time
     });
 }

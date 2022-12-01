@@ -44,30 +44,29 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 10,
     "services": [
         {
-            "id": 3,
+            "id": 0,
             "name": "AddUser",
             "type": "api"
         },
         {
-            "id": 4,
+            "id": 1,
             "name": "CheckEmail",
             "type": "api"
         },
         {
-            "id": 6,
+            "id": 2,
             "name": "EnrollCourse",
             "type": "api"
         },
         {
-            "id": 7,
+            "id": 3,
             "name": "EnrollUser",
             "type": "api"
         },
         {
-            "id": 8,
+            "id": 4,
             "name": "GetUser",
             "type": "api"
         },
@@ -77,7 +76,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 9,
+            "id": 6,
             "name": "UpdateUser",
             "type": "api"
         }
@@ -87,14 +86,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 1,
+                    "id": 0,
                     "name": "username",
                     "type": {
                         "type": "String"
                     }
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "user_email",
                     "type": {
                         "type": "String"
@@ -251,7 +250,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "user",
                     "type": {
                         "type": "Reference",
@@ -264,7 +263,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 1,
+                    "id": 0,
                     "name": "username",
                     "type": {
                         "type": "String"
@@ -272,7 +271,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "user_email",
                     "type": {
                         "type": "String"
@@ -280,7 +279,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "name": "user_course_passport",
                     "type": {
                         "type": "String"
@@ -288,7 +287,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 4,
+                    "id": 3,
                     "name": "course_user",
                     "type": {
                         "type": "Boolean"
@@ -296,7 +295,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 5,
+                    "id": 4,
                     "name": "description",
                     "type": {
                         "type": "String"
@@ -304,7 +303,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 6,
+                    "id": 5,
                     "name": "country",
                     "type": {
                         "type": "String"
@@ -312,7 +311,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 7,
+                    "id": 6,
                     "name": "roles",
                     "type": {
                         "type": "String"
@@ -320,7 +319,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 8,
+                    "id": 7,
                     "name": "experience",
                     "type": {
                         "type": "String"
@@ -328,7 +327,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 9,
+                    "id": 8,
                     "name": "achievements",
                     "type": {
                         "type": "String"
@@ -336,7 +335,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 10,
+                    "id": 9,
                     "name": "twitter",
                     "type": {
                         "type": "String"
@@ -344,7 +343,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 11,
+                    "id": 10,
                     "name": "github",
                     "type": {
                         "type": "String"
@@ -352,7 +351,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 12,
+                    "id": 11,
                     "name": "telegram",
                     "type": {
                         "type": "String"
@@ -360,7 +359,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 13,
+                    "id": 12,
                     "name": "privacy",
                     "type": {
                         "type": "Boolean"

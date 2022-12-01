@@ -7,7 +7,7 @@ import {User} from "../entity/user";
 export default async function (call: ApiCall<ReqUpdateUser, ResUpdateUser>) {
     // Error
     if (call.req.user.user_email === '') {
-        call.error('Content is empty');
+        await call.error('Content is empty');
         return;
     }
     let time = new Date();
@@ -23,18 +23,42 @@ export default async function (call: ApiCall<ReqUpdateUser, ResUpdateUser>) {
         await call.error('user undefined');
         return;
     }else{
-        user.username = call.req.user.username;
-        user.user_course_passport = call.req.user.user_course_passport;
-        user.course_user = call.req.user.course_user;
-        user.description = call.req.user.description;
-        user.country = call.req.user.country;
-        user.roles = call.req.user.roles;
-        user.experience = call.req.user.experience;
-        user.achievements = call.req.user.achievements;
-        user.twitter = call.req.user.twitter;
-        user.github = call.req.user.github;
-        user.telegram = call.req.user.telegram;
-        user.privacy = call.req.user.privacy;
+        if (call.req.user.username != null) {
+            user.username = call.req.user.username;
+        }
+        if (call.req.user.user_course_passport != null) {
+            user.user_course_passport = call.req.user.user_course_passport;
+        }
+        if (call.req.user.course_user) {
+            user.course_user = call.req.user.course_user;
+        }
+        if (call.req.user.description != null) {
+            user.description = call.req.user.description;
+        }
+        if (call.req.user.country != null) {
+            user.country = call.req.user.country;
+        }
+        if (call.req.user.roles != null) {
+            user.roles = call.req.user.roles;
+        }
+        if (call.req.user.experience != null) {
+            user.experience = call.req.user.experience;
+        }
+        if (call.req.user.achievements != null) {
+            user.achievements = call.req.user.achievements;
+        }
+        if (call.req.user.twitter != null) {
+            user.twitter = call.req.user.twitter;
+        }
+        if (call.req.user.github != null) {
+            user.github = call.req.user.github;
+        }
+        if (call.req.user.telegram != null) {
+            user.telegram = call.req.user.telegram;
+        }
+        if (call.req.user.privacy) {
+            user.privacy = call.req.user.privacy;
+        }
         await getRepository(User).save(user);
         await call.succ(<ResUpdateUser>{
             time: time,

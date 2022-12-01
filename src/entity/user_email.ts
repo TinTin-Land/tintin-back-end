@@ -11,7 +11,7 @@ import {
 @Entity()
 export class UserEmail {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({ type: 'bigint' })
     id!: number;
 
     @Column()

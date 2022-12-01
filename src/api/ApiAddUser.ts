@@ -6,7 +6,7 @@ import {Column, getRepository} from "typeorm";
 export default async function (call: ApiCall<ReqAddUser, ResAddUser>) {
     // Error
     if (call.req.username === '') {
-        call.error('Content is empty');
+        await call.error('Content is empty');
         return;
     }
     let time = new Date();
@@ -32,7 +32,7 @@ export default async function (call: ApiCall<ReqAddUser, ResAddUser>) {
         await getRepository(User).save(user);
     }
     // Success
-    call.succ({
+    await call.succ({
         time: time
     });
 }

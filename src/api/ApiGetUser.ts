@@ -7,7 +7,7 @@ import {ReqGetUser, ResGetUser} from "../shared/protocols/PtlGetUser";
 export default async function (call: ApiCall<ReqGetUser, ResGetUser>) {
     // Error
     if (call.req.user_email === '') {
-        call.error('Content is empty');
+        await call.error('Content is empty');
         return;
     }
     let time = new Date();

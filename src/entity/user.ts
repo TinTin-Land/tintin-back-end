@@ -3,47 +3,47 @@ import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColu
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({ type: 'bigint' })
     id!: number;
 
     @Column()
-    username!: string | undefined;
+    username!: string;
 
     @Column()
-    user_email!: string | undefined;
+    user_email!: string;
 
     @Column()
-    user_course_passport!: string| undefined;
+    user_course_passport!: string;
 
     @Column()
-    course_user!: boolean| undefined;
+    course_user!: boolean;
 
     @Column()
-    description!: string| undefined;
+    description!: string;
 
     @Column()
-    country!: string| undefined;
+    country!: string;
 
     @Column()
-    roles!: string| undefined;
+    roles!: string;
 
     @Column()
-    experience!: string| undefined;
+    experience!: string;
 
     @Column()
-    achievements!: string| undefined;
+    achievements!: string;
 
     @Column()
-    twitter!: string| undefined;
+    twitter!: string;
 
     @Column()
-    github!: string| undefined;
+    github!: string;
 
     @Column()
-    telegram!: string| undefined;
+    telegram!: string;
 
     @Column()
-    privacy!: boolean| undefined;
+    privacy!: boolean;
 
     @CreateDateColumn()
     create?: number;
