@@ -12,8 +12,6 @@ export default async function (call: ApiCall<ReqEnrollUser, ResEnrollUser>) {
     let time = new Date();
 
 
-    
-
     // Success
     call.succ({
         time: time

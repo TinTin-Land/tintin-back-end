@@ -7,16 +7,43 @@ export class User {
     id!: number;
 
     @Column()
-    username!: string;
+    username!: string | undefined;
 
     @Column()
-    user_email!: string;
+    user_email!: string | undefined;
 
     @Column()
-    user_passport!: string;
+    user_course_passport!: string| undefined;
 
     @Column()
-    course_user!: boolean;
+    course_user!: boolean| undefined;
+
+    @Column()
+    description!: string| undefined;
+
+    @Column()
+    country!: string| undefined;
+
+    @Column()
+    roles!: string| undefined;
+
+    @Column()
+    experience!: string| undefined;
+
+    @Column()
+    achievements!: string| undefined;
+
+    @Column()
+    twitter!: string| undefined;
+
+    @Column()
+    github!: string| undefined;
+
+    @Column()
+    telegram!: string| undefined;
+
+    @Column()
+    privacy!: boolean| undefined;
 
     @CreateDateColumn()
     create?: number;
