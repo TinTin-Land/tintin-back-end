@@ -4,6 +4,7 @@ import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
+import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
 import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
 
@@ -29,6 +30,10 @@ export interface ServiceType {
             req: ReqGetUser,
             res: ResGetUser
         },
+        "GetUserCourseList": {
+            req: ReqGetUserCourseList,
+            res: ResGetUserCourseList
+        },
         "SendEmail": {
             req: ReqSendEmail,
             res: ResSendEmail
@@ -44,6 +49,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
+    "version": 1,
     "services": [
         {
             "id": 0,
@@ -68,6 +74,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 4,
             "name": "GetUser",
+            "type": "api"
+        },
+        {
+            "id": 7,
+            "name": "GetUserCourseList",
             "type": "api"
         },
         {
@@ -365,6 +376,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Boolean"
                     },
                     "optional": true
+                }
+            ]
+        },
+        "PtlGetUserCourseList/ReqGetUserCourseList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetUserCourseList/ResGetUserCourseList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
                 }
             ]
         },
