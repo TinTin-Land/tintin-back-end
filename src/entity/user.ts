@@ -1,4 +1,11 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, VersionColumn} from 'typeorm';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    CreateDateColumn,
+    UpdateDateColumn,
+    VersionColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -54,3 +61,4 @@ export class User {
     @VersionColumn()
     version?: number;
 }
+
