@@ -1,4 +1,5 @@
 import { ServiceProto } from 'tsrpc-proto';
+import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
@@ -11,6 +12,10 @@ import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
 
 export interface ServiceType {
     api: {
+        "AddCourse": {
+            req: ReqAddCourse,
+            res: ResAddCourse
+        },
         "AddUser": {
             req: ReqAddUser,
             res: ResAddUser
@@ -54,8 +59,13 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 2,
+    "version": 3,
     "services": [
+        {
+            "id": 9,
+            "name": "AddCourse",
+            "type": "api"
+        },
         {
             "id": 0,
             "name": "AddUser",
@@ -103,6 +113,128 @@ export const serviceProto: ServiceProto<ServiceType> = {
         }
     ],
     "types": {
+        "PtlAddCourse/ReqAddCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_image",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "course_cycle",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "course_state",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "course_registration_deadline",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "course_link",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "course_description",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "course_tab",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "course_content_data",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "course_teacher_info",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "course_advantages",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "course_provider",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "course_student_feedback",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "course_student_profile",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 14,
+                    "name": "course_community_support",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourse/ResAddCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "PtlAddUser/ReqAddUser": {
             "type": "Interface",
             "properties": [
@@ -454,6 +586,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "time",
                     "type": {
                         "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "courses",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]

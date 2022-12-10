@@ -13,4 +13,5 @@ export interface ReqGetUserCourseList {
 export interface ResGetUserCourseList {
     /** 服务端内容创建时间 */
     time: Date;
+    courses:string;
 }

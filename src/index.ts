@@ -4,6 +4,8 @@ import { serviceProto } from "./shared/protocols/serviceProto";
 import {createConnection} from "typeorm";
 import {User} from "./entity/user";
 import {UserEmail} from "./entity/user_email";
+import {Course_details} from "./entity/course_details";
+import {Course_homework} from "./entity/course_homework";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
@@ -27,7 +29,7 @@ async function init() {
         password: "123456",
         database: "postgres",
         entities: [
-            User,UserEmail
+            User,UserEmail,Course_details,Course_homework
         ],
         synchronize: true,
         logging: false

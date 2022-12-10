@@ -7,13 +7,13 @@ export class Course_details {
     id!: number;
 
     @Column()
+    course_name!: string;
+
+    @Column()
     course_image!: string;
 
     @Column()
     course_cycle!: string;
-
-    @Column()
-    course_title!: string;
 
     @Column()
     course_state!: string;

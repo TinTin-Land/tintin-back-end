@@ -19,7 +19,12 @@ export default async function (call: ApiCall<ReqGetUserCourseList, ResGetUserCou
                 if (data.users[i].email == call.req.email){
                     sdk.showUser({user_id: data.users[i].id})
                         // @ts-ignore
-                        .then(({ data }) => console.log(data))
+                        .then(async ({data}) => {
+                            await call.succ({
+                                time: time,
+                                courses:JSON.stringify(data.courses)
+                            });
+                        })
                         // @ts-ignore
                         .catch(err => console.error(err));
                 }
@@ -29,7 +34,5 @@ export default async function (call: ApiCall<ReqGetUserCourseList, ResGetUserCou
         // @ts-ignore
         .catch(err => console.error(err));
 
-    await call.succ({
-        time: time
-    });
+
 }
