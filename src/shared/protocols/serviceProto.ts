@@ -74,7 +74,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 5,
+    "version": 6,
     "services": [
         {
             "id": 9,
@@ -276,50 +276,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 1,
-                    "name": "course_homework_1_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "course_homework_2_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "course_homework_3_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "course_homework_4_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "course_homework_5_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "course_homework_6_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "course_homework_7_id",
+                    "id": 8,
+                    "name": "course_homework_id",
                     "type": {
                         "type": "String"
                     }
@@ -729,56 +687,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 1,
-                    "name": "course_homework_1_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 2,
-                    "name": "course_homework_2_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 3,
-                    "name": "course_homework_3_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 4,
-                    "name": "course_homework_4_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 5,
-                    "name": "course_homework_5_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 6,
-                    "name": "course_homework_6_id",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 7,
-                    "name": "course_homework_7_id",
+                    "id": 8,
+                    "name": "course_homework_id",
                     "type": {
                         "type": "String"
                     },

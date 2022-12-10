@@ -10,25 +10,7 @@ export class Course_homework {
     course_name!: string;
 
     @Column()
-    course_homework_1_id!: string;
-
-    @Column()
-    course_homework_2_id!: string;
-
-    @Column()
-    course_homework_3_id!: string;
-
-    @Column()
-    course_homework_4_id!: string;
-
-    @Column()
-    course_homework_5_id!: string;
-
-    @Column()
-    course_homework_6_id!: string;
-
-    @Column()
-    course_homework_7_id!: string;
+    course_homework_id!: string;
 
     @CreateDateColumn()
     create?: number;

@@ -1,7 +1,6 @@
 // This is a demo code file
 // Feel free to delete it
 
-import {Column} from "typeorm";
 import {course_homework} from "../interface/course_homework";
 
 /**

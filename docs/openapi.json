@@ -669,37 +669,13 @@
             "type": "string",
             "description": "要增加的消息内容"
           },
-          "course_homework_1_id": {
-            "type": "string"
-          },
-          "course_homework_2_id": {
-            "type": "string"
-          },
-          "course_homework_3_id": {
-            "type": "string"
-          },
-          "course_homework_4_id": {
-            "type": "string"
-          },
-          "course_homework_5_id": {
-            "type": "string"
-          },
-          "course_homework_6_id": {
-            "type": "string"
-          },
-          "course_homework_7_id": {
+          "course_homework_id": {
             "type": "string"
           }
         },
         "required": [
           "course_name",
-          "course_homework_1_id",
-          "course_homework_2_id",
-          "course_homework_3_id",
-          "course_homework_4_id",
-          "course_homework_5_id",
-          "course_homework_6_id",
-          "course_homework_7_id"
+          "course_homework_id"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
@@ -1002,25 +978,7 @@
           "course_name": {
             "type": "string"
           },
-          "course_homework_1_id": {
-            "type": "string"
-          },
-          "course_homework_2_id": {
-            "type": "string"
-          },
-          "course_homework_3_id": {
-            "type": "string"
-          },
-          "course_homework_4_id": {
-            "type": "string"
-          },
-          "course_homework_5_id": {
-            "type": "string"
-          },
-          "course_homework_6_id": {
-            "type": "string"
-          },
-          "course_homework_7_id": {
+          "course_homework_id": {
             "type": "string"
           }
         }

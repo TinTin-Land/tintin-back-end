@@ -17,7 +17,6 @@ export default async function (call: ApiCall<ReqGetCourseHomework, ResGetCourseH
         .where("course_homework.course_name = :course_name", { course_name })
         .getOne();
 
-
     await call.succ(<ResGetCourseHomework>{
         time: time,
         course_homework:course_homework
