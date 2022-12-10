@@ -49,6 +49,50 @@
         }
       }
     },
+    "/AddCourseHomework": {
+      "post": {
+        "operationId": "AddCourseHomework",
+        "requestBody": {
+          "description": "Req<AddCourseHomework>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddCourseHomework_ReqAddCourseHomework"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseHomework>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddCourseHomework_ResAddCourseHomework"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/AddUser": {
       "post": {
         "operationId": "AddUser",
@@ -300,6 +344,50 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/PtlGetCourse_ResGetCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetCourseHomework": {
+      "post": {
+        "operationId": "GetCourseHomework",
+        "requestBody": {
+          "description": "Req<GetCourseHomework>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetCourseHomework_ReqGetCourseHomework"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseHomework>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetCourseHomework_ResGetCourseHomework"
                     }
                   }
                 }
@@ -574,6 +662,60 @@
           "time"
         ]
       },
+      "PtlAddCourseHomework_ReqAddCourseHomework": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_homework_1_id": {
+            "type": "string"
+          },
+          "course_homework_2_id": {
+            "type": "string"
+          },
+          "course_homework_3_id": {
+            "type": "string"
+          },
+          "course_homework_4_id": {
+            "type": "string"
+          },
+          "course_homework_5_id": {
+            "type": "string"
+          },
+          "course_homework_6_id": {
+            "type": "string"
+          },
+          "course_homework_7_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_name",
+          "course_homework_1_id",
+          "course_homework_2_id",
+          "course_homework_3_id",
+          "course_homework_4_id",
+          "course_homework_5_id",
+          "course_homework_6_id",
+          "course_homework_7_id"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddCourseHomework_ResAddCourseHomework": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
       "PtlAddUser_ReqAddUser": {
         "type": "object",
         "properties": {
@@ -820,6 +962,65 @@
             "type": "string"
           },
           "course_community_support": {
+            "type": "string"
+          }
+        }
+      },
+      "PtlGetCourseHomework_ReqGetCourseHomework": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "course_name"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetCourseHomework_ResGetCourseHomework": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_homework": {
+            "$ref": "#/components/schemas/___interface_course_homework_course_homework"
+          }
+        },
+        "required": [
+          "time",
+          "course_homework"
+        ]
+      },
+      "___interface_course_homework_course_homework": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string"
+          },
+          "course_homework_1_id": {
+            "type": "string"
+          },
+          "course_homework_2_id": {
+            "type": "string"
+          },
+          "course_homework_3_id": {
+            "type": "string"
+          },
+          "course_homework_4_id": {
+            "type": "string"
+          },
+          "course_homework_5_id": {
+            "type": "string"
+          },
+          "course_homework_6_id": {
+            "type": "string"
+          },
+          "course_homework_7_id": {
             "type": "string"
           }
         }

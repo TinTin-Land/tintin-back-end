@@ -1,11 +1,13 @@
 import { ServiceProto } from 'tsrpc-proto';
 import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
+import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomework';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
 import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
+import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
@@ -16,6 +18,10 @@ export interface ServiceType {
         "AddCourse": {
             req: ReqAddCourse,
             res: ResAddCourse
+        },
+        "AddCourseHomework": {
+            req: ReqAddCourseHomework,
+            res: ResAddCourseHomework
         },
         "AddUser": {
             req: ReqAddUser,
@@ -41,6 +47,10 @@ export interface ServiceType {
             req: ReqGetCourse,
             res: ResGetCourse
         },
+        "GetCourseHomework": {
+            req: ReqGetCourseHomework,
+            res: ResGetCourseHomework
+        },
         "GetUser": {
             req: ReqGetUser,
             res: ResGetUser
@@ -64,11 +74,16 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 4,
+    "version": 5,
     "services": [
         {
             "id": 9,
             "name": "AddCourse",
+            "type": "api"
+        },
+        {
+            "id": 11,
+            "name": "AddCourseHomework",
             "type": "api"
         },
         {
@@ -99,6 +114,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 10,
             "name": "GetCourse",
+            "type": "api"
+        },
+        {
+            "id": 12,
+            "name": "GetCourseHomework",
             "type": "api"
         },
         {
@@ -234,6 +254,79 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "PtlAddCourse/ResAddCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseHomework/ReqAddCourseHomework": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_homework_1_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "course_homework_2_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "course_homework_3_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "course_homework_4_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "course_homework_5_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "course_homework_6_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "course_homework_7_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseHomework/ResAddCourseHomework": {
             "type": "Interface",
             "properties": [
                 {
@@ -585,6 +678,107 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 14,
                     "name": "course_community_support",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                }
+            ]
+        },
+        "PtlGetCourseHomework/ReqGetCourseHomework": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourseHomework/ResGetCourseHomework": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_homework",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../interface/course_homework/course_homework"
+                    }
+                }
+            ]
+        },
+        "../interface/course_homework/course_homework": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "course_homework_1_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 2,
+                    "name": "course_homework_2_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 3,
+                    "name": "course_homework_3_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 4,
+                    "name": "course_homework_4_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 5,
+                    "name": "course_homework_5_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 6,
+                    "name": "course_homework_6_id",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 7,
+                    "name": "course_homework_7_id",
                     "type": {
                         "type": "String"
                     },

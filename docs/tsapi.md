@@ -10,12 +10,14 @@
 ## 目录
 
 - [增加数据](#/AddCourse)
+- [增加数据](#/AddCourseHomework)
 - [增加数据](#/AddUser)
 - [增加数据](#/AddWjUser)
 - [增加数据](#/CheckEmail)
 - [增加数据](#/EnrollCourse)
 - [增加数据](#/EnrollUser)
 - [增加数据](#/GetCourse)
+- [增加数据](#/GetCourseHomework)
 - [增加数据](#/GetUser)
 - [增加数据](#/GetUserCourseList)
 - [增加数据](#/SendEmail)
@@ -55,6 +57,38 @@ interface ReqAddCourse {
 **响应**
 ```ts
 interface ResAddCourse {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+## 增加数据 <a id="/AddCourseHomework"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/AddCourseHomework`
+
+**请求**
+```ts
+interface ReqAddCourseHomework {
+    /** 要增加的消息内容 */
+    course_name: string,
+    course_homework_1_id: string,
+    course_homework_2_id: string,
+    course_homework_3_id: string,
+    course_homework_4_id: string,
+    course_homework_5_id: string,
+    course_homework_6_id: string,
+    course_homework_7_id: string
+}
+```
+
+**响应**
+```ts
+interface ResAddCourseHomework {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string
 }
@@ -233,6 +267,41 @@ interface ResGetCourse {
         course_student_feedback?: string,
         course_student_profile?: string,
         course_community_support?: string
+    }
+}
+```
+
+---
+
+## 增加数据 <a id="/GetCourseHomework"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetCourseHomework`
+
+**请求**
+```ts
+interface ReqGetCourseHomework {
+    /** 要增加的消息内容 */
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseHomework {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_homework: {
+        course_name?: string,
+        course_homework_1_id?: string,
+        course_homework_2_id?: string,
+        course_homework_3_id?: string,
+        course_homework_4_id?: string,
+        course_homework_5_id?: string,
+        course_homework_6_id?: string,
+        course_homework_7_id?: string
     }
 }
 ```
