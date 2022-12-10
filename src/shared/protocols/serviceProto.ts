@@ -1,5 +1,6 @@
 import { ServiceProto } from 'tsrpc-proto';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
+import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
@@ -13,6 +14,10 @@ export interface ServiceType {
         "AddUser": {
             req: ReqAddUser,
             res: ResAddUser
+        },
+        "AddWjUser": {
+            req: ReqAddWjUser,
+            res: ResAddWjUser
         },
         "CheckEmail": {
             req: ReqCheckEmail,
@@ -49,11 +54,16 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 1,
+    "version": 2,
     "services": [
         {
             "id": 0,
             "name": "AddUser",
+            "type": "api"
+        },
+        {
+            "id": 8,
+            "name": "AddWjUser",
             "type": "api"
         },
         {
@@ -120,6 +130,51 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "time",
                     "type": {
                         "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddWjUser/ReqAddWjUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "openid",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nickname",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "avatar",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddWjUser/ResAddWjUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_id",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]
