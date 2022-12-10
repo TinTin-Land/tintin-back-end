@@ -1,0 +1,1057 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TSRPC Open API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/AddCourse": {
+      "post": {
+        "operationId": "AddCourse",
+        "requestBody": {
+          "description": "Req<AddCourse>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddCourse_ReqAddCourse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourse>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddCourse_ResAddCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddUser": {
+      "post": {
+        "operationId": "AddUser",
+        "requestBody": {
+          "description": "Req<AddUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddUser_ReqAddUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddUser_ResAddUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddWjUser": {
+      "post": {
+        "operationId": "AddWjUser",
+        "requestBody": {
+          "description": "Req<AddWjUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddWjUser_ReqAddWjUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddWjUser_ResAddWjUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/CheckEmail": {
+      "post": {
+        "operationId": "CheckEmail",
+        "requestBody": {
+          "description": "Req<CheckEmail>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlCheckEmail_ReqCheckEmail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResCheckEmail>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlCheckEmail_ResCheckEmail"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/EnrollCourse": {
+      "post": {
+        "operationId": "EnrollCourse",
+        "requestBody": {
+          "description": "Req<EnrollCourse>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlEnrollCourse_ReqEnrollCourse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResEnrollCourse>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlEnrollCourse_ResEnrollCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/EnrollUser": {
+      "post": {
+        "operationId": "EnrollUser",
+        "requestBody": {
+          "description": "Req<EnrollUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlEnrollUser_ReqEnrollUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResEnrollUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlEnrollUser_ResEnrollUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetCourse": {
+      "post": {
+        "operationId": "GetCourse",
+        "requestBody": {
+          "description": "Req<GetCourse>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetCourse_ReqGetCourse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourse>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetCourse_ResGetCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetUser": {
+      "post": {
+        "operationId": "GetUser",
+        "requestBody": {
+          "description": "Req<GetUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetUser_ReqGetUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetUser_ResGetUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetUserCourseList": {
+      "post": {
+        "operationId": "GetUserCourseList",
+        "requestBody": {
+          "description": "Req<GetUserCourseList>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetUserCourseList_ReqGetUserCourseList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetUserCourseList>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetUserCourseList_ResGetUserCourseList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/SendEmail": {
+      "post": {
+        "operationId": "SendEmail",
+        "requestBody": {
+          "description": "Req<SendEmail>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlSendEmail_ReqSendEmail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResSendEmail>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlSendEmail_ResSendEmail"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/UpdateUser": {
+      "post": {
+        "operationId": "UpdateUser",
+        "requestBody": {
+          "description": "Req<UpdateUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlUpdateUser_ReqUpdateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResUpdateUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlUpdateUser_ResUpdateUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PtlAddCourse_ReqAddCourse": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_image": {
+            "type": "string"
+          },
+          "course_cycle": {
+            "type": "string"
+          },
+          "course_state": {
+            "type": "string"
+          },
+          "course_registration_deadline": {
+            "type": "string"
+          },
+          "course_link": {
+            "type": "string"
+          },
+          "course_description": {
+            "type": "string"
+          },
+          "course_tab": {
+            "type": "string"
+          },
+          "course_content_data": {
+            "type": "string"
+          },
+          "course_teacher_info": {
+            "type": "string"
+          },
+          "course_advantages": {
+            "type": "string"
+          },
+          "course_provider": {
+            "type": "string"
+          },
+          "course_student_feedback": {
+            "type": "string"
+          },
+          "course_student_profile": {
+            "type": "string"
+          },
+          "course_community_support": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_name",
+          "course_image",
+          "course_cycle",
+          "course_state",
+          "course_registration_deadline",
+          "course_link",
+          "course_description",
+          "course_tab",
+          "course_content_data",
+          "course_teacher_info",
+          "course_advantages",
+          "course_provider",
+          "course_student_feedback",
+          "course_student_profile",
+          "course_community_support"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddCourse_ResAddCourse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlAddUser_ReqAddUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "user_email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddUser_ResAddUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlAddWjUser_ReqAddWjUser": {
+        "type": "object",
+        "properties": {
+          "openid": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "openid",
+          "nickname",
+          "avatar"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddWjUser_ResAddWjUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "user_id"
+        ]
+      },
+      "PtlCheckEmail_ReqCheckEmail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "code"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlCheckEmail_ResCheckEmail": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "state": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "time",
+          "state"
+        ]
+      },
+      "PtlEnrollCourse_ReqEnrollCourse": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "course_id"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlEnrollCourse_ResEnrollCourse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlEnrollUser_ReqEnrollUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "src": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "src"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlEnrollUser_ResEnrollUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlGetCourse_ReqGetCourse": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "course_name"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetCourse_ResGetCourse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_details": {
+            "$ref": "#/components/schemas/___interface_course_details_course_details"
+          }
+        },
+        "required": [
+          "time",
+          "course_details"
+        ]
+      },
+      "___interface_course_details_course_details": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string"
+          },
+          "course_image": {
+            "type": "string"
+          },
+          "course_cycle": {
+            "type": "string"
+          },
+          "course_state": {
+            "type": "string"
+          },
+          "course_registration_deadline": {
+            "type": "string"
+          },
+          "course_link": {
+            "type": "string"
+          },
+          "course_description": {
+            "type": "string"
+          },
+          "course_tab": {
+            "type": "string"
+          },
+          "course_content_data": {
+            "type": "string"
+          },
+          "course_teacher_info": {
+            "type": "string"
+          },
+          "course_advantages": {
+            "type": "string"
+          },
+          "course_provider": {
+            "type": "string"
+          },
+          "course_student_feedback": {
+            "type": "string"
+          },
+          "course_student_profile": {
+            "type": "string"
+          },
+          "course_community_support": {
+            "type": "string"
+          }
+        }
+      },
+      "PtlGetUser_ReqGetUser": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetUser_ResGetUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user": {
+            "$ref": "#/components/schemas/___interface_user_user"
+          }
+        },
+        "required": [
+          "time",
+          "user"
+        ]
+      },
+      "___interface_user_user": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "user_email": {
+            "type": "string"
+          },
+          "user_course_passport": {
+            "type": "string"
+          },
+          "course_user": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
+          "achievements": {
+            "type": "string"
+          },
+          "twitter": {
+            "type": "string"
+          },
+          "github": {
+            "type": "string"
+          },
+          "telegram": {
+            "type": "string"
+          },
+          "privacy": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PtlGetUserCourseList_ReqGetUserCourseList": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetUserCourseList_ResGetUserCourseList": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "courses": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "courses"
+        ]
+      },
+      "PtlSendEmail_ReqSendEmail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlSendEmail_ResSendEmail": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlUpdateUser_ReqUpdateUser": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/___interface_user_user",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlUpdateUser_ResUpdateUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user": {
+            "$ref": "#/components/schemas/___interface_user_user"
+          }
+        },
+        "required": [
+          "time",
+          "user"
+        ]
+      },
+      "?bson_ObjectID": {
+        "type": "string"
+      },
+      "?bson_ObjectId": {
+        "type": "string"
+      },
+      "?mongodb_ObjectID": {
+        "type": "string"
+      },
+      "?mongodb_ObjectId": {
+        "type": "string"
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "API 错误",
+              "description": "业务错误（ApiError）返回 HTTP 状态码 200，其它错误返回 HTTP 状态码 500",
+              "properties": {
+                "isSucc": {
+                  "type": "boolean",
+                  "enum": [
+                    false
+                  ],
+                  "default": false
+                },
+                "err": {
+                  "type": "object",
+                  "description": "TsrpcError",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "ApiError",
+                        "NetworkError",
+                        "ServerError",
+                        "ClientError"
+                      ]
+                    },
+                    "code": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "type"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

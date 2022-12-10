@@ -5,6 +5,7 @@ import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
+import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
@@ -36,6 +37,10 @@ export interface ServiceType {
             req: ReqEnrollUser,
             res: ResEnrollUser
         },
+        "GetCourse": {
+            req: ReqGetCourse,
+            res: ResGetCourse
+        },
         "GetUser": {
             req: ReqGetUser,
             res: ResGetUser
@@ -59,7 +64,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 3,
+    "version": 4,
     "services": [
         {
             "id": 9,
@@ -89,6 +94,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 3,
             "name": "EnrollUser",
+            "type": "api"
+        },
+        {
+            "id": 10,
+            "name": "GetCourse",
             "type": "api"
         },
         {
@@ -422,6 +432,163 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Date"
                     }
+                }
+            ]
+        },
+        "PtlGetCourse/ReqGetCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourse/ResGetCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_details",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../interface/course_details/course_details"
+                    }
+                }
+            ]
+        },
+        "../interface/course_details/course_details": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "course_image",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 2,
+                    "name": "course_cycle",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 3,
+                    "name": "course_state",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 4,
+                    "name": "course_registration_deadline",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 5,
+                    "name": "course_link",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 6,
+                    "name": "course_description",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 7,
+                    "name": "course_tab",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 8,
+                    "name": "course_content_data",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 9,
+                    "name": "course_teacher_info",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 10,
+                    "name": "course_advantages",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 11,
+                    "name": "course_provider",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 12,
+                    "name": "course_student_feedback",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 13,
+                    "name": "course_student_profile",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 14,
+                    "name": "course_community_support",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
                 }
             ]
         },
