@@ -1,7 +1,9 @@
 import { ServiceProto } from 'tsrpc-proto';
 import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
 import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomework';
+import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
+import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
@@ -10,6 +12,8 @@ import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
 import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
+import { ReqGetWjAccessToken, ResGetWjAccessToken } from './PtlGetWjAccessToken';
+import { ReqGetWjLoginCode, ResGetWjLoginCode } from './PtlGetWjLoginCode';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
 import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
 
@@ -23,9 +27,17 @@ export interface ServiceType {
             req: ReqAddCourseHomework,
             res: ResAddCourseHomework
         },
+        "AddCourseWj": {
+            req: ReqAddCourseWj,
+            res: ResAddCourseWj
+        },
         "AddUser": {
             req: ReqAddUser,
             res: ResAddUser
+        },
+        "AddUserCourseWj": {
+            req: ReqAddUserCourseWj,
+            res: ResAddUserCourseWj
         },
         "AddWjUser": {
             req: ReqAddWjUser,
@@ -59,6 +71,14 @@ export interface ServiceType {
             req: ReqGetUserCourseList,
             res: ResGetUserCourseList
         },
+        "GetWjAccessToken": {
+            req: ReqGetWjAccessToken,
+            res: ResGetWjAccessToken
+        },
+        "GetWjLoginCode": {
+            req: ReqGetWjLoginCode,
+            res: ResGetWjLoginCode
+        },
         "SendEmail": {
             req: ReqSendEmail,
             res: ResSendEmail
@@ -74,7 +94,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 6,
+    "version": 7,
     "services": [
         {
             "id": 9,
@@ -87,8 +107,18 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 13,
+            "name": "AddCourseWj",
+            "type": "api"
+        },
+        {
             "id": 0,
             "name": "AddUser",
+            "type": "api"
+        },
+        {
+            "id": 14,
+            "name": "AddUserCourseWj",
             "type": "api"
         },
         {
@@ -129,6 +159,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 7,
             "name": "GetUserCourseList",
+            "type": "api"
+        },
+        {
+            "id": 15,
+            "name": "GetWjAccessToken",
+            "type": "api"
+        },
+        {
+            "id": 16,
+            "name": "GetWjLoginCode",
             "type": "api"
         },
         {
@@ -296,6 +336,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlAddCourseWj/ReqAddCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_wj_url_list",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseWj/ResAddCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "PtlAddUser/ReqAddUser": {
             "type": "Interface",
             "properties": [
@@ -327,9 +398,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlAddUserCourseWj/ReqAddUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "login_code",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddUserCourseWj/ResAddUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "PtlAddWjUser/ReqAddWjUser": {
             "type": "Interface",
             "properties": [
+                {
+                    "id": 3,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
                 {
                     "id": 0,
                     "name": "openid",
@@ -347,6 +463,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 2,
                     "name": "avatar",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "access_token",
                     "type": {
                         "type": "String"
                     }
@@ -862,6 +985,88 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 1,
                     "name": "courses",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetWjAccessToken/ReqGetWjAccessToken": {
+            "type": "Interface"
+        },
+        "PtlGetWjAccessToken/ResGetWjAccessToken": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "access_token",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../interface/course_details/course_details"
+                    }
+                }
+            ]
+        },
+        "PtlGetWjLoginCode/ReqGetWjLoginCode": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "openid",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nickname",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "avatar",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "access_token",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetWjLoginCode/ResGetWjLoginCode": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_id",
                     "type": {
                         "type": "String"
                     }

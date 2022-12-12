@@ -1,21 +1,18 @@
 // This is a demo code file
 // Feel free to delete it
 
+import {course_details} from "../interface/course_details";
+
 /**
  * 增加数据
  * 此处的注释将会自动附带到生成的 API 文档中
  */
-export interface ReqAddWjUser {
+export interface ReqGetWjAccessToken {
     /** 要增加的消息内容 */
-    user_email:string;
-    openid: string;
-    nickname:string;
-    avatar:string;
-    access_token:string
 }
 
-export interface ResAddWjUser {
+export interface ResGetWjAccessToken {
     /** 服务端内容创建时间 */
     time: Date;
-    user_id:string;
+    access_token:course_details
 }

@@ -2,6 +2,9 @@ import { ApiCall } from "tsrpc";
 import axios from "axios";
 import {get_access_token} from "../oauth/wj";
 import {ReqAddWjUser, ResAddWjUser} from "../shared/protocols/PtlAddWjUser";
+import {getRepository} from "typeorm";
+import {User} from "../entity/user";
+import {Third_party_user} from "../entity/third_party_user";
 
 const appid = 'tpidwOboHH9e';
 
@@ -12,7 +15,7 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
         return;
     }
     let time = new Date();
-    const access_token = await get_access_token();
+    const access_token = call.req.access_token;
     const api = axios.create({
         baseURL: 'https://open.wj.qq.com',
         timeout: 9999,
@@ -33,6 +36,11 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
         avatar,
     });
     const data = response.data.user_id;
+    const third_party_user = new Third_party_user();
+    third_party_user.user_email = call.req.user_email;
+    third_party_user.teachable_user_email = call.req.user_email;
+    third_party_user.wj_open_id = data;
+    await getRepository(Third_party_user).insert(third_party_user);
     await call.succ({
         time: time,
         user_id:data

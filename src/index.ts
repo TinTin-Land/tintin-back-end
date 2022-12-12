@@ -6,6 +6,11 @@ import {User} from "./entity/user";
 import {UserEmail} from "./entity/user_email";
 import {Course_details} from "./entity/course_details";
 import {Course_homework} from "./entity/course_homework";
+import {Course_wj_url} from "./entity/course_wj_url";
+import {Third_party_user} from "./entity/third_party_user";
+import {Third_party_access_token} from "./entity/third_party_access_token";
+import {User_course_wj_url} from "./entity/user_course_wj_url";
+import {User_wj_login_code} from "./entity/user_wj_login_code";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
@@ -29,7 +34,8 @@ async function init() {
         password: "123456",
         database: "postgres",
         entities: [
-            User,UserEmail,Course_details,Course_homework
+            User,UserEmail,Course_details,Course_homework,Course_wj_url,Third_party_user,Third_party_access_token,
+            User_course_wj_url,User_wj_login_code
         ],
         synchronize: true,
         logging: false
