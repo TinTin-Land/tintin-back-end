@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "TSRPC Open API",
+    "title": "Open API",
     "version": "1.0.0"
   },
   "paths": {
@@ -93,6 +93,50 @@
         }
       }
     },
+    "/AddCourseWj": {
+      "post": {
+        "operationId": "AddCourseWj",
+        "requestBody": {
+          "description": "Req<AddCourseWj>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddCourseWj_ReqAddCourseWj"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseWj>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddCourseWj_ResAddCourseWj"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/AddUser": {
       "post": {
         "operationId": "AddUser",
@@ -124,6 +168,94 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/PtlAddUser_ResAddUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddUserCourseWj": {
+      "post": {
+        "operationId": "AddUserCourseWj",
+        "requestBody": {
+          "description": "Req<AddUserCourseWj>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddUserCourseWj_ReqAddUserCourseWj"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddUserCourseWj>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddUserCourseWj_ResAddUserCourseWj"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddWjAccessToken": {
+      "post": {
+        "operationId": "AddWjAccessToken",
+        "requestBody": {
+          "description": "Req<AddWjAccessToken>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddWjAccessToken_ReqAddWjAccessToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjAccessToken>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddWjAccessToken_ResAddWjAccessToken"
                     }
                   }
                 }
@@ -489,6 +621,94 @@
         }
       }
     },
+    "/GetWjAccessToken": {
+      "post": {
+        "operationId": "GetWjAccessToken",
+        "requestBody": {
+          "description": "Req<GetWjAccessToken>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetWjAccessToken_ReqGetWjAccessToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetWjAccessToken>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetWjAccessToken_ResGetWjAccessToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetWjLoginCode": {
+      "post": {
+        "operationId": "GetWjLoginCode",
+        "requestBody": {
+          "description": "Req<GetWjLoginCode>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetWjLoginCode_ReqGetWjLoginCode"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetWjLoginCode>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetWjLoginCode_ResGetWjLoginCode"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/SendEmail": {
       "post": {
         "operationId": "SendEmail",
@@ -692,6 +912,36 @@
           "time"
         ]
       },
+      "PtlAddCourseWj_ReqAddCourseWj": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_wj_url_list": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_name",
+          "course_wj_url_list"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddCourseWj_ResAddCourseWj": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
       "PtlAddUser_ReqAddUser": {
         "type": "object",
         "properties": {
@@ -722,24 +972,88 @@
           "time"
         ]
       },
+      "PtlAddUserCourseWj_ReqAddUserCourseWj": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_name": {
+            "type": "string"
+          },
+          "login_code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_email",
+          "course_name",
+          "login_code"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddUserCourseWj_ResAddUserCourseWj": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlAddWjAccessToken_ReqAddWjAccessToken": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddWjAccessToken_ResAddWjAccessToken": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "access_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "access_token"
+        ]
+      },
       "PtlAddWjUser_ReqAddWjUser": {
         "type": "object",
         "properties": {
-          "openid": {
+          "user_email": {
             "type": "string",
             "description": "要增加的消息内容"
+          },
+          "openid": {
+            "type": "string"
           },
           "nickname": {
             "type": "string"
           },
           "avatar": {
             "type": "string"
+          },
+          "access_token": {
+            "type": "string"
           }
         },
         "required": [
+          "user_email",
           "openid",
           "nickname",
-          "avatar"
+          "avatar",
+          "access_token"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
@@ -1085,6 +1399,74 @@
         "required": [
           "time",
           "courses"
+        ]
+      },
+      "PtlGetWjAccessToken_ReqGetWjAccessToken": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetWjAccessToken_ResGetWjAccessToken": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "access_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "access_token"
+        ]
+      },
+      "PtlGetWjLoginCode_ReqGetWjLoginCode": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "openid": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "access_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_email",
+          "openid",
+          "nickname",
+          "avatar",
+          "access_token"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetWjLoginCode_ResGetWjLoginCode": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "user_id"
         ]
       },
       "PtlSendEmail_ReqSendEmail": {

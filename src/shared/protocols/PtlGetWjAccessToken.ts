@@ -1,7 +1,6 @@
 // This is a demo code file
 // Feel free to delete it
 
-import {course_details} from "../interface/course_details";
 
 /**
  * 增加数据
@@ -14,5 +13,5 @@ export interface ReqGetWjAccessToken {
 export interface ResGetWjAccessToken {
     /** 服务端内容创建时间 */
     time: Date;
-    access_token:course_details
+    access_token:string
 }

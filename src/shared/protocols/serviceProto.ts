@@ -4,6 +4,7 @@ import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomewo
 import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
+import { ReqAddWjAccessToken, ResAddWjAccessToken } from './PtlAddWjAccessToken';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
@@ -38,6 +39,10 @@ export interface ServiceType {
         "AddUserCourseWj": {
             req: ReqAddUserCourseWj,
             res: ResAddUserCourseWj
+        },
+        "AddWjAccessToken": {
+            req: ReqAddWjAccessToken,
+            res: ResAddWjAccessToken
         },
         "AddWjUser": {
             req: ReqAddWjUser,
@@ -94,7 +99,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 7,
+    "version": 9,
     "services": [
         {
             "id": 9,
@@ -119,6 +124,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 14,
             "name": "AddUserCourseWj",
+            "type": "api"
+        },
+        {
+            "id": 17,
+            "name": "AddWjAccessToken",
             "type": "api"
         },
         {
@@ -162,7 +172,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 15,
+            "id": 18,
             "name": "GetWjAccessToken",
             "type": "api"
         },
@@ -432,6 +442,28 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "time",
                     "type": {
                         "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddWjAccessToken/ReqAddWjAccessToken": {
+            "type": "Interface"
+        },
+        "PtlAddWjAccessToken/ResAddWjAccessToken": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "access_token",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]
@@ -1008,8 +1040,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 1,
                     "name": "access_token",
                     "type": {
-                        "type": "Reference",
-                        "target": "../interface/course_details/course_details"
+                        "type": "String"
                     }
                 }
             ]
