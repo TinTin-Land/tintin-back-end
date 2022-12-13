@@ -15,6 +15,7 @@
 - [增加数据](#/AddUser)
 - [增加数据](#/AddUserCourseWj)
 - [增加数据](#/AddWjAccessToken)
+- [增加数据](#/AddWjAnswersList)
 - [增加数据](#/AddWjLoginCode)
 - [增加数据](#/AddWjUser)
 - [增加数据](#/CheckEmail)
@@ -24,8 +25,8 @@
 - [增加数据](#/GetCourseHomework)
 - [增加数据](#/GetUser)
 - [增加数据](#/GetUserCourseList)
+- [增加数据](#/GetUserCourseWj)
 - [增加数据](#/GetWjAccessToken)
-- [增加数据](#/GetWjAnswersList)
 - [增加数据](#/SendEmail)
 - [增加数据](#/UpdateUser)
 
@@ -160,8 +161,7 @@ interface ResAddUser {
 interface ReqAddUserCourseWj {
     /** 要增加的消息内容 */
     user_email: string,
-    course_name: string,
-    login_code: string
+    course_name: string
 }
 ```
 
@@ -200,6 +200,31 @@ interface ResAddWjAccessToken {
 
 ---
 
+## 增加数据 <a id="/AddWjAnswersList"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/AddWjAnswersList`
+
+**请求**
+```ts
+interface ReqAddWjAnswersList {
+    /** 要增加的消息内容 */
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResAddWjAnswersList {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
 ## 增加数据 <a id="/AddWjLoginCode"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
@@ -220,7 +245,7 @@ interface ReqAddWjLoginCode {
 interface ResAddWjLoginCode {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
-    user_id: string
+    code: string
 }
 ```
 
@@ -247,7 +272,7 @@ interface ReqAddWjUser {
 interface ResAddWjUser {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
-    user_id: string
+    user_id: number
 }
 ```
 
@@ -471,6 +496,33 @@ interface ResGetUserCourseList {
 
 ---
 
+## 增加数据 <a id="/GetUserCourseWj"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetUserCourseWj`
+
+**请求**
+```ts
+interface ReqGetUserCourseWj {
+    /** 要增加的消息内容 */
+    user_email: string,
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResGetUserCourseWj {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    user_course_wj_url_list: string
+}
+```
+
+---
+
 ## 增加数据 <a id="/GetWjAccessToken"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
@@ -491,31 +543,6 @@ interface ResGetWjAccessToken {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
     access_token: string
-}
-```
-
----
-
-## 增加数据 <a id="/GetWjAnswersList"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/GetWjAnswersList`
-
-**请求**
-```ts
-interface ReqGetWjAnswersList {
-    /** 要增加的消息内容 */
-    survey_id: string
-}
-```
-
-**响应**
-```ts
-interface ResGetWjAnswersList {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
 }
 ```
 

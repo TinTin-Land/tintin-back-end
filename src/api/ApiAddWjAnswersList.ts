@@ -6,6 +6,7 @@ import {ReqAddWjAnswersList, ResAddWjAnswersList} from "../shared/protocols/PtlA
 import {Third_party_user} from "../entity/third_party_user";
 import {Course_wj_url} from "../entity/course_wj_url";
 import {User_course_homework} from "../entity/user_course_homework";
+import {Course_survey_result} from "../entity/course_survey_result";
 
 const appid = 'tpidwOboHH9e';
 
@@ -31,7 +32,7 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
     const course_wj_url_list = JSON.parse(<string>course_wj_url?.course_wj_url_list)
 
 
-    let score_object_array = [];
+
     for (let i = 0; i < course_wj_url_list.length;i++){
         const survey_id = course_wj_url_list[i].survey_id
         const api = axios.create({
@@ -60,7 +61,9 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
                 survey_id:course_wj_url_list[i].survey_id,
                 wj_open_id:wj_open_id_array
             };
-            score_object_array.push(score_object)
+            const course_survey_result = new Course_survey_result()
+            course_survey_result.survey_result = JSON.stringify(score_object)
+            await getRepository(Course_survey_result).save(course_survey_result);
             await call.succ({
                 time: time,
             });
@@ -69,26 +72,4 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
             return;
         }
     }
-
-    console.log(score_object_array)
-    // let user_email_array = [];
-    // for (let i = 0; i < wj_open_id_array.length;i++){
-    //     const wj_open_id = wj_open_id_array[i];
-    //     const third_party_user = await getRepository(Third_party_user).createQueryBuilder("third_party_user")
-    //         .where("third_party_user.wj_open_id = :wj_open_id", { wj_open_id })
-    //         .getOne();
-    //     const user_email = third_party_user?.user_email;
-    //     user_email_array.push(user_email)
-    //     // if (user_email == undefined) {
-    //     // } else {
-    //     //     const user_course_homework = new User_course_homework();
-    //     //     user_course_homework.user_email = user_email;
-    //     //     user_course_homework.course_name = course_name;
-    //     //     user_course_homework.course_homework_result = '1';
-    //     //     await getRepository(User_course_homework).save(user_course_homework);
-    //     // }
-    // }
-    await call.succ({
-        time: time,
-    });
 }

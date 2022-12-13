@@ -109,70 +109,70 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 16,
+    "version": 1,
     "services": [
         {
-            "id": 9,
+            "id": 0,
             "name": "AddCourse",
             "type": "api"
         },
         {
-            "id": 11,
+            "id": 1,
             "name": "AddCourseHomework",
             "type": "api"
         },
         {
-            "id": 13,
+            "id": 2,
             "name": "AddCourseWj",
             "type": "api"
         },
         {
-            "id": 0,
+            "id": 3,
             "name": "AddUser",
             "type": "api"
         },
         {
-            "id": 14,
+            "id": 4,
             "name": "AddUserCourseWj",
             "type": "api"
         },
         {
-            "id": 17,
+            "id": 5,
             "name": "AddWjAccessToken",
             "type": "api"
         },
         {
-            "id": 22,
+            "id": 20,
             "name": "AddWjAnswersList",
             "type": "api"
         },
         {
-            "id": 20,
+            "id": 6,
             "name": "AddWjLoginCode",
             "type": "api"
         },
         {
-            "id": 8,
+            "id": 7,
             "name": "AddWjUser",
             "type": "api"
         },
         {
-            "id": 1,
+            "id": 8,
             "name": "CheckEmail",
             "type": "api"
         },
         {
-            "id": 2,
+            "id": 9,
             "name": "EnrollCourse",
             "type": "api"
         },
         {
-            "id": 3,
+            "id": 10,
             "name": "EnrollUser",
             "type": "api"
         },
         {
-            "id": 10,
+            "id": 11,
             "name": "GetCourse",
             "type": "api"
         },
@@ -182,32 +182,32 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 4,
+            "id": 13,
             "name": "GetUser",
             "type": "api"
         },
         {
-            "id": 7,
+            "id": 14,
             "name": "GetUserCourseList",
             "type": "api"
         },
         {
-            "id": 21,
+            "id": 15,
             "name": "GetUserCourseWj",
             "type": "api"
         },
         {
-            "id": 18,
+            "id": 16,
             "name": "GetWjAccessToken",
             "type": "api"
         },
         {
-            "id": 5,
+            "id": 18,
             "name": "SendEmail",
             "type": "api"
         },
         {
-            "id": 6,
+            "id": 19,
             "name": "UpdateUser",
             "type": "api"
         }
@@ -346,7 +346,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 8,
+                    "id": 1,
                     "name": "course_homework_id",
                     "type": {
                         "type": "String"
@@ -528,7 +528,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "code",
                     "type": {
                         "type": "String"
@@ -540,14 +540,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 3,
+                    "id": 0,
                     "name": "user_email",
                     "type": {
                         "type": "String"
                     }
                 },
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "openid",
                     "type": {
                         "type": "String"
@@ -889,7 +889,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 8,
+                    "id": 1,
                     "name": "course_homework_id",
                     "type": {
                         "type": "String"
