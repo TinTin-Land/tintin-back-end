@@ -13,5 +13,5 @@ export interface ReqAddWjLoginCode {
 export interface ResAddWjLoginCode {
     /** 服务端内容创建时间 */
     time: Date;
-    user_id:string;
+    code:string;
 }

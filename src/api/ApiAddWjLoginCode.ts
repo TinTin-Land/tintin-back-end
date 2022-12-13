@@ -52,7 +52,7 @@ export default async function (call: ApiCall<ReqAddWjLoginCode, ResAddWjLoginCod
         await getRepository(User_wj_login_code).save(user_wj_login_code);
         await call.succ({
             time,
-            user_id:response.data.data.code
+            code:response.data.data.code
         });
     }
 }

@@ -15,9 +15,11 @@ export default async function (call: ApiCall<ReqAddUserCourseWj, ResAddUserCours
     }
     let time = new Date();
 
-    const user_email = call.req.user_email;
+
+
+    const course_name = call.req.course_name;
     const course_wj_survey_list = await getRepository(Course_wj_url).createQueryBuilder("course_wj_url")
-        .where("course_wj_url.user_email = :user_email", { user_email })
+        .where("course_wj_url.course_name = :course_name", { course_name })
         .getOne();
 
     if (course_wj_survey_list == undefined){
