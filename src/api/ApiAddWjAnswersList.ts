@@ -57,12 +57,9 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
                 const wj_open_id = response.data.data.list[i].third_party_user.respondent_id;
                 wj_open_id_array.push(wj_open_id);
             }
-            const score_object = {
-                survey_id:course_wj_url_list[i].survey_id,
-                wj_open_id:wj_open_id_array
-            };
-            const course_survey_result = new Course_survey_result()
-            course_survey_result.survey_result = JSON.stringify(score_object)
+            const course_survey_result = new Course_survey_result();
+            course_survey_result.survey_id = course_wj_url_list[i].survey_id;
+            course_survey_result.survey_result = JSON.stringify(wj_open_id_array);
             await getRepository(Course_survey_result).save(course_survey_result);
             await call.succ({
                 time: time,
