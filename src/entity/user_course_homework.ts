@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, VersionColumn} from 'typeorm';
 
 @Entity()
-export class Course_details {
+export class User_course_homework {
 
     @PrimaryGeneratedColumn({ type: 'bigint' })
     id!: number;
@@ -13,25 +13,7 @@ export class Course_details {
     course_name!: string;
 
     @Column()
-    course_homework_1_result!: string;
-
-    @Column()
-    course_homework_2_result!: string;
-
-    @Column()
-    course_homework_3_result!: string;
-
-    @Column()
-    course_homework_4_result!: string;
-
-    @Column()
-    course_homework_5_result!: string;
-
-    @Column()
-    course_homework_6_result!: string;
-
-    @Column()
-    course_homework_7_result!: string;
+    course_homework_result!: string;
 
     @CreateDateColumn()
     create?: number;

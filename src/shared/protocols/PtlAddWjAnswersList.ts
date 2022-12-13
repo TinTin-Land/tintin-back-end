@@ -5,12 +5,12 @@
  * 增加数据
  * 此处的注释将会自动附带到生成的 API 文档中
  */
-export interface ReqGetWjAnswersList {
+export interface ReqAddWjAnswersList {
     /** 要增加的消息内容 */
-    survey_id: string;
+    course_name: string;
 }
 
-export interface ResGetWjAnswersList {
+export interface ResAddWjAnswersList {
     /** 服务端内容创建时间 */
     time: Date;
 }

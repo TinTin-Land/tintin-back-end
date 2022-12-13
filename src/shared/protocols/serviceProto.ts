@@ -5,6 +5,7 @@ import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
 import { ReqAddWjAccessToken, ResAddWjAccessToken } from './PtlAddWjAccessToken';
+import { ReqAddWjAnswersList, ResAddWjAnswersList } from './PtlAddWjAnswersList';
 import { ReqAddWjLoginCode, ResAddWjLoginCode } from './PtlAddWjLoginCode';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
@@ -14,8 +15,8 @@ import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
 import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
+import { ReqGetUserCourseWj, ResGetUserCourseWj } from './PtlGetUserCourseWj';
 import { ReqGetWjAccessToken, ResGetWjAccessToken } from './PtlGetWjAccessToken';
-import { ReqGetWjAnswersList, ResGetWjAnswersList } from './PtlGetWjAnswersList';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
 import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
 
@@ -44,6 +45,10 @@ export interface ServiceType {
         "AddWjAccessToken": {
             req: ReqAddWjAccessToken,
             res: ResAddWjAccessToken
+        },
+        "AddWjAnswersList": {
+            req: ReqAddWjAnswersList,
+            res: ResAddWjAnswersList
         },
         "AddWjLoginCode": {
             req: ReqAddWjLoginCode,
@@ -81,13 +86,13 @@ export interface ServiceType {
             req: ReqGetUserCourseList,
             res: ResGetUserCourseList
         },
+        "GetUserCourseWj": {
+            req: ReqGetUserCourseWj,
+            res: ResGetUserCourseWj
+        },
         "GetWjAccessToken": {
             req: ReqGetWjAccessToken,
             res: ResGetWjAccessToken
-        },
-        "GetWjAnswersList": {
-            req: ReqGetWjAnswersList,
-            res: ResGetWjAnswersList
         },
         "SendEmail": {
             req: ReqSendEmail,
@@ -104,7 +109,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 14,
+    "version": 16,
     "services": [
         {
             "id": 9,
@@ -134,6 +139,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 17,
             "name": "AddWjAccessToken",
+            "type": "api"
+        },
+        {
+            "id": 22,
+            "name": "AddWjAnswersList",
             "type": "api"
         },
         {
@@ -182,13 +192,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 18,
-            "name": "GetWjAccessToken",
+            "id": 21,
+            "name": "GetUserCourseWj",
             "type": "api"
         },
         {
-            "id": 19,
-            "name": "GetWjAnswersList",
+            "id": 18,
+            "name": "GetWjAccessToken",
             "type": "api"
         },
         {
@@ -434,13 +444,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "String"
                     }
-                },
-                {
-                    "id": 2,
-                    "name": "login_code",
-                    "type": {
-                        "type": "String"
-                    }
                 }
             ]
         },
@@ -478,6 +481,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlAddWjAnswersList/ReqAddWjAnswersList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddWjAnswersList/ResAddWjAnswersList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "PtlAddWjLoginCode/ReqAddWjLoginCode": {
             "type": "Interface",
             "properties": [
@@ -501,8 +528,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 1,
-                    "name": "user_id",
+                    "id": 2,
+                    "name": "code",
                     "type": {
                         "type": "String"
                     }
@@ -1043,6 +1070,44 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlGetUserCourseWj/ReqGetUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetUserCourseWj/ResGetUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_course_wj_url_list",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
         "PtlGetWjAccessToken/ReqGetWjAccessToken": {
             "type": "Interface"
         },
@@ -1061,30 +1126,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "access_token",
                     "type": {
                         "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlGetWjAnswersList/ReqGetWjAnswersList": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "survey_id",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlGetWjAnswersList/ResGetWjAnswersList": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
                     }
                 }
             ]
