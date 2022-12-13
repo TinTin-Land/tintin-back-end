@@ -665,6 +665,50 @@
         }
       }
     },
+    "/GetWjAnswersList": {
+      "post": {
+        "operationId": "GetWjAnswersList",
+        "requestBody": {
+          "description": "Req<GetWjAnswersList>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetWjAnswersList_ReqGetWjAnswersList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetWjAnswersList>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetWjAnswersList_ResGetWjAnswersList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/GetWjLoginCode": {
       "post": {
         "operationId": "GetWjLoginCode",
@@ -1421,6 +1465,32 @@
         "required": [
           "time",
           "access_token"
+        ]
+      },
+      "PtlGetWjAnswersList_ReqGetWjAnswersList": {
+        "type": "object",
+        "properties": {
+          "survey_id": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "survey_id"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetWjAnswersList_ResGetWjAnswersList": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
         ]
       },
       "PtlGetWjLoginCode_ReqGetWjLoginCode": {

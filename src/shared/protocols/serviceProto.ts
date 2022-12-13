@@ -14,6 +14,7 @@ import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomewo
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqGetWjAccessToken, ResGetWjAccessToken } from './PtlGetWjAccessToken';
+import { ReqGetWjAnswersList, ResGetWjAnswersList } from './PtlGetWjAnswersList';
 import { ReqGetWjLoginCode, ResGetWjLoginCode } from './PtlGetWjLoginCode';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
 import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
@@ -80,6 +81,10 @@ export interface ServiceType {
             req: ReqGetWjAccessToken,
             res: ResGetWjAccessToken
         },
+        "GetWjAnswersList": {
+            req: ReqGetWjAnswersList,
+            res: ResGetWjAnswersList
+        },
         "GetWjLoginCode": {
             req: ReqGetWjLoginCode,
             res: ResGetWjLoginCode
@@ -99,7 +104,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 9,
+    "version": 10,
     "services": [
         {
             "id": 9,
@@ -174,6 +179,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 18,
             "name": "GetWjAccessToken",
+            "type": "api"
+        },
+        {
+            "id": 19,
+            "name": "GetWjAnswersList",
             "type": "api"
         },
         {
@@ -1041,6 +1051,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "access_token",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetWjAnswersList/ReqGetWjAnswersList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "survey_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetWjAnswersList/ResGetWjAnswersList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
                     }
                 }
             ]

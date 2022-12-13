@@ -24,6 +24,7 @@
 - [增加数据](#/GetUser)
 - [增加数据](#/GetUserCourseList)
 - [增加数据](#/GetWjAccessToken)
+- [增加数据](#/GetWjAnswersList)
 - [增加数据](#/GetWjLoginCode)
 - [增加数据](#/SendEmail)
 - [增加数据](#/UpdateUser)
@@ -467,6 +468,31 @@ interface ResGetWjAccessToken {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
     access_token: string
+}
+```
+
+---
+
+## 增加数据 <a id="/GetWjAnswersList"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetWjAnswersList`
+
+**请求**
+```ts
+interface ReqGetWjAnswersList {
+    /** 要增加的消息内容 */
+    survey_id: string
+}
+```
+
+**响应**
+```ts
+interface ResGetWjAnswersList {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
 }
 ```
 
