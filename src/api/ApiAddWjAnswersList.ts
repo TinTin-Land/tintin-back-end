@@ -3,9 +3,7 @@ import axios from "axios";
 import {getRepository} from "typeorm";
 import {Third_party_access_token} from "../entity/third_party_access_token";
 import {ReqAddWjAnswersList, ResAddWjAnswersList} from "../shared/protocols/PtlAddWjAnswersList";
-import {Third_party_user} from "../entity/third_party_user";
 import {Course_wj_url} from "../entity/course_wj_url";
-import {User_course_homework} from "../entity/user_course_homework";
 import {Course_survey_result} from "../entity/course_survey_result";
 
 const appid = 'tpidwOboHH9e';
