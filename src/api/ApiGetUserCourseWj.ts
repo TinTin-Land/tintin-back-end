@@ -16,9 +16,6 @@ export default async function (call: ApiCall<ReqGetUserCourseWj, ResGetUserCours
     const user_course_wj_url = await getRepository(User_course_wj_url).createQueryBuilder("user_course_wj_url")
         .where("user_course_wj_url.user_email = :user_email", { user_email })
         .getOne();
-
-
-
     await call.succ(<ResGetUserCourseWj>{
         time: time,
         user_course_wj_url_list: user_course_wj_url?.user_course_wj_url_list
