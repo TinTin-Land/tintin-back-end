@@ -42,6 +42,7 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
         avatar,
     });
     const data = response.data.user_id;
+    console.log(data);
     const third_party_user = new Third_party_user();
     third_party_user.user_email = call.req.user_email;
     third_party_user.teachable_user_email = call.req.user_email;
