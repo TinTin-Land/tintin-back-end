@@ -15,6 +15,6 @@ export interface ReqGetThirdPartyUser {
 
 export interface ResGetThirdPartyUser {
     /** 服务端内容创建时间 */
-    time: Date
-    wj_open_id:number
+    time: Date;
+    wj_open_id:string;
 }
