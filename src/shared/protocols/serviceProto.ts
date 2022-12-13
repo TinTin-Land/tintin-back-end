@@ -13,6 +13,9 @@ import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
 import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
 import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
+import { ReqGetCourseWj, ResGetCourseWj } from './PtlGetCourseWj';
+import { ReqGetCourseWjResult, ResGetCourseWjResult } from './PtlGetCourseWjResult';
+import { ReqGetThirdPartyUser, ResGetThirdPartyUser } from './PtlGetThirdPartyUser';
 import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqGetUserCourseWj, ResGetUserCourseWj } from './PtlGetUserCourseWj';
@@ -78,6 +81,18 @@ export interface ServiceType {
             req: ReqGetCourseHomework,
             res: ResGetCourseHomework
         },
+        "GetCourseWj": {
+            req: ReqGetCourseWj,
+            res: ResGetCourseWj
+        },
+        "GetCourseWjResult": {
+            req: ReqGetCourseWjResult,
+            res: ResGetCourseWjResult
+        },
+        "GetThirdPartyUser": {
+            req: ReqGetThirdPartyUser,
+            res: ResGetThirdPartyUser
+        },
         "GetUser": {
             req: ReqGetUser,
             res: ResGetUser
@@ -109,7 +124,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 1,
+    "version": 2,
     "services": [
         {
             "id": 0,
@@ -179,6 +194,21 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 12,
             "name": "GetCourseHomework",
+            "type": "api"
+        },
+        {
+            "id": 21,
+            "name": "GetCourseWj",
+            "type": "api"
+        },
+        {
+            "id": 22,
+            "name": "GetCourseWjResult",
+            "type": "api"
+        },
+        {
+            "id": 23,
+            "name": "GetThirdPartyUser",
             "type": "api"
         },
         {
@@ -895,6 +925,99 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "String"
                     },
                     "optional": true
+                }
+            ]
+        },
+        "PtlGetCourseWj/ReqGetCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourseWj/ResGetCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_wj_url_list",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourseWjResult/ReqGetCourseWjResult": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "survey_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourseWjResult/ResGetCourseWjResult": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "wj_open_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetThirdPartyUser/ReqGetThirdPartyUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetThirdPartyUser/ResGetThirdPartyUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "wj_open_id",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },

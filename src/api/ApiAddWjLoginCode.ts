@@ -15,9 +15,9 @@ export default async function (call: ApiCall<ReqAddWjLoginCode, ResAddWjLoginCod
         return;
     }
     const time = new Date();
-    const id = 1;
+    const app_name = 'wj'
     const third_party_access_token = await getRepository(Third_party_access_token).createQueryBuilder("third_party_access_token")
-        .where("third_party_access_token.id = :id", { id })
+        .where("third_party_access_token.app_name = :app_name", { app_name })
         .getOne();
     const access_token = third_party_access_token?.wj_access_token;
 
@@ -46,6 +46,7 @@ export default async function (call: ApiCall<ReqAddWjLoginCode, ResAddWjLoginCod
             user_id:Number(third_party_user?.wj_open_id),
             scene_type:'respondent',
         });
+        console.log(response.data.data)
         const user_wj_login_code = new User_wj_login_code();
         user_wj_login_code.user_email = third_party_user.user_email;
         user_wj_login_code.login_code = response.data.data.code;

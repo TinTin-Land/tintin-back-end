@@ -19,6 +19,7 @@ export default async function (call: ApiCall<ReqAddWjAccessToken, ResAddWjAccess
     const response = await api.get(`/api/oauth2/access_token?appid=${appid}&secret=${secret}&grant_type=client_credential`);
     const data = response.data.data.access_token;
     const third_party_access_token = new Third_party_access_token()
+    third_party_access_token.app_name = "wj"
     third_party_access_token.wj_access_token = data
     await getRepository(Third_party_access_token).save(third_party_access_token);
     await call.succ({

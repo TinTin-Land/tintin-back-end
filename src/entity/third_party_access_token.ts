@@ -14,6 +14,9 @@ export class Third_party_access_token {
     id!: number;
 
     @Column()
+    app_name!: string;
+
+    @Column()
     wj_access_token!: string;
 
     @CreateDateColumn()

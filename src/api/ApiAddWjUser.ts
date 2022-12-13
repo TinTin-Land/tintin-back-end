@@ -17,9 +17,9 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
     let time = new Date();
 
 
-    const id = 1;
+    const app_name = 'wj'
     const third_party_access_token = await getRepository(Third_party_access_token).createQueryBuilder("third_party_access_token")
-        .where("third_party_access_token.id = :id", { id })
+        .where("third_party_access_token.app_name = :app_name", { app_name })
         .getOne();
 
     const access_token = third_party_access_token?.wj_access_token;
