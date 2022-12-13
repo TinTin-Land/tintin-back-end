@@ -18,8 +18,14 @@ export default async function (call: ApiCall<ReqGetThirdPartyUser, ResGetThirdPa
         .where("third_party_user.user_email = :user_email", { user_email })
         .getOne();
 
-    await call.succ(<ResGetThirdPartyUser>{
-        time: time,
-        wj_open_id: third_party_user?.wj_open_id
-    });
+    if (third_party_user?.wj_open_id == undefined){
+        await call.error('no wj_open_id');
+        return;
+    }else {
+        const wj_open_id = (third_party_user?.wj_open_id).toString()
+        await call.succ(<ResGetThirdPartyUser>{
+            time: time,
+            wj_open_id
+        });
+    }
 }
