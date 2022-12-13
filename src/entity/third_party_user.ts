@@ -19,8 +19,8 @@ export class Third_party_user {
     @Column()
     teachable_user_email!: string;
 
-    @Column()
-    wj_open_id!: string;
+    @Column({ type: 'bigint' })
+    wj_open_id!: number;
 
     @CreateDateColumn()
     create?: number;

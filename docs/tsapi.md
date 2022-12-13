@@ -15,6 +15,7 @@
 - [增加数据](#/AddUser)
 - [增加数据](#/AddUserCourseWj)
 - [增加数据](#/AddWjAccessToken)
+- [增加数据](#/AddWjLoginCode)
 - [增加数据](#/AddWjUser)
 - [增加数据](#/CheckEmail)
 - [增加数据](#/EnrollCourse)
@@ -25,7 +26,6 @@
 - [增加数据](#/GetUserCourseList)
 - [增加数据](#/GetWjAccessToken)
 - [增加数据](#/GetWjAnswersList)
-- [增加数据](#/GetWjLoginCode)
 - [增加数据](#/SendEmail)
 - [增加数据](#/UpdateUser)
 
@@ -200,6 +200,32 @@ interface ResAddWjAccessToken {
 
 ---
 
+## 增加数据 <a id="/AddWjLoginCode"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/AddWjLoginCode`
+
+**请求**
+```ts
+interface ReqAddWjLoginCode {
+    /** 要增加的消息内容 */
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResAddWjLoginCode {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    user_id: string
+}
+```
+
+---
+
 ## 增加数据 <a id="/AddWjUser"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
@@ -212,10 +238,7 @@ interface ResAddWjAccessToken {
 interface ReqAddWjUser {
     /** 要增加的消息内容 */
     user_email: string,
-    openid: string,
-    nickname: string,
-    avatar: string,
-    access_token: string
+    openid: string
 }
 ```
 
@@ -493,36 +516,6 @@ interface ReqGetWjAnswersList {
 interface ResGetWjAnswersList {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/GetWjLoginCode"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/GetWjLoginCode`
-
-**请求**
-```ts
-interface ReqGetWjLoginCode {
-    /** 要增加的消息内容 */
-    user_email: string,
-    openid: string,
-    nickname: string,
-    avatar: string,
-    access_token: string
-}
-```
-
-**响应**
-```ts
-interface ResGetWjLoginCode {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    user_id: string
 }
 ```
 

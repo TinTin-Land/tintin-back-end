@@ -4,6 +4,7 @@ import {ReqAddWjUser, ResAddWjUser} from "../shared/protocols/PtlAddWjUser";
 import {getRepository} from "typeorm";
 import {Third_party_user} from "../entity/third_party_user";
 import {Third_party_access_token} from "../entity/third_party_access_token";
+import {User} from "../entity/user";
 
 const appid = 'tpidwOboHH9e';
 
@@ -34,23 +35,33 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
         },
     });
     const openid = call.req.openid;
-    const nickname = call.req.nickname;
-    const avatar = call.req.avatar;
+
+    const user_email = call.req.user_email;
+    const user = await getRepository(User).createQueryBuilder("user")
+        .where("user.user_email = :user_email", { user_email })
+        .getOne();
+    const nickname = user?.username;
+    const avatar = 'https://wj.gtimg.com/default/default_headimg.png';
     const response = await api.post('/api/sso/users',{
         openid,
         nickname,
         avatar,
     });
-    const data = response.data.user_id;
-    console.log(data);
-    const third_party_user = new Third_party_user();
-    third_party_user.user_email = call.req.user_email;
-    third_party_user.teachable_user_email = call.req.user_email;
-    third_party_user.wj_open_id = data;
-    await getRepository(Third_party_user).insert(third_party_user);
-    await call.succ({
-        time: time,
-        user_id:data
-    });
+    if (response.data.code == 'OK') {
+        const user_id = response.data.data.user_id
+        const third_party_user = new Third_party_user();
+        third_party_user.user_email = call.req.user_email;
+        third_party_user.teachable_user_email = call.req.user_email;
+        third_party_user.wj_open_id = user_id;
+        await getRepository(Third_party_user).insert(third_party_user);
+        await call.succ({
+            time: time,
+            user_id
+        });
+    }else{
+        await call.error('openid_existed');
+        return;
+    }
+
 
 }

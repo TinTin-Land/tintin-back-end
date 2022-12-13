@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Open API",
+    "title": "TSRPC Open API",
     "version": "1.0.0"
   },
   "paths": {
@@ -256,6 +256,50 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/PtlAddWjAccessToken_ResAddWjAccessToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddWjLoginCode": {
+      "post": {
+        "operationId": "AddWjLoginCode",
+        "requestBody": {
+          "description": "Req<AddWjLoginCode>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddWjLoginCode_ReqAddWjLoginCode"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjLoginCode>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddWjLoginCode_ResAddWjLoginCode"
                     }
                   }
                 }
@@ -709,50 +753,6 @@
         }
       }
     },
-    "/GetWjLoginCode": {
-      "post": {
-        "operationId": "GetWjLoginCode",
-        "requestBody": {
-          "description": "Req<GetWjLoginCode>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlGetWjLoginCode_ReqGetWjLoginCode"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResGetWjLoginCode>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlGetWjLoginCode_ResGetWjLoginCode"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
     "/SendEmail": {
       "post": {
         "operationId": "SendEmail",
@@ -1072,6 +1072,36 @@
           "access_token"
         ]
       },
+      "PtlAddWjLoginCode_ReqAddWjLoginCode": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddWjLoginCode_ResAddWjLoginCode": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "user_id"
+        ]
+      },
       "PtlAddWjUser_ReqAddWjUser": {
         "type": "object",
         "properties": {
@@ -1081,23 +1111,11 @@
           },
           "openid": {
             "type": "string"
-          },
-          "nickname": {
-            "type": "string"
-          },
-          "avatar": {
-            "type": "string"
-          },
-          "access_token": {
-            "type": "string"
           }
         },
         "required": [
           "user_email",
-          "openid",
-          "nickname",
-          "avatar",
-          "access_token"
+          "openid"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
@@ -1491,52 +1509,6 @@
         },
         "required": [
           "time"
-        ]
-      },
-      "PtlGetWjLoginCode_ReqGetWjLoginCode": {
-        "type": "object",
-        "properties": {
-          "user_email": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "openid": {
-            "type": "string"
-          },
-          "nickname": {
-            "type": "string"
-          },
-          "avatar": {
-            "type": "string"
-          },
-          "access_token": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "user_email",
-          "openid",
-          "nickname",
-          "avatar",
-          "access_token"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlGetWjLoginCode_ResGetWjLoginCode": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          },
-          "user_id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "time",
-          "user_id"
         ]
       },
       "PtlSendEmail_ReqSendEmail": {

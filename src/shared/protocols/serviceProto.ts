@@ -5,6 +5,7 @@ import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
 import { ReqAddWjAccessToken, ResAddWjAccessToken } from './PtlAddWjAccessToken';
+import { ReqAddWjLoginCode, ResAddWjLoginCode } from './PtlAddWjLoginCode';
 import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
 import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
@@ -15,7 +16,6 @@ import { ReqGetUser, ResGetUser } from './PtlGetUser';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
 import { ReqGetWjAccessToken, ResGetWjAccessToken } from './PtlGetWjAccessToken';
 import { ReqGetWjAnswersList, ResGetWjAnswersList } from './PtlGetWjAnswersList';
-import { ReqGetWjLoginCode, ResGetWjLoginCode } from './PtlGetWjLoginCode';
 import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
 import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
 
@@ -44,6 +44,10 @@ export interface ServiceType {
         "AddWjAccessToken": {
             req: ReqAddWjAccessToken,
             res: ResAddWjAccessToken
+        },
+        "AddWjLoginCode": {
+            req: ReqAddWjLoginCode,
+            res: ResAddWjLoginCode
         },
         "AddWjUser": {
             req: ReqAddWjUser,
@@ -85,10 +89,6 @@ export interface ServiceType {
             req: ReqGetWjAnswersList,
             res: ResGetWjAnswersList
         },
-        "GetWjLoginCode": {
-            req: ReqGetWjLoginCode,
-            res: ResGetWjLoginCode
-        },
         "SendEmail": {
             req: ReqSendEmail,
             res: ResSendEmail
@@ -104,7 +104,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 11,
+    "version": 14,
     "services": [
         {
             "id": 9,
@@ -134,6 +134,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 17,
             "name": "AddWjAccessToken",
+            "type": "api"
+        },
+        {
+            "id": 20,
+            "name": "AddWjLoginCode",
             "type": "api"
         },
         {
@@ -184,11 +189,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 19,
             "name": "GetWjAnswersList",
-            "type": "api"
-        },
-        {
-            "id": 16,
-            "name": "GetWjLoginCode",
             "type": "api"
         },
         {
@@ -478,6 +478,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlAddWjLoginCode/ReqAddWjLoginCode": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddWjLoginCode/ResAddWjLoginCode": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
         "PtlAddWjUser/ReqAddWjUser": {
             "type": "Interface",
             "properties": [
@@ -491,20 +522,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "name": "openid",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "nickname",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "avatar",
                     "type": {
                         "type": "String"
                     }
@@ -525,7 +542,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 1,
                     "name": "user_id",
                     "type": {
-                        "type": "String"
+                        "type": "Number"
                     }
                 }
             ]
@@ -1068,65 +1085,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "time",
                     "type": {
                         "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlGetWjLoginCode/ReqGetWjLoginCode": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "user_email",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "openid",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nickname",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "avatar",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "access_token",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlGetWjLoginCode/ResGetWjLoginCode": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "user_id",
-                    "type": {
-                        "type": "String"
                     }
                 }
             ]

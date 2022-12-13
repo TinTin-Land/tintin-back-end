@@ -9,12 +9,10 @@ export interface ReqAddWjUser {
     /** 要增加的消息内容 */
     user_email:string;
     openid: string;
-    nickname:string;
-    avatar:string;
 }
 
 export interface ResAddWjUser {
     /** 服务端内容创建时间 */
     time: Date;
-    user_id:string;
+    user_id:number;
 }

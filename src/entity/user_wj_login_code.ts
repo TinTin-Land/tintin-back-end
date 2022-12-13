@@ -14,7 +14,7 @@ export class User_wj_login_code {
     id!: number;
 
     @Column()
-    username!: string;
+    user_email!: string;
 
     @Column()
     login_code!: string;

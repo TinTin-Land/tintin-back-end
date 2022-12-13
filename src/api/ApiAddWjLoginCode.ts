@@ -3,18 +3,24 @@ import axios from "axios";
 import {getRepository} from "typeorm";
 import {Third_party_user} from "../entity/third_party_user";
 import {User_wj_login_code} from "../entity/user_wj_login_code";
-import {ReqGetWjLoginCode, ResGetWjLoginCode} from "../shared/protocols/PtlGetWjLoginCode";
+import {ReqAddWjLoginCode, ResAddWjLoginCode} from "../shared/protocols/PtlAddWjLoginCode";
+import {Third_party_access_token} from "../entity/third_party_access_token";
 
 const appid = 'tpidwOboHH9e';
 
-export default async function (call: ApiCall<ReqGetWjLoginCode, ResGetWjLoginCode>) {
+export default async function (call: ApiCall<ReqAddWjLoginCode, ResAddWjLoginCode>) {
     // Error
-    if (call.req.openid === '') {
+    if (call.req.user_email === '') {
         await call.error('Content is empty');
         return;
     }
     const time = new Date();
-    const access_token = await call.req.access_token;
+    const id = 1;
+    const third_party_access_token = await getRepository(Third_party_access_token).createQueryBuilder("third_party_access_token")
+        .where("third_party_access_token.id = :id", { id })
+        .getOne();
+    const access_token = third_party_access_token?.wj_access_token;
+
     const api = axios.create({
         baseURL: 'https://open.wj.qq.com',
         timeout: 9999,
@@ -37,12 +43,13 @@ export default async function (call: ApiCall<ReqGetWjLoginCode, ResGetWjLoginCod
         return;
     }else{
         const response = await api.post('/api/sso/code',{
-            user_id:third_party_user.wj_open_id,
+            user_id:Number(third_party_user?.wj_open_id),
             scene_type:'respondent',
         });
         const user_wj_login_code = new User_wj_login_code();
-        user_wj_login_code.login_code = response.data.data.code
-        await getRepository(User_wj_login_code).save(third_party_user);
+        user_wj_login_code.user_email = third_party_user.user_email;
+        user_wj_login_code.login_code = response.data.data.code;
+        await getRepository(User_wj_login_code).save(user_wj_login_code);
         await call.succ({
             time,
             user_id:response.data.data.code
