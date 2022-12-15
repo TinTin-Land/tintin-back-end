@@ -24,8 +24,7 @@ export default async function (call: ApiCall<ReqAddCourse, ResAddCourse>) {
     course_details.course_teacher_info = call.req.course_teacher_info
     course_details.course_advantages = call.req.course_advantages
     course_details.course_provider = call.req.course_provider
-    course_details.course_student_feedback = call.req.course_student_feedback
-    course_details.course_student_profile = call.req.course_student_profile
+    course_details.course_student_profile_feedback = call.req.course_student_profile_feedback
     course_details.course_community_support = call.req.course_community_support
     try {
         await getRepository(Course_details).insert(course_details);

@@ -10,6 +10,7 @@
 ## 目录
 
 - [增加数据](#/AddCourse)
+- [增加数据](#/AddCourseAdvantages)
 - [增加数据](#/AddCourseHomework)
 - [增加数据](#/AddCourseWj)
 - [增加数据](#/AddUser)
@@ -22,7 +23,11 @@
 - [增加数据](#/EnrollCourse)
 - [增加数据](#/EnrollUser)
 - [增加数据](#/GetCourse)
+- [增加数据](#/GetCourseAdvantages)
 - [增加数据](#/GetCourseHomework)
+- [增加数据](#/GetCourseWj)
+- [增加数据](#/GetCourseWjResult)
+- [增加数据](#/GetThirdPartyUser)
 - [增加数据](#/GetUser)
 - [增加数据](#/GetUserCourseList)
 - [增加数据](#/GetUserCourseWj)
@@ -55,8 +60,7 @@ interface ReqAddCourse {
     course_teacher_info: string,
     course_advantages: string,
     course_provider: string,
-    course_student_feedback: string,
-    course_student_profile: string,
+    course_student_profile_feedback: string,
     course_community_support: string
 }
 ```
@@ -64,6 +68,32 @@ interface ReqAddCourse {
 **响应**
 ```ts
 interface ResAddCourse {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+## 增加数据 <a id="/AddCourseAdvantages"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/AddCourseAdvantages`
+
+**请求**
+```ts
+interface ReqAddCourseAdvantages {
+    /** 要增加的消息内容 */
+    course_advantages_label: string,
+    course_advantages_content: string
+}
+```
+
+**响应**
+```ts
+interface ResAddCourseAdvantages {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string
 }
@@ -381,21 +411,48 @@ interface ResGetCourse {
     time: /*datetime*/ string,
     course_details: {
         course_name?: string,
-        course_image?: string,
         course_cycle?: string,
-        course_state?: string,
-        course_registration_deadline?: string,
         course_link?: string,
+        course_state?: string,
+        course_registration_start_date?: string,
+        course_registration_deadline?: string,
+        course_image?: string,
         course_description?: string,
-        course_tab?: string,
         course_content_data?: string,
-        course_teacher_info?: string,
+        course_tab?: string,
         course_advantages?: string,
+        course_teacher_info?: string,
         course_provider?: string,
-        course_student_feedback?: string,
+        course_student_profile_feedback?: string,
         course_student_profile?: string,
         course_community_support?: string
     }
+}
+```
+
+---
+
+## 增加数据 <a id="/GetCourseAdvantages"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetCourseAdvantages`
+
+**请求**
+```ts
+interface ReqGetCourseAdvantages {
+    /** 要增加的消息内容 */
+    course_advantages_label: string
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseAdvantages {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_advantages_content: string
 }
 ```
 
@@ -425,6 +482,84 @@ interface ResGetCourseHomework {
         course_name?: string,
         course_homework_id?: string
     }
+}
+```
+
+---
+
+## 增加数据 <a id="/GetCourseWj"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetCourseWj`
+
+**请求**
+```ts
+interface ReqGetCourseWj {
+    /** 要增加的消息内容 */
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseWj {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_wj_url_list: string
+}
+```
+
+---
+
+## 增加数据 <a id="/GetCourseWjResult"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetCourseWjResult`
+
+**请求**
+```ts
+interface ReqGetCourseWjResult {
+    /** 要增加的消息内容 */
+    survey_id: string
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseWjResult {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    wj_open_id: string
+}
+```
+
+---
+
+## 增加数据 <a id="/GetThirdPartyUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/GetThirdPartyUser`
+
+**请求**
+```ts
+interface ReqGetThirdPartyUser {
+    /** 要增加的消息内容 */
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResGetThirdPartyUser {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    wj_open_id: string
 }
 ```
 

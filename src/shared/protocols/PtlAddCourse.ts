@@ -20,8 +20,7 @@ export interface ReqAddCourse {
     course_teacher_info: string;
     course_advantages: string;
     course_provider: string;
-    course_student_feedback: string;
-    course_student_profile: string;
+    course_student_profile_feedback:string
     course_community_support: string;
 }
 

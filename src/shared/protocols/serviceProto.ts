@@ -1,5 +1,6 @@
 import { ServiceProto } from 'tsrpc-proto';
 import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
+import { ReqAddCourseAdvantages, ResAddCourseAdvantages } from './PtlAddCourseAdvantages';
 import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomework';
 import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
@@ -12,6 +13,7 @@ import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
 import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
+import { ReqGetCourseAdvantages, ResGetCourseAdvantages } from './PtlGetCourseAdvantages';
 import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
 import { ReqGetCourseWj, ResGetCourseWj } from './PtlGetCourseWj';
 import { ReqGetCourseWjResult, ResGetCourseWjResult } from './PtlGetCourseWjResult';
@@ -28,6 +30,10 @@ export interface ServiceType {
         "AddCourse": {
             req: ReqAddCourse,
             res: ResAddCourse
+        },
+        "AddCourseAdvantages": {
+            req: ReqAddCourseAdvantages,
+            res: ResAddCourseAdvantages
         },
         "AddCourseHomework": {
             req: ReqAddCourseHomework,
@@ -77,6 +83,10 @@ export interface ServiceType {
             req: ReqGetCourse,
             res: ResGetCourse
         },
+        "GetCourseAdvantages": {
+            req: ReqGetCourseAdvantages,
+            res: ResGetCourseAdvantages
+        },
         "GetCourseHomework": {
             req: ReqGetCourseHomework,
             res: ResGetCourseHomework
@@ -124,11 +134,16 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 2,
+    "version": 4,
     "services": [
         {
             "id": 0,
             "name": "AddCourse",
+            "type": "api"
+        },
+        {
+            "id": 24,
+            "name": "AddCourseAdvantages",
             "type": "api"
         },
         {
@@ -189,6 +204,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 11,
             "name": "GetCourse",
+            "type": "api"
+        },
+        {
+            "id": 25,
+            "name": "GetCourseAdvantages",
             "type": "api"
         },
         {
@@ -331,15 +351,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 12,
-                    "name": "course_student_feedback",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 13,
-                    "name": "course_student_profile",
+                    "id": 15,
+                    "name": "course_student_profile_feedback",
                     "type": {
                         "type": "String"
                     }
@@ -354,6 +367,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "PtlAddCourse/ResAddCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseAdvantages/ReqAddCourseAdvantages": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_advantages_label",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_advantages_content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseAdvantages/ResAddCourseAdvantages": {
             "type": "Interface",
             "properties": [
                 {
@@ -762,32 +806,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 1,
-                    "name": "course_image",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
                     "id": 2,
                     "name": "course_cycle",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 3,
-                    "name": "course_state",
-                    "type": {
-                        "type": "String"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 4,
-                    "name": "course_registration_deadline",
                     "type": {
                         "type": "String"
                     },
@@ -802,16 +822,40 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 6,
-                    "name": "course_description",
+                    "id": 3,
+                    "name": "course_state",
                     "type": {
                         "type": "String"
                     },
                     "optional": true
                 },
                 {
-                    "id": 7,
-                    "name": "course_tab",
+                    "id": 15,
+                    "name": "course_registration_start_date",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 4,
+                    "name": "course_registration_deadline",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "course_image",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 6,
+                    "name": "course_description",
                     "type": {
                         "type": "String"
                     },
@@ -826,8 +870,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 9,
-                    "name": "course_teacher_info",
+                    "id": 7,
+                    "name": "course_tab",
                     "type": {
                         "type": "String"
                     },
@@ -842,6 +886,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
+                    "id": 9,
+                    "name": "course_teacher_info",
+                    "type": {
+                        "type": "String"
+                    },
+                    "optional": true
+                },
+                {
                     "id": 11,
                     "name": "course_provider",
                     "type": {
@@ -850,8 +902,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "optional": true
                 },
                 {
-                    "id": 12,
-                    "name": "course_student_feedback",
+                    "id": 16,
+                    "name": "course_student_profile_feedback",
                     "type": {
                         "type": "String"
                     },
@@ -872,6 +924,28 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "String"
                     },
                     "optional": true
+                }
+            ]
+        },
+        "PtlGetCourseAdvantages/ReqGetCourseAdvantages": {
+            "type": "Interface"
+        },
+        "PtlGetCourseAdvantages/ResGetCourseAdvantages": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "course_advantages",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },

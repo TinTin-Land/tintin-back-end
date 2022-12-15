@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "TSRPC Open API",
+    "title": "Open API",
     "version": "1.0.0"
   },
   "paths": {
@@ -36,6 +36,50 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/PtlAddCourse_ResAddCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/AddCourseAdvantages": {
+      "post": {
+        "operationId": "AddCourseAdvantages",
+        "requestBody": {
+          "description": "Req<AddCourseAdvantages>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlAddCourseAdvantages_ReqAddCourseAdvantages"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseAdvantages>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlAddCourseAdvantages_ResAddCourseAdvantages"
                     }
                   }
                 }
@@ -577,6 +621,50 @@
         }
       }
     },
+    "/GetCourseAdvantages": {
+      "post": {
+        "operationId": "GetCourseAdvantages",
+        "requestBody": {
+          "description": "Req<GetCourseAdvantages>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetCourseAdvantages_ReqGetCourseAdvantages"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseAdvantages>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetCourseAdvantages_ResGetCourseAdvantages"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/GetCourseHomework": {
       "post": {
         "operationId": "GetCourseHomework",
@@ -608,6 +696,138 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/PtlGetCourseHomework_ResGetCourseHomework"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetCourseWj": {
+      "post": {
+        "operationId": "GetCourseWj",
+        "requestBody": {
+          "description": "Req<GetCourseWj>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetCourseWj_ReqGetCourseWj"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseWj>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetCourseWj_ResGetCourseWj"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetCourseWjResult": {
+      "post": {
+        "operationId": "GetCourseWjResult",
+        "requestBody": {
+          "description": "Req<GetCourseWjResult>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetCourseWjResult_ReqGetCourseWjResult"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseWjResult>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetCourseWjResult_ResGetCourseWjResult"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/GetThirdPartyUser": {
+      "post": {
+        "operationId": "GetThirdPartyUser",
+        "requestBody": {
+          "description": "Req<GetThirdPartyUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PtlGetThirdPartyUser_ReqGetThirdPartyUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetThirdPartyUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/PtlGetThirdPartyUser_ResGetThirdPartyUser"
                     }
                   }
                 }
@@ -928,10 +1148,7 @@
           "course_provider": {
             "type": "string"
           },
-          "course_student_feedback": {
-            "type": "string"
-          },
-          "course_student_profile": {
+          "course_student_profile_feedback": {
             "type": "string"
           },
           "course_community_support": {
@@ -951,13 +1168,42 @@
           "course_teacher_info",
           "course_advantages",
           "course_provider",
-          "course_student_feedback",
-          "course_student_profile",
+          "course_student_profile_feedback",
           "course_community_support"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddCourse_ResAddCourse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "PtlAddCourseAdvantages_ReqAddCourseAdvantages": {
+        "type": "object",
+        "properties": {
+          "course_advantages_label": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_advantages_content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_advantages_label",
+          "course_advantages_content"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlAddCourseAdvantages_ResAddCourseAdvantages": {
         "type": "object",
         "properties": {
           "time": {
@@ -985,7 +1231,7 @@
           "course_name",
           "course_homework_id"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddCourseHomework_ResAddCourseHomework": {
         "type": "object",
@@ -1015,7 +1261,7 @@
           "course_name",
           "course_wj_url_list"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddCourseWj_ResAddCourseWj": {
         "type": "object",
@@ -1045,7 +1291,7 @@
           "username",
           "user_email"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddUser_ResAddUser": {
         "type": "object",
@@ -1075,7 +1321,7 @@
           "user_email",
           "course_name"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddUserCourseWj_ResAddUserCourseWj": {
         "type": "object",
@@ -1093,7 +1339,7 @@
       "PtlAddWjAccessToken_ReqAddWjAccessToken": {
         "type": "object",
         "properties": {},
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddWjAccessToken_ResAddWjAccessToken": {
         "type": "object",
@@ -1123,7 +1369,7 @@
         "required": [
           "course_name"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddWjAnswersList_ResAddWjAnswersList": {
         "type": "object",
@@ -1149,7 +1395,7 @@
         "required": [
           "user_email"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddWjLoginCode_ResAddWjLoginCode": {
         "type": "object",
@@ -1183,7 +1429,7 @@
           "user_email",
           "openid"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlAddWjUser_ResAddWjUser": {
         "type": "object",
@@ -1217,7 +1463,7 @@
           "email",
           "code"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlCheckEmail_ResCheckEmail": {
         "type": "object",
@@ -1251,7 +1497,7 @@
           "user_id",
           "course_id"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlEnrollCourse_ResEnrollCourse": {
         "type": "object",
@@ -1289,7 +1535,7 @@
           "password",
           "src"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlEnrollUser_ResEnrollUser": {
         "type": "object",
@@ -1315,7 +1561,7 @@
         "required": [
           "course_name"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetCourse_ResGetCourse": {
         "type": "object",
@@ -1340,40 +1586,43 @@
           "course_name": {
             "type": "string"
           },
-          "course_image": {
-            "type": "string"
-          },
           "course_cycle": {
-            "type": "string"
-          },
-          "course_state": {
-            "type": "string"
-          },
-          "course_registration_deadline": {
             "type": "string"
           },
           "course_link": {
             "type": "string"
           },
-          "course_description": {
+          "course_state": {
             "type": "string"
           },
-          "course_tab": {
+          "course_registration_start_date": {
+            "type": "string"
+          },
+          "course_registration_deadline": {
+            "type": "string"
+          },
+          "course_image": {
+            "type": "string"
+          },
+          "course_description": {
             "type": "string"
           },
           "course_content_data": {
             "type": "string"
           },
-          "course_teacher_info": {
+          "course_tab": {
             "type": "string"
           },
           "course_advantages": {
             "type": "string"
           },
+          "course_teacher_info": {
+            "type": "string"
+          },
           "course_provider": {
             "type": "string"
           },
-          "course_student_feedback": {
+          "course_student_profile_feedback": {
             "type": "string"
           },
           "course_student_profile": {
@@ -1383,6 +1632,36 @@
             "type": "string"
           }
         }
+      },
+      "PtlGetCourseAdvantages_ReqGetCourseAdvantages": {
+        "type": "object",
+        "properties": {
+          "course_advantages_label": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "course_advantages_label"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetCourseAdvantages_ResGetCourseAdvantages": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_advantages_content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_advantages_content"
+        ]
       },
       "PtlGetCourseHomework_ReqGetCourseHomework": {
         "type": "object",
@@ -1395,7 +1674,7 @@
         "required": [
           "course_name"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetCourseHomework_ResGetCourseHomework": {
         "type": "object",
@@ -1425,6 +1704,96 @@
           }
         }
       },
+      "PtlGetCourseWj_ReqGetCourseWj": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "course_name"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetCourseWj_ResGetCourseWj": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_wj_url_list": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_wj_url_list"
+        ]
+      },
+      "PtlGetCourseWjResult_ReqGetCourseWjResult": {
+        "type": "object",
+        "properties": {
+          "survey_id": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "survey_id"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetCourseWjResult_ResGetCourseWjResult": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "wj_open_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "wj_open_id"
+        ]
+      },
+      "PtlGetThirdPartyUser_ReqGetThirdPartyUser": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "PtlGetThirdPartyUser_ResGetThirdPartyUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "wj_open_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "wj_open_id"
+        ]
+      },
       "PtlGetUser_ReqGetUser": {
         "type": "object",
         "properties": {
@@ -1436,7 +1805,7 @@
         "required": [
           "user_email"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetUser_ResGetUser": {
         "type": "object",
@@ -1510,7 +1879,7 @@
         "required": [
           "email"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetUserCourseList_ResGetUserCourseList": {
         "type": "object",
@@ -1544,7 +1913,7 @@
           "user_email",
           "course_name"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetUserCourseWj_ResGetUserCourseWj": {
         "type": "object",
@@ -1566,7 +1935,7 @@
       "PtlGetWjAccessToken_ReqGetWjAccessToken": {
         "type": "object",
         "properties": {},
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlGetWjAccessToken_ResGetWjAccessToken": {
         "type": "object",
@@ -1596,7 +1965,7 @@
         "required": [
           "email"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlSendEmail_ResSendEmail": {
         "type": "object",
@@ -1622,7 +1991,7 @@
         "required": [
           "user"
         ],
-        "description": "增加数据\n此处的注释将会自动附带到生成的 API 文档中"
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
       "PtlUpdateUser_ResUpdateUser": {
         "type": "object",
