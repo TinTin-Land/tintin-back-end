@@ -13,6 +13,9 @@ import {User_course_wj_url} from "./entity/user_course_wj_url";
 import {User_wj_login_code} from "./entity/user_wj_login_code";
 import {Course_survey_result} from "./entity/course_survey_result";
 import {Course_advantages} from "./entity/course_advantages";
+import {Course_teacher} from "./entity/course_teacher";
+import {Course_provider} from "./entity/course_provider";
+import {Course_community_support} from "./entity/course_community_support";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
@@ -36,8 +39,9 @@ async function init() {
         password: "123456",
         database: "postgres",
         entities: [
-            User,UserEmail,Course_details,Course_homework,Course_wj_url,Course_survey_result,Course_advantages
-            ,Third_party_user,Third_party_access_token,
+            User,UserEmail,Course_details,Course_homework,Course_wj_url,Course_survey_result,Course_advantages,
+            Course_teacher,Course_provider,Course_community_support,
+            Third_party_user,Third_party_access_token,
             User_course_wj_url,User_wj_login_code
         ],
         synchronize: true,

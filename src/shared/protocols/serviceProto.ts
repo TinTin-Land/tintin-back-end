@@ -1,7 +1,10 @@
 import { ServiceProto } from 'tsrpc-proto';
 import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
 import { ReqAddCourseAdvantages, ResAddCourseAdvantages } from './PtlAddCourseAdvantages';
+import { ReqAddCourseCommunitySupport, ResAddCourseCommunitySupport } from './PtlAddCourseCommunitySupport';
 import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomework';
+import { ReqAddCourseProvider, ResAddCourseProvider } from './PtlAddCourseProvider';
+import { ReqAddCourseTeacher, ResAddCourseTeacher } from './PtlAddCourseTeacher';
 import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
 import { ReqAddUser, ResAddUser } from './PtlAddUser';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
@@ -14,7 +17,10 @@ import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
 import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
 import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
 import { ReqGetCourseAdvantages, ResGetCourseAdvantages } from './PtlGetCourseAdvantages';
+import { ReqGetCourseCommunitySupport, ResGetCourseCommunitySupport } from './PtlGetCourseCommunitySupport';
 import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
+import { ReqGetCourseProvider, ResGetCourseProvider } from './PtlGetCourseProvider';
+import { ReqGetCourseTeacher, ResGetCourseTeacher } from './PtlGetCourseTeacher';
 import { ReqGetCourseWj, ResGetCourseWj } from './PtlGetCourseWj';
 import { ReqGetCourseWjResult, ResGetCourseWjResult } from './PtlGetCourseWjResult';
 import { ReqGetThirdPartyUser, ResGetThirdPartyUser } from './PtlGetThirdPartyUser';
@@ -35,9 +41,21 @@ export interface ServiceType {
             req: ReqAddCourseAdvantages,
             res: ResAddCourseAdvantages
         },
+        "AddCourseCommunitySupport": {
+            req: ReqAddCourseCommunitySupport,
+            res: ResAddCourseCommunitySupport
+        },
         "AddCourseHomework": {
             req: ReqAddCourseHomework,
             res: ResAddCourseHomework
+        },
+        "AddCourseProvider": {
+            req: ReqAddCourseProvider,
+            res: ResAddCourseProvider
+        },
+        "AddCourseTeacher": {
+            req: ReqAddCourseTeacher,
+            res: ResAddCourseTeacher
         },
         "AddCourseWj": {
             req: ReqAddCourseWj,
@@ -87,9 +105,21 @@ export interface ServiceType {
             req: ReqGetCourseAdvantages,
             res: ResGetCourseAdvantages
         },
+        "GetCourseCommunitySupport": {
+            req: ReqGetCourseCommunitySupport,
+            res: ResGetCourseCommunitySupport
+        },
         "GetCourseHomework": {
             req: ReqGetCourseHomework,
             res: ResGetCourseHomework
+        },
+        "GetCourseProvider": {
+            req: ReqGetCourseProvider,
+            res: ResGetCourseProvider
+        },
+        "GetCourseTeacher": {
+            req: ReqGetCourseTeacher,
+            res: ResGetCourseTeacher
         },
         "GetCourseWj": {
             req: ReqGetCourseWj,
@@ -134,7 +164,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 4,
+    "version": 5,
     "services": [
         {
             "id": 0,
@@ -147,8 +177,23 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 26,
+            "name": "AddCourseCommunitySupport",
+            "type": "api"
+        },
+        {
             "id": 1,
             "name": "AddCourseHomework",
+            "type": "api"
+        },
+        {
+            "id": 27,
+            "name": "AddCourseProvider",
+            "type": "api"
+        },
+        {
+            "id": 28,
+            "name": "AddCourseTeacher",
             "type": "api"
         },
         {
@@ -212,8 +257,23 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 29,
+            "name": "GetCourseCommunitySupport",
+            "type": "api"
+        },
+        {
             "id": 12,
             "name": "GetCourseHomework",
+            "type": "api"
+        },
+        {
+            "id": 30,
+            "name": "GetCourseProvider",
+            "type": "api"
+        },
+        {
+            "id": 31,
+            "name": "GetCourseTeacher",
             "type": "api"
         },
         {
@@ -409,6 +469,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlAddCourseCommunitySupport/ReqAddCourseCommunitySupport": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_community_support_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_community_support_info",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseCommunitySupport/ResAddCourseCommunitySupport": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "PtlAddCourseHomework/ReqAddCourseHomework": {
             "type": "Interface",
             "properties": [
@@ -429,6 +520,68 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "PtlAddCourseHomework/ResAddCourseHomework": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseProvider/ReqAddCourseProvider": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_provider_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_provider_info",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseProvider/ResAddCourseProvider": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseTeacher/ReqAddCourseTeacher": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_teacher_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_teacher_info",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlAddCourseTeacher/ResAddCourseTeacher": {
             "type": "Interface",
             "properties": [
                 {
@@ -949,6 +1102,28 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "PtlGetCourseCommunitySupport/ReqGetCourseCommunitySupport": {
+            "type": "Interface"
+        },
+        "PtlGetCourseCommunitySupport/ResGetCourseCommunitySupport": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_community_support_info",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
         "PtlGetCourseHomework/ReqGetCourseHomework": {
             "type": "Interface",
             "properties": [
@@ -999,6 +1174,50 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "String"
                     },
                     "optional": true
+                }
+            ]
+        },
+        "PtlGetCourseProvider/ReqGetCourseProvider": {
+            "type": "Interface"
+        },
+        "PtlGetCourseProvider/ResGetCourseProvider": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_provider_info",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlGetCourseTeacher/ReqGetCourseTeacher": {
+            "type": "Interface"
+        },
+        "PtlGetCourseTeacher/ResGetCourseTeacher": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_teacher_infos",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },
