@@ -7,6 +7,9 @@ export class Course_teacher {
     id!: number;
 
     @Column()
+    course_teacher_name!: string;
+
+    @Column()
     course_teacher_info!: string;
 
     @CreateDateColumn()
