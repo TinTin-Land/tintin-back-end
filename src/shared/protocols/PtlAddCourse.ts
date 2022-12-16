@@ -21,6 +21,7 @@ export interface ReqAddCourse {
     course_advantages: string;
     course_provider: string;
     course_student_profile_feedback:string
+    course_target_user_group:string;
     course_community_support: string;
 }
 
