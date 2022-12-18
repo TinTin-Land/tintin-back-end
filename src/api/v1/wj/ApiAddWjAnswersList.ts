@@ -5,6 +5,7 @@ import {Third_party_access_token} from "../../../entity/third_party_access_token
 import {ReqAddWjAnswersList, ResAddWjAnswersList} from "../../../shared/protocols/v1/wj/PtlAddWjAnswersList";
 import {Course_wj_url} from "../../../entity/course_wj_url";
 import {Course_survey_result} from "../../../entity/course_survey_result";
+import {User_wj_login_code} from "../../../entity/user_wj_login_code";
 
 const appid = 'tpidwOboHH9e';
 
@@ -55,17 +56,36 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
                 const wj_open_id = response.data.data.list[i].third_party_user.nickname;
                 wj_open_id_array.push(wj_open_id);
             }
+            const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
+                .where("course_survey_result.course_name = :course_name", { course_name })
+                .getCount();
 
-            const course_survey_result = new Course_survey_result();
-            course_survey_result.survey_id = course_wj_url_list[i].survey_id;
-            course_survey_result.survey_result = JSON.stringify(wj_open_id_array);
-            await getRepository(Course_survey_result).save(course_survey_result);
-            await call.succ({
-                time: time,
-            });
+
+            if (course_survey_result){
+                const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
+                    .where("course_survey_result.course_name = :course_name", { course_name })
+                    .getMany();
+                for (let i = 0; i < course_survey_result.length ;i++){
+                    course_survey_result[i].survey_result = JSON.stringify(wj_open_id_array);
+                };
+                await getRepository(Course_survey_result).save(course_survey_result);
+                await call.succ({
+                    time: time,
+                });
+
+            }else{
+                const course_survey_result = new Course_survey_result();
+                course_survey_result.course_name = course_name;
+                course_survey_result.survey_id = course_wj_url_list[i].survey_id;
+                course_survey_result.survey_result = JSON.stringify(wj_open_id_array);
+                await getRepository(Course_survey_result).insert(course_survey_result);
+                await call.succ({
+                    time: time,
+                });
+            }
         }else{
             await call.error('Content is empty');
             return;
-        }
+        };
     }
 }

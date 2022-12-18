@@ -6,21 +6,26 @@ import {ReqGetCourseWjResult, ResGetCourseWjResult} from "../../../shared/protoc
 
 export default async function (call: ApiCall<ReqGetCourseWjResult, ResGetCourseWjResult>) {
     // Error
-    if (call.req.survey_id === '') {
+    if (call.req.course_name === '') {
         await call.error('Content is empty');
         return;
     }
     let time = new Date();
 
 
-    const survey_id = call.req.survey_id;
+    const course_name = call.req.course_name;
     const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
-        .where("course_survey_result.survey_id = :survey_id", { survey_id })
-        .getOne();
+        .where("course_survey_result.course_name = :course_name", { course_name })
+        .getMany();
+
+    let survey_result = []
+    for (let i = 0; i < course_survey_result.length ;i++){
+        survey_result.push(course_survey_result[i].survey_result)
+    }
 
     await call.succ(<ResGetCourseWjResult>{
         time: time,
-        wj_open_id: course_survey_result?.survey_result
+        unique_username:JSON.stringify(survey_result)
     });
 
 
