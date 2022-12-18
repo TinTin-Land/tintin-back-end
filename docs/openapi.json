@@ -1,19 +1,22 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Open API",
+    "title": "TSRPC Open API",
     "version": "1.0.0"
   },
   "paths": {
-    "/AddCourse": {
+    "/v1/course/AddCourse": {
       "post": {
-        "operationId": "AddCourse",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourse",
         "requestBody": {
           "description": "Req<AddCourse>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlAddCourse_ReqAddCourse"
+                "$ref": "#/components/schemas/v1_course_PtlAddCourse_ReqAddCourse"
               }
             }
           }
@@ -35,7 +38,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlAddCourse_ResAddCourse"
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourse_ResAddCourse"
                     }
                   }
                 }
@@ -49,15 +52,18 @@
         }
       }
     },
-    "/AddCourseAdvantages": {
+    "/v1/course/AddCourseAdvantages": {
       "post": {
-        "operationId": "AddCourseAdvantages",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseAdvantages",
         "requestBody": {
           "description": "Req<AddCourseAdvantages>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlAddCourseAdvantages_ReqAddCourseAdvantages"
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseAdvantages_ReqAddCourseAdvantages"
               }
             }
           }
@@ -79,7 +85,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlAddCourseAdvantages_ResAddCourseAdvantages"
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseAdvantages_ResAddCourseAdvantages"
                     }
                   }
                 }
@@ -93,15 +99,65 @@
         }
       }
     },
-    "/AddCourseHomework": {
+    "/v1/course/AddCourseCommunitySupport": {
       "post": {
-        "operationId": "AddCourseHomework",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseCommunitySupport",
+        "requestBody": {
+          "description": "Req<AddCourseCommunitySupport>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseCommunitySupport_ReqAddCourseCommunitySupport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseCommunitySupport>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseCommunitySupport_ResAddCourseCommunitySupport"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/AddCourseHomework": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseHomework",
         "requestBody": {
           "description": "Req<AddCourseHomework>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlAddCourseHomework_ReqAddCourseHomework"
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseHomework_ReqAddCourseHomework"
               }
             }
           }
@@ -123,7 +179,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlAddCourseHomework_ResAddCourseHomework"
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseHomework_ResAddCourseHomework"
                     }
                   }
                 }
@@ -137,15 +193,112 @@
         }
       }
     },
-    "/AddCourseWj": {
+    "/v1/course/AddCourseProvider": {
       "post": {
-        "operationId": "AddCourseWj",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseProvider",
+        "requestBody": {
+          "description": "Req<AddCourseProvider>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseProvider_ReqAddCourseProvider"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseProvider>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseProvider_ResAddCourseProvider"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/AddCourseTeacher": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseTeacher",
+        "requestBody": {
+          "description": "Req<AddCourseTeacher>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseTeacher_ReqAddCourseTeacher"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddCourseTeacher>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseTeacher_ResAddCourseTeacher"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/AddCourseWj": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/AddCourseWj",
         "requestBody": {
           "description": "Req<AddCourseWj>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlAddCourseWj_ReqAddCourseWj"
+                "$ref": "#/components/schemas/v1_course_PtlAddCourseWj_ReqAddCourseWj"
               }
             }
           }
@@ -167,7 +320,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlAddCourseWj_ResAddCourseWj"
+                      "$ref": "#/components/schemas/v1_course_PtlAddCourseWj_ResAddCourseWj"
                     }
                   }
                 }
@@ -181,411 +334,18 @@
         }
       }
     },
-    "/AddUser": {
+    "/v1/course/GetCourse": {
       "post": {
-        "operationId": "AddUser",
-        "requestBody": {
-          "description": "Req<AddUser>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddUser_ReqAddUser"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddUser>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddUser_ResAddUser"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/AddUserCourseWj": {
-      "post": {
-        "operationId": "AddUserCourseWj",
-        "requestBody": {
-          "description": "Req<AddUserCourseWj>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddUserCourseWj_ReqAddUserCourseWj"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddUserCourseWj>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddUserCourseWj_ResAddUserCourseWj"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/AddWjAccessToken": {
-      "post": {
-        "operationId": "AddWjAccessToken",
-        "requestBody": {
-          "description": "Req<AddWjAccessToken>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddWjAccessToken_ReqAddWjAccessToken"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddWjAccessToken>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddWjAccessToken_ResAddWjAccessToken"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/AddWjAnswersList": {
-      "post": {
-        "operationId": "AddWjAnswersList",
-        "requestBody": {
-          "description": "Req<AddWjAnswersList>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddWjAnswersList_ReqAddWjAnswersList"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddWjAnswersList>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddWjAnswersList_ResAddWjAnswersList"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/AddWjLoginCode": {
-      "post": {
-        "operationId": "AddWjLoginCode",
-        "requestBody": {
-          "description": "Req<AddWjLoginCode>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddWjLoginCode_ReqAddWjLoginCode"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddWjLoginCode>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddWjLoginCode_ResAddWjLoginCode"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/AddWjUser": {
-      "post": {
-        "operationId": "AddWjUser",
-        "requestBody": {
-          "description": "Req<AddWjUser>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlAddWjUser_ReqAddWjUser"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResAddWjUser>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlAddWjUser_ResAddWjUser"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/CheckEmail": {
-      "post": {
-        "operationId": "CheckEmail",
-        "requestBody": {
-          "description": "Req<CheckEmail>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlCheckEmail_ReqCheckEmail"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResCheckEmail>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlCheckEmail_ResCheckEmail"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/EnrollCourse": {
-      "post": {
-        "operationId": "EnrollCourse",
-        "requestBody": {
-          "description": "Req<EnrollCourse>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlEnrollCourse_ReqEnrollCourse"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResEnrollCourse>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlEnrollCourse_ResEnrollCourse"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/EnrollUser": {
-      "post": {
-        "operationId": "EnrollUser",
-        "requestBody": {
-          "description": "Req<EnrollUser>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlEnrollUser_ReqEnrollUser"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResEnrollUser>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlEnrollUser_ResEnrollUser"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/GetCourse": {
-      "post": {
-        "operationId": "GetCourse",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourse",
         "requestBody": {
           "description": "Req<GetCourse>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetCourse_ReqGetCourse"
+                "$ref": "#/components/schemas/v1_course_PtlGetCourse_ReqGetCourse"
               }
             }
           }
@@ -607,7 +367,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetCourse_ResGetCourse"
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourse_ResGetCourse"
                     }
                   }
                 }
@@ -621,15 +381,18 @@
         }
       }
     },
-    "/GetCourseAdvantages": {
+    "/v1/course/GetCourseAdvantages": {
       "post": {
-        "operationId": "GetCourseAdvantages",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseAdvantages",
         "requestBody": {
           "description": "Req<GetCourseAdvantages>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetCourseAdvantages_ReqGetCourseAdvantages"
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseAdvantages_ReqGetCourseAdvantages"
               }
             }
           }
@@ -651,7 +414,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetCourseAdvantages_ResGetCourseAdvantages"
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseAdvantages_ResGetCourseAdvantages"
                     }
                   }
                 }
@@ -665,15 +428,65 @@
         }
       }
     },
-    "/GetCourseHomework": {
+    "/v1/course/GetCourseCommunitySupport": {
       "post": {
-        "operationId": "GetCourseHomework",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseCommunitySupport",
+        "requestBody": {
+          "description": "Req<GetCourseCommunitySupport>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseCommunitySupport_ReqGetCourseCommunitySupport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseCommunitySupport>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseCommunitySupport_ResGetCourseCommunitySupport"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/GetCourseHomework": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseHomework",
         "requestBody": {
           "description": "Req<GetCourseHomework>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetCourseHomework_ReqGetCourseHomework"
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseHomework_ReqGetCourseHomework"
               }
             }
           }
@@ -695,7 +508,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetCourseHomework_ResGetCourseHomework"
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseHomework_ResGetCourseHomework"
                     }
                   }
                 }
@@ -709,15 +522,112 @@
         }
       }
     },
-    "/GetCourseWj": {
+    "/v1/course/GetCourseProvider": {
       "post": {
-        "operationId": "GetCourseWj",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseProvider",
+        "requestBody": {
+          "description": "Req<GetCourseProvider>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseProvider_ReqGetCourseProvider"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseProvider>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseProvider_ResGetCourseProvider"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/GetCourseTeacher": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseTeacher",
+        "requestBody": {
+          "description": "Req<GetCourseTeacher>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseTeacher_ReqGetCourseTeacher"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseTeacher>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseTeacher_ResGetCourseTeacher"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/course/GetCourseWj": {
+      "post": {
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseWj",
         "requestBody": {
           "description": "Req<GetCourseWj>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetCourseWj_ReqGetCourseWj"
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseWj_ReqGetCourseWj"
               }
             }
           }
@@ -739,7 +649,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetCourseWj_ResGetCourseWj"
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseWj_ResGetCourseWj"
                     }
                   }
                 }
@@ -753,15 +663,18 @@
         }
       }
     },
-    "/GetCourseWjResult": {
+    "/v1/course/GetCourseWjResult": {
       "post": {
-        "operationId": "GetCourseWjResult",
+        "tags": [
+          "v1/course"
+        ],
+        "operationId": "v1/course/GetCourseWjResult",
         "requestBody": {
           "description": "Req<GetCourseWjResult>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetCourseWjResult_ReqGetCourseWjResult"
+                "$ref": "#/components/schemas/v1_course_PtlGetCourseWjResult_ReqGetCourseWjResult"
               }
             }
           }
@@ -783,7 +696,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetCourseWjResult_ResGetCourseWjResult"
+                      "$ref": "#/components/schemas/v1_course_PtlGetCourseWjResult_ResGetCourseWjResult"
                     }
                   }
                 }
@@ -797,15 +710,18 @@
         }
       }
     },
-    "/GetThirdPartyUser": {
+    "/v1/email/CheckEmail": {
       "post": {
-        "operationId": "GetThirdPartyUser",
+        "tags": [
+          "v1/email"
+        ],
+        "operationId": "v1/email/CheckEmail",
         "requestBody": {
-          "description": "Req<GetThirdPartyUser>",
+          "description": "Req<CheckEmail>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlGetThirdPartyUser_ReqGetThirdPartyUser"
+                "$ref": "#/components/schemas/v1_email_PtlCheckEmail_ReqCheckEmail"
               }
             }
           }
@@ -817,7 +733,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "ApiReturn<ResGetThirdPartyUser>",
+                  "description": "ApiReturn<ResCheckEmail>",
                   "properties": {
                     "isSucc": {
                       "type": "boolean",
@@ -827,7 +743,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlGetThirdPartyUser_ResGetThirdPartyUser"
+                      "$ref": "#/components/schemas/v1_email_PtlCheckEmail_ResCheckEmail"
                     }
                   }
                 }
@@ -841,191 +757,18 @@
         }
       }
     },
-    "/GetUser": {
+    "/v1/email/SendEmail": {
       "post": {
-        "operationId": "GetUser",
-        "requestBody": {
-          "description": "Req<GetUser>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlGetUser_ReqGetUser"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResGetUser>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlGetUser_ResGetUser"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/GetUserCourseList": {
-      "post": {
-        "operationId": "GetUserCourseList",
-        "requestBody": {
-          "description": "Req<GetUserCourseList>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlGetUserCourseList_ReqGetUserCourseList"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResGetUserCourseList>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlGetUserCourseList_ResGetUserCourseList"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/GetUserCourseWj": {
-      "post": {
-        "operationId": "GetUserCourseWj",
-        "requestBody": {
-          "description": "Req<GetUserCourseWj>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlGetUserCourseWj_ReqGetUserCourseWj"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResGetUserCourseWj>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlGetUserCourseWj_ResGetUserCourseWj"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/GetWjAccessToken": {
-      "post": {
-        "operationId": "GetWjAccessToken",
-        "requestBody": {
-          "description": "Req<GetWjAccessToken>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PtlGetWjAccessToken_ReqGetWjAccessToken"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "ApiReturn<ResGetWjAccessToken>",
-                  "properties": {
-                    "isSucc": {
-                      "type": "boolean",
-                      "enum": [
-                        true
-                      ],
-                      "default": true
-                    },
-                    "res": {
-                      "$ref": "#/components/schemas/PtlGetWjAccessToken_ResGetWjAccessToken"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/SendEmail": {
-      "post": {
-        "operationId": "SendEmail",
+        "tags": [
+          "v1/email"
+        ],
+        "operationId": "v1/email/SendEmail",
         "requestBody": {
           "description": "Req<SendEmail>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlSendEmail_ReqSendEmail"
+                "$ref": "#/components/schemas/v1_email_PtlSendEmail_ReqSendEmail"
               }
             }
           }
@@ -1047,7 +790,7 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlSendEmail_ResSendEmail"
+                      "$ref": "#/components/schemas/v1_email_PtlSendEmail_ResSendEmail"
                     }
                   }
                 }
@@ -1061,15 +804,394 @@
         }
       }
     },
-    "/UpdateUser": {
+    "/v1/teachable/EnrollCourse": {
       "post": {
-        "operationId": "UpdateUser",
+        "tags": [
+          "v1/teachable"
+        ],
+        "operationId": "v1/teachable/EnrollCourse",
+        "requestBody": {
+          "description": "Req<EnrollCourse>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_teachable_PtlEnrollCourse_ReqEnrollCourse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResEnrollCourse>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_teachable_PtlEnrollCourse_ResEnrollCourse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/teachable/EnrollUser": {
+      "post": {
+        "tags": [
+          "v1/teachable"
+        ],
+        "operationId": "v1/teachable/EnrollUser",
+        "requestBody": {
+          "description": "Req<EnrollUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_teachable_PtlEnrollUser_ReqEnrollUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResEnrollUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_teachable_PtlEnrollUser_ResEnrollUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/AddUser": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/AddUser",
+        "requestBody": {
+          "description": "Req<AddUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlAddUser_ReqAddUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlAddUser_ResAddUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/AddUserCourseWj": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/AddUserCourseWj",
+        "requestBody": {
+          "description": "Req<AddUserCourseWj>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlAddUserCourseWj_ReqAddUserCourseWj"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddUserCourseWj>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlAddUserCourseWj_ResAddUserCourseWj"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/GetThirdPartyUser": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/GetThirdPartyUser",
+        "requestBody": {
+          "description": "Req<GetThirdPartyUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlGetThirdPartyUser_ReqGetThirdPartyUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetThirdPartyUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlGetThirdPartyUser_ResGetThirdPartyUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/GetUser": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/GetUser",
+        "requestBody": {
+          "description": "Req<GetUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlGetUser_ReqGetUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlGetUser_ResGetUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/GetUserCourseList": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/GetUserCourseList",
+        "requestBody": {
+          "description": "Req<GetUserCourseList>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlGetUserCourseList_ReqGetUserCourseList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetUserCourseList>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlGetUserCourseList_ResGetUserCourseList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/GetUserCourseWj": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/GetUserCourseWj",
+        "requestBody": {
+          "description": "Req<GetUserCourseWj>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_user_PtlGetUserCourseWj_ReqGetUserCourseWj"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetUserCourseWj>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_user_PtlGetUserCourseWj_ResGetUserCourseWj"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/user/UpdateUser": {
+      "post": {
+        "tags": [
+          "v1/user"
+        ],
+        "operationId": "v1/user/UpdateUser",
         "requestBody": {
           "description": "Req<UpdateUser>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PtlUpdateUser_ReqUpdateUser"
+                "$ref": "#/components/schemas/v1_user_PtlUpdateUser_ReqUpdateUser"
               }
             }
           }
@@ -1091,7 +1213,242 @@
                       "default": true
                     },
                     "res": {
-                      "$ref": "#/components/schemas/PtlUpdateUser_ResUpdateUser"
+                      "$ref": "#/components/schemas/v1_user_PtlUpdateUser_ResUpdateUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/wj/AddWjAccessToken": {
+      "post": {
+        "tags": [
+          "v1/wj"
+        ],
+        "operationId": "v1/wj/AddWjAccessToken",
+        "requestBody": {
+          "description": "Req<AddWjAccessToken>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_wj_PtlAddWjAccessToken_ReqAddWjAccessToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjAccessToken>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_wj_PtlAddWjAccessToken_ResAddWjAccessToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/wj/AddWjAnswersList": {
+      "post": {
+        "tags": [
+          "v1/wj"
+        ],
+        "operationId": "v1/wj/AddWjAnswersList",
+        "requestBody": {
+          "description": "Req<AddWjAnswersList>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_wj_PtlAddWjAnswersList_ReqAddWjAnswersList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjAnswersList>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_wj_PtlAddWjAnswersList_ResAddWjAnswersList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/wj/AddWjLoginCode": {
+      "post": {
+        "tags": [
+          "v1/wj"
+        ],
+        "operationId": "v1/wj/AddWjLoginCode",
+        "requestBody": {
+          "description": "Req<AddWjLoginCode>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_wj_PtlAddWjLoginCode_ReqAddWjLoginCode"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjLoginCode>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_wj_PtlAddWjLoginCode_ResAddWjLoginCode"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/wj/AddWjUser": {
+      "post": {
+        "tags": [
+          "v1/wj"
+        ],
+        "operationId": "v1/wj/AddWjUser",
+        "requestBody": {
+          "description": "Req<AddWjUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_wj_PtlAddWjUser_ReqAddWjUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResAddWjUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_wj_PtlAddWjUser_ResAddWjUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/wj/GetWjAccessToken": {
+      "post": {
+        "tags": [
+          "v1/wj"
+        ],
+        "operationId": "v1/wj/GetWjAccessToken",
+        "requestBody": {
+          "description": "Req<GetWjAccessToken>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_wj_PtlGetWjAccessToken_ReqGetWjAccessToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetWjAccessToken>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_wj_PtlGetWjAccessToken_ResGetWjAccessToken"
                     }
                   }
                 }
@@ -1108,7 +1465,7 @@
   },
   "components": {
     "schemas": {
-      "PtlAddCourse_ReqAddCourse": {
+      "v1_course_PtlAddCourse_ReqAddCourse": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1151,6 +1508,9 @@
           "course_student_profile_feedback": {
             "type": "string"
           },
+          "course_target_user_group": {
+            "type": "string"
+          },
           "course_community_support": {
             "type": "string"
           }
@@ -1169,11 +1529,12 @@
           "course_advantages",
           "course_provider",
           "course_student_profile_feedback",
+          "course_target_user_group",
           "course_community_support"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlAddCourse_ResAddCourse": {
+      "v1_course_PtlAddCourse_ResAddCourse": {
         "type": "object",
         "properties": {
           "time": {
@@ -1186,7 +1547,7 @@
           "time"
         ]
       },
-      "PtlAddCourseAdvantages_ReqAddCourseAdvantages": {
+      "v1_course_PtlAddCourseAdvantages_ReqAddCourseAdvantages": {
         "type": "object",
         "properties": {
           "course_advantages_label": {
@@ -1203,7 +1564,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlAddCourseAdvantages_ResAddCourseAdvantages": {
+      "v1_course_PtlAddCourseAdvantages_ResAddCourseAdvantages": {
         "type": "object",
         "properties": {
           "time": {
@@ -1216,7 +1577,37 @@
           "time"
         ]
       },
-      "PtlAddCourseHomework_ReqAddCourseHomework": {
+      "v1_course_PtlAddCourseCommunitySupport_ReqAddCourseCommunitySupport": {
+        "type": "object",
+        "properties": {
+          "course_community_support_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_community_support_info": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_community_support_name",
+          "course_community_support_info"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlAddCourseCommunitySupport_ResAddCourseCommunitySupport": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_course_PtlAddCourseHomework_ReqAddCourseHomework": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1233,7 +1624,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlAddCourseHomework_ResAddCourseHomework": {
+      "v1_course_PtlAddCourseHomework_ResAddCourseHomework": {
         "type": "object",
         "properties": {
           "time": {
@@ -1246,7 +1637,67 @@
           "time"
         ]
       },
-      "PtlAddCourseWj_ReqAddCourseWj": {
+      "v1_course_PtlAddCourseProvider_ReqAddCourseProvider": {
+        "type": "object",
+        "properties": {
+          "course_provider_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_provider_info": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_provider_name",
+          "course_provider_info"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlAddCourseProvider_ResAddCourseProvider": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_course_PtlAddCourseTeacher_ReqAddCourseTeacher": {
+        "type": "object",
+        "properties": {
+          "course_teacher_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_teacher_info": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "course_teacher_name",
+          "course_teacher_info"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlAddCourseTeacher_ResAddCourseTeacher": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_course_PtlAddCourseWj_ReqAddCourseWj": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1263,7 +1714,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlAddCourseWj_ResAddCourseWj": {
+      "v1_course_PtlAddCourseWj_ResAddCourseWj": {
         "type": "object",
         "properties": {
           "time": {
@@ -1276,89 +1727,7 @@
           "time"
         ]
       },
-      "PtlAddUser_ReqAddUser": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "user_email": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "username",
-          "user_email"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlAddUser_ResAddUser": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          }
-        },
-        "required": [
-          "time"
-        ]
-      },
-      "PtlAddUserCourseWj_ReqAddUserCourseWj": {
-        "type": "object",
-        "properties": {
-          "user_email": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "course_name": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "user_email",
-          "course_name"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlAddUserCourseWj_ResAddUserCourseWj": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          }
-        },
-        "required": [
-          "time"
-        ]
-      },
-      "PtlAddWjAccessToken_ReqAddWjAccessToken": {
-        "type": "object",
-        "properties": {},
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlAddWjAccessToken_ResAddWjAccessToken": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          },
-          "access_token": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "time",
-          "access_token"
-        ]
-      },
-      "PtlAddWjAnswersList_ReqAddWjAnswersList": {
+      "v1_course_PtlGetCourse_ReqGetCourse": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1371,199 +1740,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlAddWjAnswersList_ResAddWjAnswersList": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          }
-        },
-        "required": [
-          "time"
-        ]
-      },
-      "PtlAddWjLoginCode_ReqAddWjLoginCode": {
-        "type": "object",
-        "properties": {
-          "user_email": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          }
-        },
-        "required": [
-          "user_email"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlAddWjLoginCode_ResAddWjLoginCode": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          },
-          "code": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "time",
-          "code"
-        ]
-      },
-      "PtlAddWjUser_ReqAddWjUser": {
-        "type": "object",
-        "properties": {
-          "user_email": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "openid": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "user_email",
-          "openid"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlAddWjUser_ResAddWjUser": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          },
-          "user_id": {
-            "type": "number"
-          }
-        },
-        "required": [
-          "time",
-          "user_id"
-        ]
-      },
-      "PtlCheckEmail_ReqCheckEmail": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "code": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email",
-          "code"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlCheckEmail_ResCheckEmail": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          },
-          "state": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "time",
-          "state"
-        ]
-      },
-      "PtlEnrollCourse_ReqEnrollCourse": {
-        "type": "object",
-        "properties": {
-          "user_id": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "course_id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "user_id",
-          "course_id"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlEnrollCourse_ResEnrollCourse": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          }
-        },
-        "required": [
-          "time"
-        ]
-      },
-      "PtlEnrollUser_ReqEnrollUser": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          },
-          "email": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "src": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "email",
-          "password",
-          "src"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlEnrollUser_ResEnrollUser": {
-        "type": "object",
-        "properties": {
-          "time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "服务端内容创建时间"
-          }
-        },
-        "required": [
-          "time"
-        ]
-      },
-      "PtlGetCourse_ReqGetCourse": {
-        "type": "object",
-        "properties": {
-          "course_name": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          }
-        },
-        "required": [
-          "course_name"
-        ],
-        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
-      },
-      "PtlGetCourse_ResGetCourse": {
+      "v1_course_PtlGetCourse_ResGetCourse": {
         "type": "object",
         "properties": {
           "time": {
@@ -1633,20 +1810,12 @@
           }
         }
       },
-      "PtlGetCourseAdvantages_ReqGetCourseAdvantages": {
+      "v1_course_PtlGetCourseAdvantages_ReqGetCourseAdvantages": {
         "type": "object",
-        "properties": {
-          "course_advantages_label": {
-            "type": "string",
-            "description": "要增加的消息内容"
-          }
-        },
-        "required": [
-          "course_advantages_label"
-        ],
+        "properties": {},
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetCourseAdvantages_ResGetCourseAdvantages": {
+      "v1_course_PtlGetCourseAdvantages_ResGetCourseAdvantages": {
         "type": "object",
         "properties": {
           "time": {
@@ -1654,16 +1823,38 @@
             "format": "date-time",
             "description": "服务端内容创建时间"
           },
-          "course_advantages_content": {
+          "course_advantages": {
             "type": "string"
           }
         },
         "required": [
           "time",
-          "course_advantages_content"
+          "course_advantages"
         ]
       },
-      "PtlGetCourseHomework_ReqGetCourseHomework": {
+      "v1_course_PtlGetCourseCommunitySupport_ReqGetCourseCommunitySupport": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlGetCourseCommunitySupport_ResGetCourseCommunitySupport": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_community_support_info": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_community_support_info"
+        ]
+      },
+      "v1_course_PtlGetCourseHomework_ReqGetCourseHomework": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1676,7 +1867,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetCourseHomework_ResGetCourseHomework": {
+      "v1_course_PtlGetCourseHomework_ResGetCourseHomework": {
         "type": "object",
         "properties": {
           "time": {
@@ -1704,7 +1895,51 @@
           }
         }
       },
-      "PtlGetCourseWj_ReqGetCourseWj": {
+      "v1_course_PtlGetCourseProvider_ReqGetCourseProvider": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlGetCourseProvider_ResGetCourseProvider": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_provider_info": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_provider_info"
+        ]
+      },
+      "v1_course_PtlGetCourseTeacher_ReqGetCourseTeacher": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_course_PtlGetCourseTeacher_ResGetCourseTeacher": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_teacher_infos": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_teacher_infos"
+        ]
+      },
+      "v1_course_PtlGetCourseWj_ReqGetCourseWj": {
         "type": "object",
         "properties": {
           "course_name": {
@@ -1717,7 +1952,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetCourseWj_ResGetCourseWj": {
+      "v1_course_PtlGetCourseWj_ResGetCourseWj": {
         "type": "object",
         "properties": {
           "time": {
@@ -1734,7 +1969,7 @@
           "course_wj_url_list"
         ]
       },
-      "PtlGetCourseWjResult_ReqGetCourseWjResult": {
+      "v1_course_PtlGetCourseWjResult_ReqGetCourseWjResult": {
         "type": "object",
         "properties": {
           "survey_id": {
@@ -1747,7 +1982,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetCourseWjResult_ResGetCourseWjResult": {
+      "v1_course_PtlGetCourseWjResult_ResGetCourseWjResult": {
         "type": "object",
         "properties": {
           "time": {
@@ -1764,7 +1999,195 @@
           "wj_open_id"
         ]
       },
-      "PtlGetThirdPartyUser_ReqGetThirdPartyUser": {
+      "v1_email_PtlCheckEmail_ReqCheckEmail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "code"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_email_PtlCheckEmail_ResCheckEmail": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "state": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "time",
+          "state"
+        ]
+      },
+      "v1_email_PtlSendEmail_ReqSendEmail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_email_PtlSendEmail_ResSendEmail": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_teachable_PtlEnrollCourse_ReqEnrollCourse": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "course_id"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_teachable_PtlEnrollCourse_ResEnrollCourse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_teachable_PtlEnrollUser_ReqEnrollUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "src": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "src"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_teachable_PtlEnrollUser_ResEnrollUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_user_PtlAddUser_ReqAddUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "user_email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_user_PtlAddUser_ResAddUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_user_PtlAddUserCourseWj_ReqAddUserCourseWj": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "course_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_email",
+          "course_name"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_user_PtlAddUserCourseWj_ResAddUserCourseWj": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "v1_user_PtlGetThirdPartyUser_ReqGetThirdPartyUser": {
         "type": "object",
         "properties": {
           "user_email": {
@@ -1777,7 +2200,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetThirdPartyUser_ResGetThirdPartyUser": {
+      "v1_user_PtlGetThirdPartyUser_ResGetThirdPartyUser": {
         "type": "object",
         "properties": {
           "time": {
@@ -1794,7 +2217,7 @@
           "wj_open_id"
         ]
       },
-      "PtlGetUser_ReqGetUser": {
+      "v1_user_PtlGetUser_ReqGetUser": {
         "type": "object",
         "properties": {
           "user_email": {
@@ -1807,7 +2230,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetUser_ResGetUser": {
+      "v1_user_PtlGetUser_ResGetUser": {
         "type": "object",
         "properties": {
           "time": {
@@ -1868,7 +2291,7 @@
           }
         }
       },
-      "PtlGetUserCourseList_ReqGetUserCourseList": {
+      "v1_user_PtlGetUserCourseList_ReqGetUserCourseList": {
         "type": "object",
         "properties": {
           "email": {
@@ -1881,7 +2304,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetUserCourseList_ResGetUserCourseList": {
+      "v1_user_PtlGetUserCourseList_ResGetUserCourseList": {
         "type": "object",
         "properties": {
           "time": {
@@ -1898,7 +2321,7 @@
           "courses"
         ]
       },
-      "PtlGetUserCourseWj_ReqGetUserCourseWj": {
+      "v1_user_PtlGetUserCourseWj_ReqGetUserCourseWj": {
         "type": "object",
         "properties": {
           "user_email": {
@@ -1915,7 +2338,7 @@
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetUserCourseWj_ResGetUserCourseWj": {
+      "v1_user_PtlGetUserCourseWj_ResGetUserCourseWj": {
         "type": "object",
         "properties": {
           "time": {
@@ -1932,12 +2355,42 @@
           "user_course_wj_url_list"
         ]
       },
-      "PtlGetWjAccessToken_ReqGetWjAccessToken": {
+      "v1_user_PtlUpdateUser_ReqUpdateUser": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/___interface_user_user",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_user_PtlUpdateUser_ResUpdateUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user": {
+            "$ref": "#/components/schemas/___interface_user_user"
+          }
+        },
+        "required": [
+          "time",
+          "user"
+        ]
+      },
+      "v1_wj_PtlAddWjAccessToken_ReqAddWjAccessToken": {
         "type": "object",
         "properties": {},
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlGetWjAccessToken_ResGetWjAccessToken": {
+      "v1_wj_PtlAddWjAccessToken_ResAddWjAccessToken": {
         "type": "object",
         "properties": {
           "time": {
@@ -1954,20 +2407,20 @@
           "access_token"
         ]
       },
-      "PtlSendEmail_ReqSendEmail": {
+      "v1_wj_PtlAddWjAnswersList_ReqAddWjAnswersList": {
         "type": "object",
         "properties": {
-          "email": {
+          "course_name": {
             "type": "string",
             "description": "要增加的消息内容"
           }
         },
         "required": [
-          "email"
+          "course_name"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlSendEmail_ResSendEmail": {
+      "v1_wj_PtlAddWjAnswersList_ResAddWjAnswersList": {
         "type": "object",
         "properties": {
           "time": {
@@ -1980,20 +2433,20 @@
           "time"
         ]
       },
-      "PtlUpdateUser_ReqUpdateUser": {
+      "v1_wj_PtlAddWjLoginCode_ReqAddWjLoginCode": {
         "type": "object",
         "properties": {
-          "user": {
-            "$ref": "#/components/schemas/___interface_user_user",
+          "user_email": {
+            "type": "string",
             "description": "要增加的消息内容"
           }
         },
         "required": [
-          "user"
+          "user_email"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
-      "PtlUpdateUser_ResUpdateUser": {
+      "v1_wj_PtlAddWjLoginCode_ResAddWjLoginCode": {
         "type": "object",
         "properties": {
           "time": {
@@ -2001,13 +2454,69 @@
             "format": "date-time",
             "description": "服务端内容创建时间"
           },
-          "user": {
-            "$ref": "#/components/schemas/___interface_user_user"
+          "code": {
+            "type": "string"
           }
         },
         "required": [
           "time",
-          "user"
+          "code"
+        ]
+      },
+      "v1_wj_PtlAddWjUser_ReqAddWjUser": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          },
+          "openid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_email",
+          "openid"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_wj_PtlAddWjUser_ResAddWjUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "time",
+          "user_id"
+        ]
+      },
+      "v1_wj_PtlGetWjAccessToken_ReqGetWjAccessToken": {
+        "type": "object",
+        "properties": {},
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_wj_PtlGetWjAccessToken_ResGetWjAccessToken": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "access_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "access_token"
         ]
       },
       "?bson_ObjectID": {

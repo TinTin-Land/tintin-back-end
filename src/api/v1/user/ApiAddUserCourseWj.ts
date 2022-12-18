@@ -40,13 +40,28 @@ export default async function (call: ApiCall<ReqAddUserCourseWj, ResAddUserCours
             const url: string = `https://wj.qq.com/api/v2/redirect?appid=${appid}&code=${code}&action=${action}&survey_id=${survey_id}&survey_hash=${survey_hash}`;
             course_wj_url_list.push(url)
         };
-        const user_course_wj_url = new User_course_wj_url();
-        user_course_wj_url.user_email = call.req.user_email;
-        user_course_wj_url.course_name = call.req.course_name;
-        user_course_wj_url.user_course_wj_url_list = JSON.stringify(course_wj_url_list);
-        await getRepository(User_course_wj_url).insert(user_course_wj_url);
-        await call.succ({
-            time: time,
-        });
+
+
+        const user_course_wj_url = await getRepository(User_course_wj_url).createQueryBuilder("user_course_wj_url")
+            .where("user_course_wj_url.user_email = :user_email", { user_email })
+            .andWhere("user_course_wj_url.course_name = :course_name", { course_name })
+            .getOne();
+
+        if (user_course_wj_url != undefined){
+            user_course_wj_url.user_course_wj_url_list = JSON.stringify(course_wj_url_list);
+            await getRepository(User_course_wj_url).save(user_course_wj_url);
+            await call.succ({
+                time: time,
+            });
+        }else{
+            const user_course_wj_url = new User_course_wj_url();
+            user_course_wj_url.user_email = call.req.user_email;
+            user_course_wj_url.course_name = call.req.course_name;
+            user_course_wj_url.user_course_wj_url_list = JSON.stringify(course_wj_url_list);
+            await getRepository(User_course_wj_url).insert(user_course_wj_url);
+            await call.succ({
+                time: time,
+            });
+        }
     }
 }

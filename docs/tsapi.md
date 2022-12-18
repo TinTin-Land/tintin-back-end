@@ -9,40 +9,56 @@
 
 ## 目录
 
-- [增加数据](#/AddCourse)
-- [增加数据](#/AddCourseAdvantages)
-- [增加数据](#/AddCourseHomework)
-- [增加数据](#/AddCourseWj)
-- [增加数据](#/AddUser)
-- [增加数据](#/AddUserCourseWj)
-- [增加数据](#/AddWjAccessToken)
-- [增加数据](#/AddWjAnswersList)
-- [增加数据](#/AddWjLoginCode)
-- [增加数据](#/AddWjUser)
-- [增加数据](#/CheckEmail)
-- [增加数据](#/EnrollCourse)
-- [增加数据](#/EnrollUser)
-- [增加数据](#/GetCourse)
-- [增加数据](#/GetCourseAdvantages)
-- [增加数据](#/GetCourseHomework)
-- [增加数据](#/GetCourseWj)
-- [增加数据](#/GetCourseWjResult)
-- [增加数据](#/GetThirdPartyUser)
-- [增加数据](#/GetUser)
-- [增加数据](#/GetUserCourseList)
-- [增加数据](#/GetUserCourseWj)
-- [增加数据](#/GetWjAccessToken)
-- [增加数据](#/SendEmail)
-- [增加数据](#/UpdateUser)
+- v1
+    - course
+        - [增加数据](#/v1/course/AddCourse)
+        - [增加数据](#/v1/course/AddCourseAdvantages)
+        - [增加数据](#/v1/course/AddCourseCommunitySupport)
+        - [增加数据](#/v1/course/AddCourseHomework)
+        - [增加数据](#/v1/course/AddCourseProvider)
+        - [增加数据](#/v1/course/AddCourseTeacher)
+        - [增加数据](#/v1/course/AddCourseWj)
+        - [增加数据](#/v1/course/GetCourse)
+        - [增加数据](#/v1/course/GetCourseAdvantages)
+        - [增加数据](#/v1/course/GetCourseCommunitySupport)
+        - [增加数据](#/v1/course/GetCourseHomework)
+        - [增加数据](#/v1/course/GetCourseProvider)
+        - [增加数据](#/v1/course/GetCourseTeacher)
+        - [增加数据](#/v1/course/GetCourseWj)
+        - [增加数据](#/v1/course/GetCourseWjResult)
+    - email
+        - [增加数据](#/v1/email/CheckEmail)
+        - [增加数据](#/v1/email/SendEmail)
+    - teachable
+        - [增加数据](#/v1/teachable/EnrollCourse)
+        - [增加数据](#/v1/teachable/EnrollUser)
+    - user
+        - [增加数据](#/v1/user/AddUser)
+        - [增加数据](#/v1/user/AddUserCourseWj)
+        - [增加数据](#/v1/user/GetThirdPartyUser)
+        - [增加数据](#/v1/user/GetUser)
+        - [增加数据](#/v1/user/GetUserCourseList)
+        - [增加数据](#/v1/user/GetUserCourseWj)
+        - [增加数据](#/v1/user/UpdateUser)
+    - wj
+        - [增加数据](#/v1/wj/AddWjAccessToken)
+        - [增加数据](#/v1/wj/AddWjAnswersList)
+        - [增加数据](#/v1/wj/AddWjLoginCode)
+        - [增加数据](#/v1/wj/AddWjUser)
+        - [增加数据](#/v1/wj/GetWjAccessToken)
 
 ---
 
-## 增加数据 <a id="/AddCourse"></a>
+## v1
+
+### course
+
+#### 增加数据 <a id="/v1/course/AddCourse"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/AddCourse`
+- POST `/v1/course/AddCourse`
 
 **请求**
 ```ts
@@ -61,6 +77,7 @@ interface ReqAddCourse {
     course_advantages: string,
     course_provider: string,
     course_student_profile_feedback: string,
+    course_target_user_group: string,
     course_community_support: string
 }
 ```
@@ -75,12 +92,12 @@ interface ResAddCourse {
 
 ---
 
-## 增加数据 <a id="/AddCourseAdvantages"></a>
+#### 增加数据 <a id="/v1/course/AddCourseAdvantages"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/AddCourseAdvantages`
+- POST `/v1/course/AddCourseAdvantages`
 
 **请求**
 ```ts
@@ -101,12 +118,38 @@ interface ResAddCourseAdvantages {
 
 ---
 
-## 增加数据 <a id="/AddCourseHomework"></a>
+#### 增加数据 <a id="/v1/course/AddCourseCommunitySupport"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/AddCourseHomework`
+- POST `/v1/course/AddCourseCommunitySupport`
+
+**请求**
+```ts
+interface ReqAddCourseCommunitySupport {
+    /** 要增加的消息内容 */
+    course_community_support_name: string,
+    course_community_support_info: string
+}
+```
+
+**响应**
+```ts
+interface ResAddCourseCommunitySupport {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/AddCourseHomework"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/AddCourseHomework`
 
 **请求**
 ```ts
@@ -127,12 +170,64 @@ interface ResAddCourseHomework {
 
 ---
 
-## 增加数据 <a id="/AddCourseWj"></a>
+#### 增加数据 <a id="/v1/course/AddCourseProvider"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/AddCourseWj`
+- POST `/v1/course/AddCourseProvider`
+
+**请求**
+```ts
+interface ReqAddCourseProvider {
+    /** 要增加的消息内容 */
+    course_provider_name: string,
+    course_provider_info: string
+}
+```
+
+**响应**
+```ts
+interface ResAddCourseProvider {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/AddCourseTeacher"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/AddCourseTeacher`
+
+**请求**
+```ts
+interface ReqAddCourseTeacher {
+    /** 要增加的消息内容 */
+    course_teacher_name: string,
+    course_teacher_info: string
+}
+```
+
+**响应**
+```ts
+interface ResAddCourseTeacher {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/AddCourseWj"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/AddCourseWj`
 
 **请求**
 ```ts
@@ -153,248 +248,12 @@ interface ResAddCourseWj {
 
 ---
 
-## 增加数据 <a id="/AddUser"></a>
+#### 增加数据 <a id="/v1/course/GetCourse"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/AddUser`
-
-**请求**
-```ts
-interface ReqAddUser {
-    /** 要增加的消息内容 */
-    username: string,
-    user_email: string
-}
-```
-
-**响应**
-```ts
-interface ResAddUser {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/AddUserCourseWj"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/AddUserCourseWj`
-
-**请求**
-```ts
-interface ReqAddUserCourseWj {
-    /** 要增加的消息内容 */
-    user_email: string,
-    course_name: string
-}
-```
-
-**响应**
-```ts
-interface ResAddUserCourseWj {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/AddWjAccessToken"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/AddWjAccessToken`
-
-**请求**
-```ts
-interface ReqAddWjAccessToken {
-
-}
-```
-
-**响应**
-```ts
-interface ResAddWjAccessToken {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    access_token: string
-}
-```
-
----
-
-## 增加数据 <a id="/AddWjAnswersList"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/AddWjAnswersList`
-
-**请求**
-```ts
-interface ReqAddWjAnswersList {
-    /** 要增加的消息内容 */
-    course_name: string
-}
-```
-
-**响应**
-```ts
-interface ResAddWjAnswersList {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/AddWjLoginCode"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/AddWjLoginCode`
-
-**请求**
-```ts
-interface ReqAddWjLoginCode {
-    /** 要增加的消息内容 */
-    user_email: string
-}
-```
-
-**响应**
-```ts
-interface ResAddWjLoginCode {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    code: string
-}
-```
-
----
-
-## 增加数据 <a id="/AddWjUser"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/AddWjUser`
-
-**请求**
-```ts
-interface ReqAddWjUser {
-    /** 要增加的消息内容 */
-    user_email: string,
-    openid: string
-}
-```
-
-**响应**
-```ts
-interface ResAddWjUser {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    user_id: number
-}
-```
-
----
-
-## 增加数据 <a id="/CheckEmail"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/CheckEmail`
-
-**请求**
-```ts
-interface ReqCheckEmail {
-    /** 要增加的消息内容 */
-    email: string,
-    code: string
-}
-```
-
-**响应**
-```ts
-interface ResCheckEmail {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    state: boolean
-}
-```
-
----
-
-## 增加数据 <a id="/EnrollCourse"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/EnrollCourse`
-
-**请求**
-```ts
-interface ReqEnrollCourse {
-    /** 要增加的消息内容 */
-    user_id: string,
-    course_id: string
-}
-```
-
-**响应**
-```ts
-interface ResEnrollCourse {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/EnrollUser"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/EnrollUser`
-
-**请求**
-```ts
-interface ReqEnrollUser {
-    /** 要增加的消息内容 */
-    name: string,
-    email: string,
-    password: string,
-    src: string
-}
-```
-
-**响应**
-```ts
-interface ResEnrollUser {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/GetCourse"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/GetCourse`
+- POST `/v1/course/GetCourse`
 
 **请求**
 ```ts
@@ -432,18 +291,17 @@ interface ResGetCourse {
 
 ---
 
-## 增加数据 <a id="/GetCourseAdvantages"></a>
+#### 增加数据 <a id="/v1/course/GetCourseAdvantages"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetCourseAdvantages`
+- POST `/v1/course/GetCourseAdvantages`
 
 **请求**
 ```ts
 interface ReqGetCourseAdvantages {
-    /** 要增加的消息内容 */
-    course_advantages_label: string
+
 }
 ```
 
@@ -452,18 +310,43 @@ interface ReqGetCourseAdvantages {
 interface ResGetCourseAdvantages {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
-    course_advantages_content: string
+    course_advantages: string
 }
 ```
 
 ---
 
-## 增加数据 <a id="/GetCourseHomework"></a>
+#### 增加数据 <a id="/v1/course/GetCourseCommunitySupport"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetCourseHomework`
+- POST `/v1/course/GetCourseCommunitySupport`
+
+**请求**
+```ts
+interface ReqGetCourseCommunitySupport {
+
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseCommunitySupport {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_community_support_info: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/GetCourseHomework"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/GetCourseHomework`
 
 **请求**
 ```ts
@@ -487,12 +370,62 @@ interface ResGetCourseHomework {
 
 ---
 
-## 增加数据 <a id="/GetCourseWj"></a>
+#### 增加数据 <a id="/v1/course/GetCourseProvider"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetCourseWj`
+- POST `/v1/course/GetCourseProvider`
+
+**请求**
+```ts
+interface ReqGetCourseProvider {
+
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseProvider {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_provider_info: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/GetCourseTeacher"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/GetCourseTeacher`
+
+**请求**
+```ts
+interface ReqGetCourseTeacher {
+
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseTeacher {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_teacher_infos: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/course/GetCourseWj"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/course/GetCourseWj`
 
 **请求**
 ```ts
@@ -513,12 +446,12 @@ interface ResGetCourseWj {
 
 ---
 
-## 增加数据 <a id="/GetCourseWjResult"></a>
+#### 增加数据 <a id="/v1/course/GetCourseWjResult"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetCourseWjResult`
+- POST `/v1/course/GetCourseWjResult`
 
 **请求**
 ```ts
@@ -539,12 +472,176 @@ interface ResGetCourseWjResult {
 
 ---
 
-## 增加数据 <a id="/GetThirdPartyUser"></a>
+### email
+
+#### 增加数据 <a id="/v1/email/CheckEmail"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetThirdPartyUser`
+- POST `/v1/email/CheckEmail`
+
+**请求**
+```ts
+interface ReqCheckEmail {
+    /** 要增加的消息内容 */
+    email: string,
+    code: string
+}
+```
+
+**响应**
+```ts
+interface ResCheckEmail {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    state: boolean
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/email/SendEmail"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/email/SendEmail`
+
+**请求**
+```ts
+interface ReqSendEmail {
+    /** 要增加的消息内容 */
+    email: string
+}
+```
+
+**响应**
+```ts
+interface ResSendEmail {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+### teachable
+
+#### 增加数据 <a id="/v1/teachable/EnrollCourse"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/teachable/EnrollCourse`
+
+**请求**
+```ts
+interface ReqEnrollCourse {
+    /** 要增加的消息内容 */
+    user_id: string,
+    course_id: string
+}
+```
+
+**响应**
+```ts
+interface ResEnrollCourse {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/teachable/EnrollUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/teachable/EnrollUser`
+
+**请求**
+```ts
+interface ReqEnrollUser {
+    /** 要增加的消息内容 */
+    name: string,
+    email: string,
+    password: string,
+    src: string
+}
+```
+
+**响应**
+```ts
+interface ResEnrollUser {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+### user
+
+#### 增加数据 <a id="/v1/user/AddUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/user/AddUser`
+
+**请求**
+```ts
+interface ReqAddUser {
+    /** 要增加的消息内容 */
+    username: string,
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResAddUser {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/user/AddUserCourseWj"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/user/AddUserCourseWj`
+
+**请求**
+```ts
+interface ReqAddUserCourseWj {
+    /** 要增加的消息内容 */
+    user_email: string,
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResAddUserCourseWj {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/user/GetThirdPartyUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/user/GetThirdPartyUser`
 
 **请求**
 ```ts
@@ -565,12 +662,12 @@ interface ResGetThirdPartyUser {
 
 ---
 
-## 增加数据 <a id="/GetUser"></a>
+#### 增加数据 <a id="/v1/user/GetUser"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetUser`
+- POST `/v1/user/GetUser`
 
 **请求**
 ```ts
@@ -605,12 +702,12 @@ interface ResGetUser {
 
 ---
 
-## 增加数据 <a id="/GetUserCourseList"></a>
+#### 增加数据 <a id="/v1/user/GetUserCourseList"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetUserCourseList`
+- POST `/v1/user/GetUserCourseList`
 
 **请求**
 ```ts
@@ -631,12 +728,12 @@ interface ResGetUserCourseList {
 
 ---
 
-## 增加数据 <a id="/GetUserCourseWj"></a>
+#### 增加数据 <a id="/v1/user/GetUserCourseWj"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetUserCourseWj`
+- POST `/v1/user/GetUserCourseWj`
 
 **请求**
 ```ts
@@ -658,62 +755,12 @@ interface ResGetUserCourseWj {
 
 ---
 
-## 增加数据 <a id="/GetWjAccessToken"></a>
+#### 增加数据 <a id="/v1/user/UpdateUser"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
 
 **路径**
-- POST `/GetWjAccessToken`
-
-**请求**
-```ts
-interface ReqGetWjAccessToken {
-
-}
-```
-
-**响应**
-```ts
-interface ResGetWjAccessToken {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string,
-    access_token: string
-}
-```
-
----
-
-## 增加数据 <a id="/SendEmail"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/SendEmail`
-
-**请求**
-```ts
-interface ReqSendEmail {
-    /** 要增加的消息内容 */
-    email: string
-}
-```
-
-**响应**
-```ts
-interface ResSendEmail {
-    /** 服务端内容创建时间 */
-    time: /*datetime*/ string
-}
-```
-
----
-
-## 增加数据 <a id="/UpdateUser"></a>
-
-此处的注释将会自动附带到生成的 API 文档中
-
-**路径**
-- POST `/UpdateUser`
+- POST `/v1/user/UpdateUser`
 
 **请求**
 ```ts
@@ -757,6 +804,136 @@ interface ResUpdateUser {
         telegram?: string,
         privacy?: boolean
     }
+}
+```
+
+---
+
+### wj
+
+#### 增加数据 <a id="/v1/wj/AddWjAccessToken"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/wj/AddWjAccessToken`
+
+**请求**
+```ts
+interface ReqAddWjAccessToken {
+
+}
+```
+
+**响应**
+```ts
+interface ResAddWjAccessToken {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    access_token: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/wj/AddWjAnswersList"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/wj/AddWjAnswersList`
+
+**请求**
+```ts
+interface ReqAddWjAnswersList {
+    /** 要增加的消息内容 */
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResAddWjAnswersList {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/wj/AddWjLoginCode"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/wj/AddWjLoginCode`
+
+**请求**
+```ts
+interface ReqAddWjLoginCode {
+    /** 要增加的消息内容 */
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResAddWjLoginCode {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    code: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/wj/AddWjUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/wj/AddWjUser`
+
+**请求**
+```ts
+interface ReqAddWjUser {
+    /** 要增加的消息内容 */
+    user_email: string,
+    openid: string
+}
+```
+
+**响应**
+```ts
+interface ResAddWjUser {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    user_id: number
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/wj/GetWjAccessToken"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/wj/GetWjAccessToken`
+
+**请求**
+```ts
+interface ReqGetWjAccessToken {
+
+}
+```
+
+**响应**
+```ts
+interface ResGetWjAccessToken {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    access_token: string
 }
 ```
 
