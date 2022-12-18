@@ -13,6 +13,7 @@ export default async function (call: ApiCall<ReqAddUser, ResAddUser>) {
 
 
     const user = new User();
+    user.unique_username = ''
     user.username = call.req.username;
     user.user_email = call.req.user_email;
     user.course_user = false;

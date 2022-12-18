@@ -40,7 +40,7 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
     const user = await getRepository(User).createQueryBuilder("user")
         .where("user.user_email = :user_email", { user_email })
         .getOne();
-    const nickname = user?.username;
+    const nickname = user?.unique_username;
     const avatar = 'https://wj.gtimg.com/default/default_headimg.png';
     const response = await api.post('/api/sso/users',{
         openid,

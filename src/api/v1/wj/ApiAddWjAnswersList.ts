@@ -52,9 +52,10 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
             const length = response.data.data.total;
             let wj_open_id_array = [];
             for (let i = 0; i < length; i++) {
-                const wj_open_id = response.data.data.list[i].third_party_user.respondent_id;
+                const wj_open_id = response.data.data.list[i].third_party_user.nickname;
                 wj_open_id_array.push(wj_open_id);
             }
+
             const course_survey_result = new Course_survey_result();
             course_survey_result.survey_id = course_wj_url_list[i].survey_id;
             course_survey_result.survey_result = JSON.stringify(wj_open_id_array);

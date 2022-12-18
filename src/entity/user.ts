@@ -13,6 +13,10 @@ export class User {
     @PrimaryGeneratedColumn({ type: 'bigint' })
     id!: number;
 
+
+    @Column()
+    unique_username!: string;
+
     @Column()
     username!: string;
 
