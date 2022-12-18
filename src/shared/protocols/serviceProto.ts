@@ -1,161 +1,161 @@
 import { ServiceProto } from 'tsrpc-proto';
-import { ReqAddCourse, ResAddCourse } from './PtlAddCourse';
-import { ReqAddCourseAdvantages, ResAddCourseAdvantages } from './PtlAddCourseAdvantages';
-import { ReqAddCourseCommunitySupport, ResAddCourseCommunitySupport } from './PtlAddCourseCommunitySupport';
-import { ReqAddCourseHomework, ResAddCourseHomework } from './PtlAddCourseHomework';
-import { ReqAddCourseProvider, ResAddCourseProvider } from './PtlAddCourseProvider';
-import { ReqAddCourseTeacher, ResAddCourseTeacher } from './PtlAddCourseTeacher';
-import { ReqAddCourseWj, ResAddCourseWj } from './PtlAddCourseWj';
-import { ReqAddUser, ResAddUser } from './PtlAddUser';
-import { ReqAddUserCourseWj, ResAddUserCourseWj } from './PtlAddUserCourseWj';
-import { ReqAddWjAccessToken, ResAddWjAccessToken } from './PtlAddWjAccessToken';
-import { ReqAddWjAnswersList, ResAddWjAnswersList } from './PtlAddWjAnswersList';
-import { ReqAddWjLoginCode, ResAddWjLoginCode } from './PtlAddWjLoginCode';
-import { ReqAddWjUser, ResAddWjUser } from './PtlAddWjUser';
-import { ReqCheckEmail, ResCheckEmail } from './PtlCheckEmail';
-import { ReqEnrollCourse, ResEnrollCourse } from './PtlEnrollCourse';
-import { ReqEnrollUser, ResEnrollUser } from './PtlEnrollUser';
-import { ReqGetCourse, ResGetCourse } from './PtlGetCourse';
-import { ReqGetCourseAdvantages, ResGetCourseAdvantages } from './PtlGetCourseAdvantages';
-import { ReqGetCourseCommunitySupport, ResGetCourseCommunitySupport } from './PtlGetCourseCommunitySupport';
-import { ReqGetCourseHomework, ResGetCourseHomework } from './PtlGetCourseHomework';
-import { ReqGetCourseProvider, ResGetCourseProvider } from './PtlGetCourseProvider';
-import { ReqGetCourseTeacher, ResGetCourseTeacher } from './PtlGetCourseTeacher';
-import { ReqGetCourseWj, ResGetCourseWj } from './PtlGetCourseWj';
-import { ReqGetCourseWjResult, ResGetCourseWjResult } from './PtlGetCourseWjResult';
-import { ReqGetThirdPartyUser, ResGetThirdPartyUser } from './PtlGetThirdPartyUser';
-import { ReqGetUser, ResGetUser } from './PtlGetUser';
-import { ReqGetUserCourseList, ResGetUserCourseList } from './PtlGetUserCourseList';
-import { ReqGetUserCourseWj, ResGetUserCourseWj } from './PtlGetUserCourseWj';
-import { ReqGetWjAccessToken, ResGetWjAccessToken } from './PtlGetWjAccessToken';
-import { ReqSendEmail, ResSendEmail } from './PtlSendEmail';
-import { ReqUpdateUser, ResUpdateUser } from './PtlUpdateUser';
+import { ReqAddCourse, ResAddCourse } from './v1/course/PtlAddCourse';
+import { ReqAddCourseAdvantages, ResAddCourseAdvantages } from './v1/course/PtlAddCourseAdvantages';
+import { ReqAddCourseCommunitySupport, ResAddCourseCommunitySupport } from './v1/course/PtlAddCourseCommunitySupport';
+import { ReqAddCourseHomework, ResAddCourseHomework } from './v1/course/PtlAddCourseHomework';
+import { ReqAddCourseProvider, ResAddCourseProvider } from './v1/course/PtlAddCourseProvider';
+import { ReqAddCourseTeacher, ResAddCourseTeacher } from './v1/course/PtlAddCourseTeacher';
+import { ReqAddCourseWj, ResAddCourseWj } from './v1/course/PtlAddCourseWj';
+import { ReqGetCourse, ResGetCourse } from './v1/course/PtlGetCourse';
+import { ReqGetCourseAdvantages, ResGetCourseAdvantages } from './v1/course/PtlGetCourseAdvantages';
+import { ReqGetCourseCommunitySupport, ResGetCourseCommunitySupport } from './v1/course/PtlGetCourseCommunitySupport';
+import { ReqGetCourseHomework, ResGetCourseHomework } from './v1/course/PtlGetCourseHomework';
+import { ReqGetCourseProvider, ResGetCourseProvider } from './v1/course/PtlGetCourseProvider';
+import { ReqGetCourseTeacher, ResGetCourseTeacher } from './v1/course/PtlGetCourseTeacher';
+import { ReqGetCourseWj, ResGetCourseWj } from './v1/course/PtlGetCourseWj';
+import { ReqGetCourseWjResult, ResGetCourseWjResult } from './v1/course/PtlGetCourseWjResult';
+import { ReqCheckEmail, ResCheckEmail } from './v1/email/PtlCheckEmail';
+import { ReqSendEmail, ResSendEmail } from './v1/email/PtlSendEmail';
+import { ReqEnrollCourse, ResEnrollCourse } from './v1/teachable/PtlEnrollCourse';
+import { ReqEnrollUser, ResEnrollUser } from './v1/teachable/PtlEnrollUser';
+import { ReqAddUser, ResAddUser } from './v1/user/PtlAddUser';
+import { ReqAddUserCourseWj, ResAddUserCourseWj } from './v1/user/PtlAddUserCourseWj';
+import { ReqGetThirdPartyUser, ResGetThirdPartyUser } from './v1/user/PtlGetThirdPartyUser';
+import { ReqGetUser, ResGetUser } from './v1/user/PtlGetUser';
+import { ReqGetUserCourseList, ResGetUserCourseList } from './v1/user/PtlGetUserCourseList';
+import { ReqGetUserCourseWj, ResGetUserCourseWj } from './v1/user/PtlGetUserCourseWj';
+import { ReqUpdateUser, ResUpdateUser } from './v1/user/PtlUpdateUser';
+import { ReqAddWjAccessToken, ResAddWjAccessToken } from './v1/wj/PtlAddWjAccessToken';
+import { ReqAddWjAnswersList, ResAddWjAnswersList } from './v1/wj/PtlAddWjAnswersList';
+import { ReqAddWjLoginCode, ResAddWjLoginCode } from './v1/wj/PtlAddWjLoginCode';
+import { ReqAddWjUser, ResAddWjUser } from './v1/wj/PtlAddWjUser';
+import { ReqGetWjAccessToken, ResGetWjAccessToken } from './v1/wj/PtlGetWjAccessToken';
 
 export interface ServiceType {
     api: {
-        "AddCourse": {
+        "v1/course/AddCourse": {
             req: ReqAddCourse,
             res: ResAddCourse
         },
-        "AddCourseAdvantages": {
+        "v1/course/AddCourseAdvantages": {
             req: ReqAddCourseAdvantages,
             res: ResAddCourseAdvantages
         },
-        "AddCourseCommunitySupport": {
+        "v1/course/AddCourseCommunitySupport": {
             req: ReqAddCourseCommunitySupport,
             res: ResAddCourseCommunitySupport
         },
-        "AddCourseHomework": {
+        "v1/course/AddCourseHomework": {
             req: ReqAddCourseHomework,
             res: ResAddCourseHomework
         },
-        "AddCourseProvider": {
+        "v1/course/AddCourseProvider": {
             req: ReqAddCourseProvider,
             res: ResAddCourseProvider
         },
-        "AddCourseTeacher": {
+        "v1/course/AddCourseTeacher": {
             req: ReqAddCourseTeacher,
             res: ResAddCourseTeacher
         },
-        "AddCourseWj": {
+        "v1/course/AddCourseWj": {
             req: ReqAddCourseWj,
             res: ResAddCourseWj
         },
-        "AddUser": {
-            req: ReqAddUser,
-            res: ResAddUser
-        },
-        "AddUserCourseWj": {
-            req: ReqAddUserCourseWj,
-            res: ResAddUserCourseWj
-        },
-        "AddWjAccessToken": {
-            req: ReqAddWjAccessToken,
-            res: ResAddWjAccessToken
-        },
-        "AddWjAnswersList": {
-            req: ReqAddWjAnswersList,
-            res: ResAddWjAnswersList
-        },
-        "AddWjLoginCode": {
-            req: ReqAddWjLoginCode,
-            res: ResAddWjLoginCode
-        },
-        "AddWjUser": {
-            req: ReqAddWjUser,
-            res: ResAddWjUser
-        },
-        "CheckEmail": {
-            req: ReqCheckEmail,
-            res: ResCheckEmail
-        },
-        "EnrollCourse": {
-            req: ReqEnrollCourse,
-            res: ResEnrollCourse
-        },
-        "EnrollUser": {
-            req: ReqEnrollUser,
-            res: ResEnrollUser
-        },
-        "GetCourse": {
+        "v1/course/GetCourse": {
             req: ReqGetCourse,
             res: ResGetCourse
         },
-        "GetCourseAdvantages": {
+        "v1/course/GetCourseAdvantages": {
             req: ReqGetCourseAdvantages,
             res: ResGetCourseAdvantages
         },
-        "GetCourseCommunitySupport": {
+        "v1/course/GetCourseCommunitySupport": {
             req: ReqGetCourseCommunitySupport,
             res: ResGetCourseCommunitySupport
         },
-        "GetCourseHomework": {
+        "v1/course/GetCourseHomework": {
             req: ReqGetCourseHomework,
             res: ResGetCourseHomework
         },
-        "GetCourseProvider": {
+        "v1/course/GetCourseProvider": {
             req: ReqGetCourseProvider,
             res: ResGetCourseProvider
         },
-        "GetCourseTeacher": {
+        "v1/course/GetCourseTeacher": {
             req: ReqGetCourseTeacher,
             res: ResGetCourseTeacher
         },
-        "GetCourseWj": {
+        "v1/course/GetCourseWj": {
             req: ReqGetCourseWj,
             res: ResGetCourseWj
         },
-        "GetCourseWjResult": {
+        "v1/course/GetCourseWjResult": {
             req: ReqGetCourseWjResult,
             res: ResGetCourseWjResult
         },
-        "GetThirdPartyUser": {
-            req: ReqGetThirdPartyUser,
-            res: ResGetThirdPartyUser
+        "v1/email/CheckEmail": {
+            req: ReqCheckEmail,
+            res: ResCheckEmail
         },
-        "GetUser": {
-            req: ReqGetUser,
-            res: ResGetUser
-        },
-        "GetUserCourseList": {
-            req: ReqGetUserCourseList,
-            res: ResGetUserCourseList
-        },
-        "GetUserCourseWj": {
-            req: ReqGetUserCourseWj,
-            res: ResGetUserCourseWj
-        },
-        "GetWjAccessToken": {
-            req: ReqGetWjAccessToken,
-            res: ResGetWjAccessToken
-        },
-        "SendEmail": {
+        "v1/email/SendEmail": {
             req: ReqSendEmail,
             res: ResSendEmail
         },
-        "UpdateUser": {
+        "v1/teachable/EnrollCourse": {
+            req: ReqEnrollCourse,
+            res: ResEnrollCourse
+        },
+        "v1/teachable/EnrollUser": {
+            req: ReqEnrollUser,
+            res: ResEnrollUser
+        },
+        "v1/user/AddUser": {
+            req: ReqAddUser,
+            res: ResAddUser
+        },
+        "v1/user/AddUserCourseWj": {
+            req: ReqAddUserCourseWj,
+            res: ResAddUserCourseWj
+        },
+        "v1/user/GetThirdPartyUser": {
+            req: ReqGetThirdPartyUser,
+            res: ResGetThirdPartyUser
+        },
+        "v1/user/GetUser": {
+            req: ReqGetUser,
+            res: ResGetUser
+        },
+        "v1/user/GetUserCourseList": {
+            req: ReqGetUserCourseList,
+            res: ResGetUserCourseList
+        },
+        "v1/user/GetUserCourseWj": {
+            req: ReqGetUserCourseWj,
+            res: ResGetUserCourseWj
+        },
+        "v1/user/UpdateUser": {
             req: ReqUpdateUser,
             res: ResUpdateUser
+        },
+        "v1/wj/AddWjAccessToken": {
+            req: ReqAddWjAccessToken,
+            res: ResAddWjAccessToken
+        },
+        "v1/wj/AddWjAnswersList": {
+            req: ReqAddWjAnswersList,
+            res: ResAddWjAnswersList
+        },
+        "v1/wj/AddWjLoginCode": {
+            req: ReqAddWjLoginCode,
+            res: ResAddWjLoginCode
+        },
+        "v1/wj/AddWjUser": {
+            req: ReqAddWjUser,
+            res: ResAddWjUser
+        },
+        "v1/wj/GetWjAccessToken": {
+            req: ReqGetWjAccessToken,
+            res: ResGetWjAccessToken
         }
     },
     msg: {
@@ -164,166 +164,166 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 5,
+    "version": 7,
     "services": [
         {
-            "id": 0,
-            "name": "AddCourse",
+            "id": 33,
+            "name": "v1/course/AddCourse",
             "type": "api"
         },
         {
-            "id": 24,
-            "name": "AddCourseAdvantages",
+            "id": 34,
+            "name": "v1/course/AddCourseAdvantages",
             "type": "api"
         },
         {
-            "id": 26,
-            "name": "AddCourseCommunitySupport",
+            "id": 35,
+            "name": "v1/course/AddCourseCommunitySupport",
             "type": "api"
         },
         {
-            "id": 1,
-            "name": "AddCourseHomework",
+            "id": 36,
+            "name": "v1/course/AddCourseHomework",
             "type": "api"
         },
         {
-            "id": 27,
-            "name": "AddCourseProvider",
+            "id": 37,
+            "name": "v1/course/AddCourseProvider",
             "type": "api"
         },
         {
-            "id": 28,
-            "name": "AddCourseTeacher",
+            "id": 38,
+            "name": "v1/course/AddCourseTeacher",
             "type": "api"
         },
         {
-            "id": 2,
-            "name": "AddCourseWj",
+            "id": 39,
+            "name": "v1/course/AddCourseWj",
             "type": "api"
         },
         {
-            "id": 3,
-            "name": "AddUser",
+            "id": 40,
+            "name": "v1/course/GetCourse",
             "type": "api"
         },
         {
-            "id": 4,
-            "name": "AddUserCourseWj",
+            "id": 41,
+            "name": "v1/course/GetCourseAdvantages",
             "type": "api"
         },
         {
-            "id": 5,
-            "name": "AddWjAccessToken",
+            "id": 42,
+            "name": "v1/course/GetCourseCommunitySupport",
             "type": "api"
         },
         {
-            "id": 20,
-            "name": "AddWjAnswersList",
+            "id": 43,
+            "name": "v1/course/GetCourseHomework",
             "type": "api"
         },
         {
-            "id": 6,
-            "name": "AddWjLoginCode",
+            "id": 44,
+            "name": "v1/course/GetCourseProvider",
             "type": "api"
         },
         {
-            "id": 7,
-            "name": "AddWjUser",
+            "id": 45,
+            "name": "v1/course/GetCourseTeacher",
             "type": "api"
         },
         {
-            "id": 8,
-            "name": "CheckEmail",
+            "id": 46,
+            "name": "v1/course/GetCourseWj",
             "type": "api"
         },
         {
-            "id": 9,
-            "name": "EnrollCourse",
+            "id": 47,
+            "name": "v1/course/GetCourseWjResult",
             "type": "api"
         },
         {
-            "id": 10,
-            "name": "EnrollUser",
+            "id": 48,
+            "name": "v1/email/CheckEmail",
             "type": "api"
         },
         {
-            "id": 11,
-            "name": "GetCourse",
+            "id": 49,
+            "name": "v1/email/SendEmail",
             "type": "api"
         },
         {
-            "id": 25,
-            "name": "GetCourseAdvantages",
+            "id": 50,
+            "name": "v1/teachable/EnrollCourse",
             "type": "api"
         },
         {
-            "id": 29,
-            "name": "GetCourseCommunitySupport",
+            "id": 51,
+            "name": "v1/teachable/EnrollUser",
             "type": "api"
         },
         {
-            "id": 12,
-            "name": "GetCourseHomework",
+            "id": 52,
+            "name": "v1/user/AddUser",
             "type": "api"
         },
         {
-            "id": 30,
-            "name": "GetCourseProvider",
+            "id": 53,
+            "name": "v1/user/AddUserCourseWj",
             "type": "api"
         },
         {
-            "id": 31,
-            "name": "GetCourseTeacher",
+            "id": 54,
+            "name": "v1/user/GetThirdPartyUser",
             "type": "api"
         },
         {
-            "id": 21,
-            "name": "GetCourseWj",
+            "id": 55,
+            "name": "v1/user/GetUser",
             "type": "api"
         },
         {
-            "id": 22,
-            "name": "GetCourseWjResult",
+            "id": 56,
+            "name": "v1/user/GetUserCourseList",
             "type": "api"
         },
         {
-            "id": 23,
-            "name": "GetThirdPartyUser",
+            "id": 57,
+            "name": "v1/user/GetUserCourseWj",
             "type": "api"
         },
         {
-            "id": 13,
-            "name": "GetUser",
+            "id": 58,
+            "name": "v1/user/UpdateUser",
             "type": "api"
         },
         {
-            "id": 14,
-            "name": "GetUserCourseList",
+            "id": 59,
+            "name": "v1/wj/AddWjAccessToken",
             "type": "api"
         },
         {
-            "id": 15,
-            "name": "GetUserCourseWj",
+            "id": 60,
+            "name": "v1/wj/AddWjAnswersList",
             "type": "api"
         },
         {
-            "id": 16,
-            "name": "GetWjAccessToken",
+            "id": 61,
+            "name": "v1/wj/AddWjLoginCode",
             "type": "api"
         },
         {
-            "id": 18,
-            "name": "SendEmail",
+            "id": 62,
+            "name": "v1/wj/AddWjUser",
             "type": "api"
         },
         {
-            "id": 19,
-            "name": "UpdateUser",
+            "id": 32,
+            "name": "v1/wj/GetWjAccessToken",
             "type": "api"
         }
     ],
     "types": {
-        "PtlAddCourse/ReqAddCourse": {
+        "v1/course/PtlAddCourse/ReqAddCourse": {
             "type": "Interface",
             "properties": [
                 {
@@ -411,8 +411,15 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 15,
+                    "id": 12,
                     "name": "course_student_profile_feedback",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "course_target_user_group",
                     "type": {
                         "type": "String"
                     }
@@ -426,7 +433,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourse/ResAddCourse": {
+        "v1/course/PtlAddCourse/ResAddCourse": {
             "type": "Interface",
             "properties": [
                 {
@@ -438,7 +445,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseAdvantages/ReqAddCourseAdvantages": {
+        "v1/course/PtlAddCourseAdvantages/ReqAddCourseAdvantages": {
             "type": "Interface",
             "properties": [
                 {
@@ -457,7 +464,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseAdvantages/ResAddCourseAdvantages": {
+        "v1/course/PtlAddCourseAdvantages/ResAddCourseAdvantages": {
             "type": "Interface",
             "properties": [
                 {
@@ -469,7 +476,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseCommunitySupport/ReqAddCourseCommunitySupport": {
+        "v1/course/PtlAddCourseCommunitySupport/ReqAddCourseCommunitySupport": {
             "type": "Interface",
             "properties": [
                 {
@@ -488,7 +495,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseCommunitySupport/ResAddCourseCommunitySupport": {
+        "v1/course/PtlAddCourseCommunitySupport/ResAddCourseCommunitySupport": {
             "type": "Interface",
             "properties": [
                 {
@@ -500,7 +507,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseHomework/ReqAddCourseHomework": {
+        "v1/course/PtlAddCourseHomework/ReqAddCourseHomework": {
             "type": "Interface",
             "properties": [
                 {
@@ -519,7 +526,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseHomework/ResAddCourseHomework": {
+        "v1/course/PtlAddCourseHomework/ResAddCourseHomework": {
             "type": "Interface",
             "properties": [
                 {
@@ -531,7 +538,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseProvider/ReqAddCourseProvider": {
+        "v1/course/PtlAddCourseProvider/ReqAddCourseProvider": {
             "type": "Interface",
             "properties": [
                 {
@@ -550,7 +557,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseProvider/ResAddCourseProvider": {
+        "v1/course/PtlAddCourseProvider/ResAddCourseProvider": {
             "type": "Interface",
             "properties": [
                 {
@@ -562,7 +569,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseTeacher/ReqAddCourseTeacher": {
+        "v1/course/PtlAddCourseTeacher/ReqAddCourseTeacher": {
             "type": "Interface",
             "properties": [
                 {
@@ -581,7 +588,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseTeacher/ResAddCourseTeacher": {
+        "v1/course/PtlAddCourseTeacher/ResAddCourseTeacher": {
             "type": "Interface",
             "properties": [
                 {
@@ -593,7 +600,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseWj/ReqAddCourseWj": {
+        "v1/course/PtlAddCourseWj/ReqAddCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -612,7 +619,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddCourseWj/ResAddCourseWj": {
+        "v1/course/PtlAddCourseWj/ResAddCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -624,91 +631,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddUser/ReqAddUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "username",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "user_email",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddUser/ResAddUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlAddUserCourseWj/ReqAddUserCourseWj": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "user_email",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "course_name",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddUserCourseWj/ResAddUserCourseWj": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjAccessToken/ReqAddWjAccessToken": {
-            "type": "Interface"
-        },
-        "PtlAddWjAccessToken/ResAddWjAccessToken": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "access_token",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjAnswersList/ReqAddWjAnswersList": {
+        "v1/course/PtlGetCourse/ReqGetCourse": {
             "type": "Interface",
             "properties": [
                 {
@@ -720,214 +643,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlAddWjAnswersList/ResAddWjAnswersList": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjLoginCode/ReqAddWjLoginCode": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "user_email",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjLoginCode/ResAddWjLoginCode": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "code",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjUser/ReqAddWjUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "user_email",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "openid",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlAddWjUser/ResAddWjUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "user_id",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlCheckEmail/ReqCheckEmail": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "email",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "code",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlCheckEmail/ResCheckEmail": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "state",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                }
-            ]
-        },
-        "PtlEnrollCourse/ReqEnrollCourse": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "user_id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "course_id",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlEnrollCourse/ResEnrollCourse": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlEnrollUser/ReqEnrollUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "email",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "password",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "src",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlEnrollUser/ResEnrollUser": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "time",
-                    "type": {
-                        "type": "Date"
-                    }
-                }
-            ]
-        },
-        "PtlGetCourse/ReqGetCourse": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "course_name",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlGetCourse/ResGetCourse": {
+        "v1/course/PtlGetCourse/ResGetCourse": {
             "type": "Interface",
             "properties": [
                 {
@@ -1080,10 +796,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseAdvantages/ReqGetCourseAdvantages": {
+        "v1/course/PtlGetCourseAdvantages/ReqGetCourseAdvantages": {
             "type": "Interface"
         },
-        "PtlGetCourseAdvantages/ResGetCourseAdvantages": {
+        "v1/course/PtlGetCourseAdvantages/ResGetCourseAdvantages": {
             "type": "Interface",
             "properties": [
                 {
@@ -1094,7 +810,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "course_advantages",
                     "type": {
                         "type": "String"
@@ -1102,10 +818,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseCommunitySupport/ReqGetCourseCommunitySupport": {
+        "v1/course/PtlGetCourseCommunitySupport/ReqGetCourseCommunitySupport": {
             "type": "Interface"
         },
-        "PtlGetCourseCommunitySupport/ResGetCourseCommunitySupport": {
+        "v1/course/PtlGetCourseCommunitySupport/ResGetCourseCommunitySupport": {
             "type": "Interface",
             "properties": [
                 {
@@ -1124,7 +840,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseHomework/ReqGetCourseHomework": {
+        "v1/course/PtlGetCourseHomework/ReqGetCourseHomework": {
             "type": "Interface",
             "properties": [
                 {
@@ -1136,7 +852,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseHomework/ResGetCourseHomework": {
+        "v1/course/PtlGetCourseHomework/ResGetCourseHomework": {
             "type": "Interface",
             "properties": [
                 {
@@ -1177,10 +893,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseProvider/ReqGetCourseProvider": {
+        "v1/course/PtlGetCourseProvider/ReqGetCourseProvider": {
             "type": "Interface"
         },
-        "PtlGetCourseProvider/ResGetCourseProvider": {
+        "v1/course/PtlGetCourseProvider/ResGetCourseProvider": {
             "type": "Interface",
             "properties": [
                 {
@@ -1199,10 +915,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseTeacher/ReqGetCourseTeacher": {
+        "v1/course/PtlGetCourseTeacher/ReqGetCourseTeacher": {
             "type": "Interface"
         },
-        "PtlGetCourseTeacher/ResGetCourseTeacher": {
+        "v1/course/PtlGetCourseTeacher/ResGetCourseTeacher": {
             "type": "Interface",
             "properties": [
                 {
@@ -1221,7 +937,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseWj/ReqGetCourseWj": {
+        "v1/course/PtlGetCourseWj/ReqGetCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -1233,7 +949,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseWj/ResGetCourseWj": {
+        "v1/course/PtlGetCourseWj/ResGetCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -1252,7 +968,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseWjResult/ReqGetCourseWjResult": {
+        "v1/course/PtlGetCourseWjResult/ReqGetCourseWjResult": {
             "type": "Interface",
             "properties": [
                 {
@@ -1264,7 +980,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetCourseWjResult/ResGetCourseWjResult": {
+        "v1/course/PtlGetCourseWjResult/ResGetCourseWjResult": {
             "type": "Interface",
             "properties": [
                 {
@@ -1283,7 +999,207 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetThirdPartyUser/ReqGetThirdPartyUser": {
+        "v1/email/PtlCheckEmail/ReqCheckEmail": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "code",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/email/PtlCheckEmail/ResCheckEmail": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "state",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "v1/email/PtlSendEmail/ReqSendEmail": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/email/PtlSendEmail/ResSendEmail": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/teachable/PtlEnrollCourse/ReqEnrollCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/teachable/PtlEnrollCourse/ResEnrollCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/teachable/PtlEnrollUser/ReqEnrollUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "password",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "src",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/teachable/PtlEnrollUser/ResEnrollUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlAddUser/ReqAddUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "username",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlAddUser/ResAddUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlAddUserCourseWj/ReqAddUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlAddUserCourseWj/ResAddUserCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlGetThirdPartyUser/ReqGetThirdPartyUser": {
             "type": "Interface",
             "properties": [
                 {
@@ -1295,7 +1211,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetThirdPartyUser/ResGetThirdPartyUser": {
+        "v1/user/PtlGetThirdPartyUser/ResGetThirdPartyUser": {
             "type": "Interface",
             "properties": [
                 {
@@ -1314,7 +1230,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUser/ReqGetUser": {
+        "v1/user/PtlGetUser/ReqGetUser": {
             "type": "Interface",
             "properties": [
                 {
@@ -1326,7 +1242,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUser/ResGetUser": {
+        "v1/user/PtlGetUser/ResGetUser": {
             "type": "Interface",
             "properties": [
                 {
@@ -1455,7 +1371,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUserCourseList/ReqGetUserCourseList": {
+        "v1/user/PtlGetUserCourseList/ReqGetUserCourseList": {
             "type": "Interface",
             "properties": [
                 {
@@ -1467,7 +1383,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUserCourseList/ResGetUserCourseList": {
+        "v1/user/PtlGetUserCourseList/ResGetUserCourseList": {
             "type": "Interface",
             "properties": [
                 {
@@ -1486,7 +1402,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUserCourseWj/ReqGetUserCourseWj": {
+        "v1/user/PtlGetUserCourseWj/ReqGetUserCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -1505,7 +1421,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetUserCourseWj/ResGetUserCourseWj": {
+        "v1/user/PtlGetUserCourseWj/ResGetUserCourseWj": {
             "type": "Interface",
             "properties": [
                 {
@@ -1524,10 +1440,43 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlGetWjAccessToken/ReqGetWjAccessToken": {
+        "v1/user/PtlUpdateUser/ReqUpdateUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../interface/user/user"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlUpdateUser/ResUpdateUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../interface/user/user"
+                    }
+                }
+            ]
+        },
+        "v1/wj/PtlAddWjAccessToken/ReqAddWjAccessToken": {
             "type": "Interface"
         },
-        "PtlGetWjAccessToken/ResGetWjAccessToken": {
+        "v1/wj/PtlAddWjAccessToken/ResAddWjAccessToken": {
             "type": "Interface",
             "properties": [
                 {
@@ -1546,19 +1495,19 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlSendEmail/ReqSendEmail": {
+        "v1/wj/PtlAddWjAnswersList/ReqAddWjAnswersList": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "email",
+                    "name": "course_name",
                     "type": {
                         "type": "String"
                     }
                 }
             ]
         },
-        "PtlSendEmail/ResSendEmail": {
+        "v1/wj/PtlAddWjAnswersList/ResAddWjAnswersList": {
             "type": "Interface",
             "properties": [
                 {
@@ -1570,20 +1519,19 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlUpdateUser/ReqUpdateUser": {
+        "v1/wj/PtlAddWjLoginCode/ReqAddWjLoginCode": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "user",
+                    "name": "user_email",
                     "type": {
-                        "type": "Reference",
-                        "target": "../interface/user/user"
+                        "type": "String"
                     }
                 }
             ]
         },
-        "PtlUpdateUser/ResUpdateUser": {
+        "v1/wj/PtlAddWjLoginCode/ResAddWjLoginCode": {
             "type": "Interface",
             "properties": [
                 {
@@ -1595,10 +1543,69 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 },
                 {
                     "id": 1,
-                    "name": "user",
+                    "name": "code",
                     "type": {
-                        "type": "Reference",
-                        "target": "../interface/user/user"
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/wj/PtlAddWjUser/ReqAddWjUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "openid",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/wj/PtlAddWjUser/ResAddWjUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_id",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "v1/wj/PtlGetWjAccessToken/ReqGetWjAccessToken": {
+            "type": "Interface"
+        },
+        "v1/wj/PtlGetWjAccessToken/ResGetWjAccessToken": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "access_token",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]
