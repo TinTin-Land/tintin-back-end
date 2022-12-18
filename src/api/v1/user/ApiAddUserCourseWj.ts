@@ -48,12 +48,14 @@ export default async function (call: ApiCall<ReqAddUserCourseWj, ResAddUserCours
             .getOne();
 
         if (user_course_wj_url != undefined){
+            console.log("改变",course_wj_url_list)
             user_course_wj_url.user_course_wj_url_list = JSON.stringify(course_wj_url_list);
             await getRepository(User_course_wj_url).save(user_course_wj_url);
             await call.succ({
                 time: time,
             });
         }else{
+            console.log("新增",course_wj_url_list)
             const user_course_wj_url = new User_course_wj_url();
             user_course_wj_url.user_email = call.req.user_email;
             user_course_wj_url.course_name = call.req.course_name;
