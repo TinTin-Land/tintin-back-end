@@ -56,27 +56,20 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
                 const wj_open_id = response.data.data.list[i].third_party_user.nickname;
                 wj_open_id_array.push(wj_open_id);
             }
-            const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
+            const before_course_survey_result_data = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
                 .where("course_survey_result.course_name = :course_name", { course_name })
-                .getCount();
-
-
-            if (course_survey_result){
-                const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
-                    .where("course_survey_result.course_name = :course_name", { course_name })
-                    .getMany();
-                for (let i = 0; i < course_survey_result.length ;i++){
-                    course_survey_result[i].survey_result = JSON.stringify(wj_open_id_array);
-                };
-                await getRepository(Course_survey_result).save(course_survey_result);
+                .andWhere("course_survey_result.survey_id = :survey_id", { survey_id })
+                .getOne()
+            if (before_course_survey_result_data != undefined){
+                before_course_survey_result_data.survey_result = JSON.stringify(wj_open_id_array);
+                await getRepository(Course_survey_result).save(before_course_survey_result_data);
                 await call.succ({
                     time: time,
                 });
-
             }else{
                 const course_survey_result = new Course_survey_result();
                 course_survey_result.course_name = course_name;
-                course_survey_result.survey_id = course_wj_url_list[i].survey_id;
+                course_survey_result.survey_id = survey_id;
                 course_survey_result.survey_result = JSON.stringify(wj_open_id_array);
                 await getRepository(Course_survey_result).insert(course_survey_result);
                 await call.succ({
@@ -89,3 +82,4 @@ export default async function (call: ApiCall<ReqAddWjAnswersList, ResAddWjAnswer
         };
     }
 }
+
