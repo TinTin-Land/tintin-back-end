@@ -16,6 +16,7 @@ import {Course_advantages} from "./entity/course_advantages";
 import {Course_teacher} from "./entity/course_teacher";
 import {Course_provider} from "./entity/course_provider";
 import {Course_community_support} from "./entity/course_community_support";
+import {refresh_app_access_token} from "./scripts";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
@@ -55,5 +56,6 @@ async function init() {
 async function main() {
     await init();
     await server.start();
+    await refresh_app_access_token();
 };
 main();

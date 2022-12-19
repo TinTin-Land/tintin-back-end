@@ -3,7 +3,6 @@ import axios from "axios";
 import {getRepository} from "typeorm";
 import {Third_party_access_token} from "../../../entity/third_party_access_token";
 import {ReqAddWjAccessToken, ResAddWjAccessToken} from "../../../shared/protocols/v1/wj/PtlAddWjAccessToken";
-import {User_wj_login_code} from "../../../entity/user_wj_login_code";
 
 const appid = 'tpidwOboHH9e';
 const secret = 'T7O5Y4hWBE37Nt95BWpWiAWWMIgYmpy2';
