@@ -16,6 +16,7 @@ export default async function (call: ApiCall<ReqGetCourseWjResult, ResGetCourseW
     const course_name = call.req.course_name;
     const course_survey_result = await getRepository(Course_survey_result).createQueryBuilder("course_survey_result")
         .where("course_survey_result.course_name = :course_name", { course_name })
+        .orderBy("course_survey_result.id", "ASC")
         .getMany();
 
     let survey_result = []
