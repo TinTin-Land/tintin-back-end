@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "TSRPC Open API",
+    "title": "API",
     "version": "1.0.0"
   },
   "paths": {
@@ -885,6 +885,100 @@
                     },
                     "res": {
                       "$ref": "#/components/schemas/v1_teachable_PtlEnrollUser_ResEnrollUser"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/teachable/GetCourseId": {
+      "post": {
+        "tags": [
+          "v1/teachable"
+        ],
+        "operationId": "v1/teachable/GetCourseId",
+        "requestBody": {
+          "description": "Req<GetCourseId>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_teachable_PtlGetCourseId_ReqGetCourseId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetCourseId>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_teachable_PtlGetCourseId_ResGetCourseId"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/teachable/GetTaUser": {
+      "post": {
+        "tags": [
+          "v1/teachable"
+        ],
+        "operationId": "v1/teachable/GetTaUser",
+        "requestBody": {
+          "description": "Req<GetTaUser>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/v1_teachable_PtlGetTaUser_ReqGetTaUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "ApiReturn<ResGetTaUser>",
+                  "properties": {
+                    "isSucc": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "default": true
+                    },
+                    "res": {
+                      "$ref": "#/components/schemas/v1_teachable_PtlGetTaUser_ResGetTaUser"
                     }
                   }
                 }
@@ -1972,13 +2066,13 @@
       "v1_course_PtlGetCourseWjResult_ReqGetCourseWjResult": {
         "type": "object",
         "properties": {
-          "survey_id": {
+          "course_name": {
             "type": "string",
             "description": "要增加的消息内容"
           }
         },
         "required": [
-          "survey_id"
+          "course_name"
         ],
         "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
       },
@@ -1990,13 +2084,13 @@
             "format": "date-time",
             "description": "服务端内容创建时间"
           },
-          "wj_open_id": {
+          "unique_username": {
             "type": "string"
           }
         },
         "required": [
           "time",
-          "wj_open_id"
+          "unique_username"
         ]
       },
       "v1_email_PtlCheckEmail_ReqCheckEmail": {
@@ -2127,6 +2221,66 @@
           "time"
         ]
       },
+      "v1_teachable_PtlGetCourseId_ReqGetCourseId": {
+        "type": "object",
+        "properties": {
+          "course_name": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "course_name"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_teachable_PtlGetCourseId_ResGetCourseId": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "course_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "course_id"
+        ]
+      },
+      "v1_teachable_PtlGetTaUser_ReqGetTaUser": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string",
+            "description": "要增加的消息内容"
+          }
+        },
+        "required": [
+          "user_email"
+        ],
+        "description": "增加数据\r\n此处的注释将会自动附带到生成的 API 文档中"
+      },
+      "v1_teachable_PtlGetTaUser_ResGetTaUser": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "服务端内容创建时间"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time",
+          "user_id"
+        ]
+      },
       "v1_user_PtlAddUser_ReqAddUser": {
         "type": "object",
         "properties": {
@@ -2250,6 +2404,9 @@
       "___interface_user_user": {
         "type": "object",
         "properties": {
+          "unique_username": {
+            "type": "string"
+          },
           "username": {
             "type": "string"
           },

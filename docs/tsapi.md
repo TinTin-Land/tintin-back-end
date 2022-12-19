@@ -32,6 +32,8 @@
     - teachable
         - [增加数据](#/v1/teachable/EnrollCourse)
         - [增加数据](#/v1/teachable/EnrollUser)
+        - [增加数据](#/v1/teachable/GetCourseId)
+        - [增加数据](#/v1/teachable/GetTaUser)
     - user
         - [增加数据](#/v1/user/AddUser)
         - [增加数据](#/v1/user/AddUserCourseWj)
@@ -457,7 +459,7 @@ interface ResGetCourseWj {
 ```ts
 interface ReqGetCourseWjResult {
     /** 要增加的消息内容 */
-    survey_id: string
+    course_name: string
 }
 ```
 
@@ -466,7 +468,7 @@ interface ReqGetCourseWjResult {
 interface ResGetCourseWjResult {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
-    wj_open_id: string
+    unique_username: string
 }
 ```
 
@@ -582,6 +584,58 @@ interface ResEnrollUser {
 
 ---
 
+#### 增加数据 <a id="/v1/teachable/GetCourseId"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/teachable/GetCourseId`
+
+**请求**
+```ts
+interface ReqGetCourseId {
+    /** 要增加的消息内容 */
+    course_name: string
+}
+```
+
+**响应**
+```ts
+interface ResGetCourseId {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    course_id: string
+}
+```
+
+---
+
+#### 增加数据 <a id="/v1/teachable/GetTaUser"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/teachable/GetTaUser`
+
+**请求**
+```ts
+interface ReqGetTaUser {
+    /** 要增加的消息内容 */
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResGetTaUser {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    user_id: string
+}
+```
+
+---
+
 ### user
 
 #### 增加数据 <a id="/v1/user/AddUser"></a>
@@ -683,6 +737,7 @@ interface ResGetUser {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
     user: {
+        unique_username?: string,
         username?: string,
         user_email?: string,
         user_course_passport?: string,
@@ -767,6 +822,7 @@ interface ResGetUserCourseWj {
 interface ReqUpdateUser {
     /** 要增加的消息内容 */
     user: {
+        unique_username?: string,
         username?: string,
         user_email?: string,
         user_course_passport?: string,
@@ -790,6 +846,7 @@ interface ResUpdateUser {
     /** 服务端内容创建时间 */
     time: /*datetime*/ string,
     user: {
+        unique_username?: string,
         username?: string,
         user_email?: string,
         user_course_passport?: string,
