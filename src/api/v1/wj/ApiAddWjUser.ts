@@ -60,7 +60,8 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
             user_id
         });
     }else {
-        await call.error('openid_existed');
+        console.log(response.data)
+        await call.error('response.data.code not ok');
         return;
     }
 }
