@@ -1,7 +1,8 @@
 import { ApiCall } from "tsrpc";
 import {ReqAddUser, ResAddUser} from "../../../shared/protocols/v1/user/PtlAddUser";
 import {User} from "../../../entity/user";
-import {Column, getRepository} from "typeorm";
+import {getRepository} from "typeorm";
+import { nanoid } from 'nanoid'
 
 export default async function (call: ApiCall<ReqAddUser, ResAddUser>) {
     // Error
@@ -13,7 +14,7 @@ export default async function (call: ApiCall<ReqAddUser, ResAddUser>) {
 
 
     const user = new User();
-    user.unique_username = ''
+    user.unique_username = nanoid();
     user.username = call.req.username;
     user.user_email = call.req.user_email;
     user.course_user = false;

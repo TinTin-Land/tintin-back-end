@@ -10,7 +10,7 @@ const appid = 'tpidwOboHH9e';
 
 export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
     // Error
-    if (call.req.openid === '') {
+    if (call.req.user_email === '') {
         await call.error('Content is empty');
         return;
     }
@@ -34,13 +34,14 @@ export default async function (call: ApiCall<ReqAddWjUser, ResAddWjUser>) {
             access_token:`${access_token}`,
         },
     });
-    const openid = call.req.openid;
+
 
     const user_email = call.req.user_email;
     const user = await getRepository(User).createQueryBuilder("user")
         .where("user.user_email = :user_email", { user_email })
         .getOne();
     const nickname = user?.unique_username;
+    const openid = user?.unique_username;
     const avatar = 'https://wj.gtimg.com/default/default_headimg.png';
     const response = await api.post('/api/sso/users',{
         openid,
