@@ -2,10 +2,11 @@ import axios from "axios";
 import {getRepository} from "typeorm";
 import {Third_party_access_token} from "../entity/third_party_access_token";
 
-const refresh_app_access_token = () =>{
+const refresh_app_access_token = async () => {
+    await refresh_wj_access_token()
     setInterval(async () => {
         await refresh_wj_access_token()
-    },1000*60*119)
+    }, 1000 * 60 * 119)
 }
 
 const refresh_wj_access_token  = async () =>{
