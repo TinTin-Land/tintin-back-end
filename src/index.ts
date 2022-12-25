@@ -20,7 +20,7 @@ import {refresh_app_access_token} from "./scripts";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
-    port: 3009,
+    port: 3010,
     // Remove this to use binary mode (remove from the client too)
     json: true
 });
