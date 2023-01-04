@@ -208,7 +208,7 @@ Use the verification code below to log in.
         }
         setTimeout(async ()=>{    //10分钟后失效
             await getRepository(UserEmail).remove(user);
-        },1000*60)
+        },1000*60*5)
         await call.succ({
             time: time
         });
