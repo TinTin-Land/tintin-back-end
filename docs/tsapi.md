@@ -39,9 +39,11 @@
         - [增加数据](#/v1/user/AddUserCourseWj)
         - [增加数据](#/v1/user/GetThirdPartyUser)
         - [增加数据](#/v1/user/GetUser)
+        - [增加数据](#/v1/user/GetUserBind)
         - [增加数据](#/v1/user/GetUserCourseList)
         - [增加数据](#/v1/user/GetUserCourseWj)
         - [增加数据](#/v1/user/UpdateUser)
+        - [增加数据](#/v1/user/UserBind)
     - wj
         - [增加数据](#/v1/wj/AddWjAccessToken)
         - [增加数据](#/v1/wj/AddWjAnswersList)
@@ -757,6 +759,32 @@ interface ResGetUser {
 
 ---
 
+#### 增加数据 <a id="/v1/user/GetUserBind"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/user/GetUserBind`
+
+**请求**
+```ts
+interface ReqGetUserBind {
+    /** 要增加的消息内容 */
+    user_email: string
+}
+```
+
+**响应**
+```ts
+interface ResGetUserBind {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string,
+    user_evm_address: string
+}
+```
+
+---
+
 #### 增加数据 <a id="/v1/user/GetUserCourseList"></a>
 
 此处的注释将会自动附带到生成的 API 文档中
@@ -866,6 +894,32 @@ interface ResUpdateUser {
 
 ---
 
+#### 增加数据 <a id="/v1/user/UserBind"></a>
+
+此处的注释将会自动附带到生成的 API 文档中
+
+**路径**
+- POST `/v1/user/UserBind`
+
+**请求**
+```ts
+interface ReqUserBind {
+    /** 要增加的消息内容 */
+    user_email: string,
+    user_evm_address: string
+}
+```
+
+**响应**
+```ts
+interface ResUserBind {
+    /** 服务端内容创建时间 */
+    time: /*datetime*/ string
+}
+```
+
+---
+
 ### wj
 
 #### 增加数据 <a id="/v1/wj/AddWjAccessToken"></a>
@@ -955,8 +1009,7 @@ interface ResAddWjLoginCode {
 ```ts
 interface ReqAddWjUser {
     /** 要增加的消息内容 */
-    user_email: string,
-    openid: string
+    user_email: string
 }
 ```
 

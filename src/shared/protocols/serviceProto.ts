@@ -21,9 +21,11 @@ import { ReqEnrollUser, ResEnrollUser } from './v1/teachable/PtlEnrollUser';
 import { ReqGetCourseId, ResGetCourseId } from './v1/teachable/PtlGetCourseId';
 import { ReqGetTaUser, ResGetTaUser } from './v1/teachable/PtlGetTaUser';
 import { ReqAddUser, ResAddUser } from './v1/user/PtlAddUser';
+import { ReqAddUserBind, ResAddUserBind } from './v1/user/PtlAddUserBind';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './v1/user/PtlAddUserCourseWj';
 import { ReqGetThirdPartyUser, ResGetThirdPartyUser } from './v1/user/PtlGetThirdPartyUser';
 import { ReqGetUser, ResGetUser } from './v1/user/PtlGetUser';
+import { ReqGetUserBind, ResGetUserBind } from './v1/user/PtlGetUserBind';
 import { ReqGetUserCourseList, ResGetUserCourseList } from './v1/user/PtlGetUserCourseList';
 import { ReqGetUserCourseWj, ResGetUserCourseWj } from './v1/user/PtlGetUserCourseWj';
 import { ReqUpdateUser, ResUpdateUser } from './v1/user/PtlUpdateUser';
@@ -123,6 +125,10 @@ export interface ServiceType {
             req: ReqAddUser,
             res: ResAddUser
         },
+        "v1/user/AddUserBind": {
+            req: ReqAddUserBind,
+            res: ResAddUserBind
+        },
         "v1/user/AddUserCourseWj": {
             req: ReqAddUserCourseWj,
             res: ResAddUserCourseWj
@@ -134,6 +140,10 @@ export interface ServiceType {
         "v1/user/GetUser": {
             req: ReqGetUser,
             res: ResGetUser
+        },
+        "v1/user/GetUserBind": {
+            req: ReqGetUserBind,
+            res: ResGetUserBind
         },
         "v1/user/GetUserCourseList": {
             req: ReqGetUserCourseList,
@@ -174,7 +184,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 13,
+    "version": 15,
     "services": [
         {
             "id": 33,
@@ -287,6 +297,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 67,
+            "name": "v1/user/AddUserBind",
+            "type": "api"
+        },
+        {
             "id": 53,
             "name": "v1/user/AddUserCourseWj",
             "type": "api"
@@ -299,6 +314,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 55,
             "name": "v1/user/GetUser",
+            "type": "api"
+        },
+        {
+            "id": 65,
+            "name": "v1/user/GetUserBind",
             "type": "api"
         },
         {
@@ -1250,6 +1270,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "v1/user/PtlAddUserBind/ReqAddUserBind": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_evm_address",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlAddUserBind/ResAddUserBind": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
         "v1/user/PtlAddUserCourseWj/ReqAddUserCourseWj": {
             "type": "Interface",
             "properties": [
@@ -1458,6 +1509,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Boolean"
                     },
                     "optional": true
+                }
+            ]
+        },
+        "v1/user/PtlGetUserBind/ReqGetUserBind": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/user/PtlGetUserBind/ResGetUserBind": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_evm_address",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },
