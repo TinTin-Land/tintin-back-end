@@ -20,6 +20,7 @@ import { ReqEnrollCourse, ResEnrollCourse } from './v1/teachable/PtlEnrollCourse
 import { ReqEnrollUser, ResEnrollUser } from './v1/teachable/PtlEnrollUser';
 import { ReqGetCourseId, ResGetCourseId } from './v1/teachable/PtlGetCourseId';
 import { ReqGetTaUser, ResGetTaUser } from './v1/teachable/PtlGetTaUser';
+import { ReqCheckTx, ResCheckTx } from './v1/tx/PtlCheckTx';
 import { ReqAddUser, ResAddUser } from './v1/user/PtlAddUser';
 import { ReqAddUserBind, ResAddUserBind } from './v1/user/PtlAddUserBind';
 import { ReqAddUserCourseWj, ResAddUserCourseWj } from './v1/user/PtlAddUserCourseWj';
@@ -121,6 +122,10 @@ export interface ServiceType {
             req: ReqGetTaUser,
             res: ResGetTaUser
         },
+        "v1/tx/CheckTx": {
+            req: ReqCheckTx,
+            res: ResCheckTx
+        },
         "v1/user/AddUser": {
             req: ReqAddUser,
             res: ResAddUser
@@ -184,7 +189,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 15,
+    "version": 16,
     "services": [
         {
             "id": 33,
@@ -289,6 +294,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 63,
             "name": "v1/teachable/GetTaUser",
+            "type": "api"
+        },
+        {
+            "id": 68,
+            "name": "v1/tx/CheckTx",
             "type": "api"
         },
         {
@@ -1235,6 +1245,44 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "user_id",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/tx/PtlCheckTx/ReqCheckTx": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "tx_hash",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "user_email",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "course_id",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/tx/PtlCheckTx/ResCheckTx": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
                     }
                 }
             ]

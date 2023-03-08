@@ -8,7 +8,7 @@
 export interface ReqCheckTx {
     /** 要增加的消息内容 */
     tx_hash:string;
-    user_email:string;
+    user_id:string;
     course_id:string;
 }
 
