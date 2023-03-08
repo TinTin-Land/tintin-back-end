@@ -36,7 +36,6 @@ export default async function (call: ApiCall<ReqGetTaUser, ResGetTaUser>) {
     //         .catch(err => console.error(err));
     // }
 
-
     const email = call.req.user_email
     sdk.auth('rX28HXFKA2aEA991WtHE5UlmSxMP98rW')
     sdk.listUsers({page: '1'})

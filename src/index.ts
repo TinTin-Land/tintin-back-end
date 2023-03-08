@@ -17,6 +17,7 @@ import {Course_teacher} from "./entity/course_teacher";
 import {Course_provider} from "./entity/course_provider";
 import {Course_community_support} from "./entity/course_community_support";
 import {refresh_app_access_token} from "./scripts";
+import {User_bind} from "./entity/user_bind";
 
 // Create the Server
 const server = new HttpServer(serviceProto, {
@@ -43,7 +44,7 @@ async function init() {
             User,UserEmail,Course_details,Course_homework,Course_wj_url,Course_survey_result,Course_advantages,
             Course_teacher,Course_provider,Course_community_support,
             Third_party_user,Third_party_access_token,
-            User_course_wj_url,User_wj_login_code
+            User_course_wj_url,User_wj_login_code,User_bind
         ],
         synchronize: true,
         logging: false
