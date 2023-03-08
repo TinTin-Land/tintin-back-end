@@ -11,9 +11,12 @@ export default async function (call: ApiCall<ReqCheckTx, ResCheckTx>) {
 
     let time = new Date();
     const provider = new ethers.providers.JsonRpcProvider('https://matic-mumbai.chainstacklabs.com');
+    console.log("provider",provider)
     const transaction_result = await provider.waitForTransaction(call.req.tx_hash);
+    console.log("transaction_result",transaction_result)
     if (transaction_result.status) {
-        const _tx_result = await provider.getTransaction(call.req.tx_hash)
+        const tx_result = await provider.getTransaction(call.req.tx_hash)
+        console.log("tx_result",tx_result)
         const user_id = call.req.user_id;
         const course_id = call.req.course_id;
         const sdk = require('api')('@teachable/v1.1#5zxm7ezlb3yfsh1');
