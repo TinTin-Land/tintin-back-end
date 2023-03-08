@@ -24,9 +24,6 @@ export default async function (call: ApiCall<ReqCheckTx, ResCheckTx>) {
                 time: time
             });
         })
-        await call.succ({
-            time: time
-        });
     }else {
         await call.error('error');
         return;
