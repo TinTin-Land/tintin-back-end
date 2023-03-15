@@ -22,15 +22,18 @@ export default async function (call: ApiCall<ReqAddCourseWj, ResAddCourseWj>) {
         course_details.course_name = call.req.course_name;
         course_details.course_wj_url_list = call.req.course_wj_url_list;
         await getRepository(Course_wj_url).save(course_details);
-
+        await call.succ({
+            time: time
+        });
     }else {
         const course_wj_url = new Course_wj_url()
         course_wj_url.course_name = call.req.course_name;
         course_wj_url.course_wj_url_list = call.req.course_wj_url_list;
         await getRepository(Course_wj_url).insert(course_wj_url);
+        await call.succ({
+            time: time,
+        });
     }
-    await call.succ({
-        time: time,
-    });
+
 
 }
