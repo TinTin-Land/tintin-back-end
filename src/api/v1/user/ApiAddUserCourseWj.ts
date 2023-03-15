@@ -47,6 +47,7 @@ export default async function (call: ApiCall<ReqAddUserCourseWj, ResAddUserCours
             .andWhere("user_course_wj_url.course_name = :course_name", { course_name })
             .getOne();
 
+
         if (user_course_wj_url != undefined){
             console.log("改变",course_wj_url_list)
             user_course_wj_url.user_course_wj_url_list = JSON.stringify(course_wj_url_list);
