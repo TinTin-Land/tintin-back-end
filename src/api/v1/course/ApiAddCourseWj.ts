@@ -16,14 +16,18 @@ export default async function (call: ApiCall<ReqAddCourseWj, ResAddCourseWj>) {
         .where("course_wj_url.course_name = :course_name", { course_name })
         .getOne();
 
-    const course_wj_url = new Course_wj_url()
-    course_wj_url.course_name = call.req.course_name;
-    course_wj_url.course_wj_url_list = call.req.course_wj_url_list;
 
-    if(course_details?.course_name == ""){
-        await getRepository(Course_wj_url).insert(course_wj_url);
+
+    if(course_details != undefined){
+        course_details.course_name = call.req.course_name;
+        course_details.course_wj_url_list = call.req.course_wj_url_list;
+        await getRepository(Course_wj_url).save(course_details);
+
     }else {
-        await getRepository(Course_wj_url).save(course_wj_url);
+        const course_wj_url = new Course_wj_url()
+        course_wj_url.course_name = call.req.course_name;
+        course_wj_url.course_wj_url_list = call.req.course_wj_url_list;
+        await getRepository(Course_wj_url).insert(course_wj_url);
     }
     await call.succ({
         time: time,
