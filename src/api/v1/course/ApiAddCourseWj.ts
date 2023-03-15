@@ -19,8 +19,8 @@ export default async function (call: ApiCall<ReqAddCourseWj, ResAddCourseWj>) {
     const course_wj_url = new Course_wj_url()
     course_wj_url.course_name = call.req.course_name;
     course_wj_url.course_wj_url_list = call.req.course_wj_url_list;
-    
-    if(course_details == undefined){
+
+    if(course_details?.course_name == ""){
         await getRepository(Course_wj_url).insert(course_wj_url);
     }else {
         await getRepository(Course_wj_url).save(course_wj_url);

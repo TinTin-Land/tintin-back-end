@@ -34,7 +34,7 @@ export default async function (call: ApiCall<ReqAddCourse, ResAddCourse>) {
         course_details.course_target_user_group = call.req.course_target_user_group
         course_details.course_community_support = call.req.course_community_support
 
-    if(course_details_list == undefined) {
+    if(course_details_list?.course_name == "") {
         await getRepository(Course_details).insert(course_details);
     }else {
         await getRepository(Course_details).save(course_details);
