@@ -6,6 +6,8 @@ import { ReqAddCourseHomework, ResAddCourseHomework } from './v1/course/PtlAddCo
 import { ReqAddCourseProvider, ResAddCourseProvider } from './v1/course/PtlAddCourseProvider';
 import { ReqAddCourseTeacher, ResAddCourseTeacher } from './v1/course/PtlAddCourseTeacher';
 import { ReqAddCourseWj, ResAddCourseWj } from './v1/course/PtlAddCourseWj';
+import { ReqGetAllCourse, ResGetAllCourse } from './v1/course/PtlGetAllCourse';
+import { ReqGetAllCourseWj, ResGetAllCourseWj } from './v1/course/PtlGetAllCourseWj';
 import { ReqGetCourse, ResGetCourse } from './v1/course/PtlGetCourse';
 import { ReqGetCourseAdvantages, ResGetCourseAdvantages } from './v1/course/PtlGetCourseAdvantages';
 import { ReqGetCourseCommunitySupport, ResGetCourseCommunitySupport } from './v1/course/PtlGetCourseCommunitySupport';
@@ -65,6 +67,14 @@ export interface ServiceType {
         "v1/course/AddCourseWj": {
             req: ReqAddCourseWj,
             res: ResAddCourseWj
+        },
+        "v1/course/GetAllCourse": {
+            req: ReqGetAllCourse,
+            res: ResGetAllCourse
+        },
+        "v1/course/GetAllCourseWj": {
+            req: ReqGetAllCourseWj,
+            res: ResGetAllCourseWj
         },
         "v1/course/GetCourse": {
             req: ReqGetCourse,
@@ -189,7 +199,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 17,
+    "version": 18,
     "services": [
         {
             "id": 33,
@@ -224,6 +234,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 39,
             "name": "v1/course/AddCourseWj",
+            "type": "api"
+        },
+        {
+            "id": 69,
+            "name": "v1/course/GetAllCourse",
+            "type": "api"
+        },
+        {
+            "id": 70,
+            "name": "v1/course/GetAllCourseWj",
             "type": "api"
         },
         {
@@ -677,6 +697,50 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "time",
                     "type": {
                         "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlGetAllCourse/ReqGetAllCourse": {
+            "type": "Interface"
+        },
+        "v1/course/PtlGetAllCourse/ResGetAllCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_details",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlGetAllCourseWj/ReqGetAllCourseWj": {
+            "type": "Interface"
+        },
+        "v1/course/PtlGetAllCourseWj/ResGetAllCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_wj_url_list",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]
