@@ -1142,104 +1142,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "String"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "course_image",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "course_cycle",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "course_state",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "course_registration_deadline",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "course_link",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "course_description",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "course_tab",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "course_content_data",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "course_teacher_info",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 10,
-                    "name": "course_advantages",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "course_provider",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 12,
-                    "name": "course_student_profile_feedback",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 13,
-                    "name": "course_target_user_group",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 14,
-                    "name": "course_community_support",
-                    "type": {
-                        "type": "String"
-                    }
                 }
             ]
         },
@@ -1261,13 +1163,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "name": "course_name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "course_wj_url_list",
                     "type": {
                         "type": "String"
                     }
