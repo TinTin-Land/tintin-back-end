@@ -8,7 +8,6 @@
 export interface ReqRemoveCourseWj {
     /** 要增加的消息内容 */
     course_name:string;
-    course_wj_url_list:string;
 }
 
 export interface ResRemoveCourseWj {
