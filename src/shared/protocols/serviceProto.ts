@@ -16,6 +16,8 @@ import { ReqGetCourseProvider, ResGetCourseProvider } from './v1/course/PtlGetCo
 import { ReqGetCourseTeacher, ResGetCourseTeacher } from './v1/course/PtlGetCourseTeacher';
 import { ReqGetCourseWj, ResGetCourseWj } from './v1/course/PtlGetCourseWj';
 import { ReqGetCourseWjResult, ResGetCourseWjResult } from './v1/course/PtlGetCourseWjResult';
+import { ReqRemoveCourse, ResRemoveCourse } from './v1/course/PtlRemoveCourse';
+import { ReqRemoveCourseWj, ResRemoveCourseWj } from './v1/course/PtlRemoveCourseWj';
 import { ReqCheckEmail, ResCheckEmail } from './v1/email/PtlCheckEmail';
 import { ReqSendEmail, ResSendEmail } from './v1/email/PtlSendEmail';
 import { ReqEnrollCourse, ResEnrollCourse } from './v1/teachable/PtlEnrollCourse';
@@ -108,6 +110,14 @@ export interface ServiceType {
             req: ReqGetCourseWjResult,
             res: ResGetCourseWjResult
         },
+        "v1/course/RemoveCourse": {
+            req: ReqRemoveCourse,
+            res: ResRemoveCourse
+        },
+        "v1/course/RemoveCourseWj": {
+            req: ReqRemoveCourseWj,
+            res: ResRemoveCourseWj
+        },
         "v1/email/CheckEmail": {
             req: ReqCheckEmail,
             res: ResCheckEmail
@@ -199,7 +209,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 18,
+    "version": 19,
     "services": [
         {
             "id": 33,
@@ -284,6 +294,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 47,
             "name": "v1/course/GetCourseWjResult",
+            "type": "api"
+        },
+        {
+            "id": 71,
+            "name": "v1/course/RemoveCourse",
+            "type": "api"
+        },
+        {
+            "id": 72,
+            "name": "v1/course/RemoveCourseWj",
             "type": "api"
         },
         {
@@ -1109,6 +1129,159 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "unique_username",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlRemoveCourse/ReqRemoveCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_image",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "course_cycle",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "course_state",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "course_registration_deadline",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "course_link",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "course_description",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "course_tab",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "course_content_data",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "course_teacher_info",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "course_advantages",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "course_provider",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "course_student_profile_feedback",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "course_target_user_group",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 14,
+                    "name": "course_community_support",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlRemoveCourse/ResRemoveCourse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlRemoveCourseWj/ReqRemoveCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "course_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "course_wj_url_list",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "v1/course/PtlRemoveCourseWj/ResRemoveCourseWj": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "time",
+                    "type": {
+                        "type": "Date"
                     }
                 }
             ]

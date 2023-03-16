@@ -16,8 +16,6 @@ export default async function (call: ApiCall<ReqAddCourseWj, ResAddCourseWj>) {
         .where("course_wj_url.course_name = :course_name", { course_name })
         .getOne();
 
-
-
     if(course_details != undefined){
         course_details.course_name = call.req.course_name;
         course_details.course_wj_url_list = call.req.course_wj_url_list;
